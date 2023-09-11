@@ -1,0 +1,54 @@
+Sub Create_Tables()
+
+DoCmd.RunSQL "CREATE TABLE Utilisateur(" & _
+   "UserId VARCHAR(50)," & _
+   "Email VARCHAR(50)," & _
+   "Mot_de_passe VARCHAR(50)," & _
+   "Role VARCHAR(50)," & _
+   "Prenom VARCHAR(50)," & _
+   "Nom VARCHAR(50)," & _
+   "Adresse VARCHAR(50)," & _
+   "PRIMARY KEY(UserId)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Hotel(" & _
+   "HotelId VARCHAR(50)," & _
+   "Nom VARCHAR(50)," & _
+   "Nombre_de_chambre VARCHAR(50)," & _
+   "PRIMARY KEY(HotelId)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Chambre(" & _
+   "ChambreId LOGICAL," & _
+   "Tarif_ LOGICAL," & _
+   "Superficie LOGICAL," & _
+   "Vue_sur_mer LOGICAL," & _
+   "Chaines_a_la_carte LOGICAL," & _
+   "Climatisation LOGICAL," & _
+   "Television_a_ecran_plat LOGICAL," & _
+   "telephone LOGICAL," & _
+   "chaine_satellite LOGICAL," & _
+   "chaine_du_cable LOGICAL," & _
+   "coffre_fort LOGICAL," & _
+   "matériel_de_repassage LOGICAL," & _
+   "wifi_gratuit LOGICAL," & _
+   "Type1 LOGICAL," & _
+   "Type2 LOGICAL," & _
+   "Type3 LOGICAL," & _
+   "HotelId VARCHAR(50) NOT NULL," & _
+   "PRIMARY KEY(ChambreId)," & _
+   "FOREIGN KEY(HotelId) REFERENCES Hotel(HotelId)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Reserver(" & _
+   "UserId VARCHAR(50)," & _
+   "ChambreId LOGICAL," & _
+   "ReservationId LOGICAL," & _
+   "dateTime DATETIME," & _
+   "PRIMARY KEY(UserId, ChambreId)," & _
+   "UNIQUE(ReservationId)," & _
+   "FOREIGN KEY(UserId) REFERENCES Utilisateur(UserId)," & _
+   "FOREIGN KEY(ChambreId) REFERENCES Chambre(ChambreId)" & _
+");"   
+
+End Sub
