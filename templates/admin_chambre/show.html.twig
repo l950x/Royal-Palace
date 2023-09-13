@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambre{% endblock %}
+
+{% block body %}
+    <h1>Chambre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chambre.id }}</td>
+            </tr>
+            <tr>
+                <th>Superficie</th>
+                <td>{{ chambre.Superficie }}</td>
+            </tr>
+            <tr>
+                <th>ChaineALaCarte</th>
+                <td>{{ chambre.ChaineALaCarte }}</td>
+            </tr>
+            <tr>
+                <th>Tarif</th>
+                <td>{{ chambre.Tarif }}</td>
+            </tr>
+            <tr>
+                <th>VueSurMer</th>
+                <td>{{ chambre.VueSurMer }}</td>
+            </tr>
+            <tr>
+                <th>Climatisation</th>
+                <td>{{ chambre.Climatisation }}</td>
+            </tr>
+            <tr>
+                <th>TelevisionAEcranPlat</th>
+                <td>{{ chambre.TelevisionAEcranPlat }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ chambre.Telephone }}</td>
+            </tr>
+            <tr>
+                <th>ChaineSatellite</th>
+                <td>{{ chambre.ChaineSatellite }}</td>
+            </tr>
+            <tr>
+                <th>ChaineDuCable</th>
+                <td>{{ chambre.ChaineDuCable }}</td>
+            </tr>
+            <tr>
+                <th>CoffreFort</th>
+                <td>{{ chambre.CoffreFort }}</td>
+            </tr>
+            <tr>
+                <th>MaterielDeRepassage</th>
+                <td>{{ chambre.MaterielDeRepassage }}</td>
+            </tr>
+            <tr>
+                <th>WifiGratuit</th>
+                <td>{{ chambre.WifiGratuit }}</td>
+            </tr>
+            <tr>
+                <th>Type1</th>
+                <td>{{ chambre.Type }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_chambre_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_chambre_edit', {'id': chambre.id}) }}">edit</a>
+
+    {{ include('admin_chambre/_delete_form.html.twig') }}
+{% endblock %}

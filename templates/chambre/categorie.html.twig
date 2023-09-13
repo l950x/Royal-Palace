@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ListeChambreController!
+{% endblock %}
+
+{% block body %}
+
+<h1>Categories</h1>
+<div class="categorie">
+<a href="{{path('app_chambre_index', {'id': 1})}}">Suite Royale</a>
+</div>
+<div class="categorie">
+<a href="{{path('app_chambre_index', {'id': 2})}}">Suite Princière</a>
+</div>
+<div class="categorie">
+<a href="{{path('app_chambre_index', {'id': 3})}}">Suite Premium</a>
+</div>
+	<a href="{{ path('app_home') }}">Retour au home</a>
+
+<style>
+.categorie {
+			padding: 20px;
+			background-color: purple;
+			width: 30%;
+			margin: auto auto 20px;
+			text-align: center;
+			border-radius: 20px;
+}
+.categorie a {
+    color: white;
+}
+</style>
+{% endblock %}

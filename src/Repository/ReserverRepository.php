@@ -21,23 +21,7 @@ class ReserverRepository extends ServiceEntityRepository
         parent::__construct($registry, Reserver::class);
     }
 
-    public function findAvailableChambres(array $options, \DateTimeImmutable $dateEntree, \DateTimeImmutable $dateSortie)
-    {
-        $qb = $this->createQueryBuilder('c');
-        $qb->leftJoin('c.reservations', 'r')
-            ->andWhere('r.dateEntree > :dateSortie OR r.dateSortie < :dateEntree')
-            ->setParameter('dateEntree', $dateEntree)
-            ->setParameter('dateSortie', $dateSortie);
 
-        foreach ($options as $option => $value) {
-            if ($value) {
-                $qb->andWhere("c.$option = :$option")
-                    ->setParameter($option, $value);
-            }
-        }
-
-        return $qb->getQuery()->getResult();
-    }
 
     //    /**
     //     * @return Reserver[] Returns an array of Reserver objects

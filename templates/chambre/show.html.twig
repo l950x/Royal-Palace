@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambre
+{% endblock %}
+
+{% block body %}
+
+	<div class="chambre">
+		<h1>Chambre numero
+			{{ chambre.id }}:</h1>
+
+		<p>Superficie:
+			{{ chambre.Superficie }}</p>
+
+		<p>Tarif:
+			{{ chambre.Tarif }}</p>
+
+
+		<select>
+			<option value="" selected disabled hidden>Options disponibles:</option>
+			{% if chambre.ChaineALaCarte == 1 %}
+				<option value="ChaineALaCarte">Chaine A LaCarte</option>
+			{% endif %}
+			{% if chambre.VueSurMer == 1 %}
+				<option value="VueSurMer">Vue Sur Mer</option>
+			{% endif %}
+			{% if chambre.Climatisation == 1 %}
+				<option value="Climatisation">Climatisation</option>
+			{% endif %}
+			{% if chambre.TelevisionEcranPlat == 1 %}
+				<option value="TelevisionAEcranPlat">Television A Ecran Plat</option>
+			{% endif %}
+			{% if chambre.Telephone == 1 %}
+				<option value="Telephone">Telephone</option>
+			{% endif %}
+			{% if chambre.ChaineSatellite == 1 %}
+				<option value="ChaineSatellite">Chaine Satellite</option>
+			{% endif %}
+			{% if chambre.ChaineDuCable == 1 %}
+				<option value="ChaineDuCable">Chaine Du Cable</option>
+			{% endif %}
+			{% if chambre.CoffreFort == 1 %}
+				<option value="CoffreFort">Coffre Fort</option>
+			{% endif %}
+			{% if chambre.MaterielDeRepassage == 1 %}
+				<option value="MaterielDeRepassage">Materiel De Repassage</option>
+			{% endif %}
+			{% if chambre.WifiGratuit == 1 %}
+				<option value="WifiGratuit">Wifi Gratuit</option>
+			{% endif %}
+		</select><br/>
+	<a href="{{ path('app_paiement') }}">Reserver cette chambre</a>
+	</div>
+	<br/>
+	<br/>
+	<a href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
+
+	<style>
+		.chambre {
+			padding: 30px;
+			background-color: purple;
+			width: 30%;
+			height: 30%;
+			margin: auto;
+			text-align: center;
+			border-radius: 20px;
+			color: white;
+		}
+		.chambre a {
+			float: right;
+			color: white;
+		}
+	</style>
+{% endblock %}

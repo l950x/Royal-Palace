@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ListeChambreController!
+{% endblock %}
+
+{% block body %}
+<h1>Listes</h1>
+
+	<div class="chambres">
+		{% for chambre in chambres %}
+			<div class="chambre">
+				<p>Chambre numero
+					{{chambre.id}}</p>
+				<p>Superficie:
+					{{chambre.Superficie}}m²</p>
+				<p>Tarif:
+					{{chambre.tarif}}€</p>
+				<a class="info" href="{{path('app_chambre_show', {'id': chambre.id})}}">En savoir +</a>
+			</div>
+		{% endfor %}
+	</div>
+	<a href="{{ path('app_chambre_category') }}">Retour à la liste</a>
+
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.chambre {
+			padding: 10px;
+			background-color: purple;
+			width: 30%;
+			margin: auto auto 20px;
+			text-align: center;
+			border-radius: 20px;
+		}
+		.info:hover {
+			color: red;
+			transform: scale(1.07);
+
+		}
+
+		.chambre p,
+		.chambre a {
+			text-decoration: none;
+			color: white;
+			margin-bottom: 10px;
+		}
+	</style>
+{% endblock %}
