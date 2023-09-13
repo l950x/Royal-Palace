@@ -17,7 +17,7 @@ class ChambreType extends AbstractType
             ->add('Tarif')
             ->add('VueSurMer')
             ->add('Climatisation')
-            ->add('TelevisionAEcranPlat')
+            ->add('TelevisionEcranPlat')
             ->add('Telephone')
             ->add('ChaineSatellite')
             ->add('ChaineDuCable')
@@ -25,8 +25,6 @@ class ChambreType extends AbstractType
             ->add('MaterielDeRepassage')
             ->add('WifiGratuit')
             ->add('Type')
-            ->add('Hotel')
-            ->add('hotel')
         ;
     }
 
