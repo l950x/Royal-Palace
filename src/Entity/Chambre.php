@@ -133,12 +133,12 @@ class Chambre
         return $this;
     }
 
-    public function getTelevisionEcranPlat(): ?int
+    public function getTelevisionAEcranPlat(): ?int
     {
         return $this->TelevisionEcranPlat;
     }
 
-    public function setTelevisionEcranPlat(int $TelevisionEcranPlat): static
+    public function setTelevisionAEcranPlat(int $TelevisionEcranPlat): static
     {
         $this->TelevisionEcranPlat = $TelevisionEcranPlat;
 

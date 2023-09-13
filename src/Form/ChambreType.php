@@ -24,9 +24,7 @@ class ChambreType extends AbstractType
             ->add('CoffreFort')
             ->add('MaterielDeRepassage')
             ->add('WifiGratuit')
-            ->add('Type1')
-            ->add('Type2')
-            ->add('Type3')
+            ->add('Type')
             ->add('Hotel')
             ->add('hotel')
         ;

@@ -54,7 +54,7 @@ class AdminChambreController extends AbstractController
                 $chambre->setType($categorie);
                 $chambre->setVueSurMer(random_int(0, 1));
                 $chambre->setTelephone(random_int(0, 1));
-                $chambre->setTelevisionEcranPlat(random_int(0, 1));
+                $chambre->setTelevisionAEcranPlat(random_int(0, 1));
                 $chambre->setClimatisation(random_int(0, 1));
 
                 switch ($categorie) {
