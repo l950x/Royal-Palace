@@ -26,13 +26,10 @@ class ReservationController extends AbstractController
         $session->set('chambreId', null);
         //set les sessions a 0 pour eviter les problemes
 
-        $today = new \DateTimeImmutable();
-
         $formReservation = $this->createForm(ReservationType::class);
         $formReservation->handleRequest($request);
 
         if ($formReservation->isSubmitted() && $formReservation->isValid()) {
-
             $data = $formReservation->getData();
             $options = [];
 

@@ -1,15 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfileController!{% endblock %}
+{% block title %}Hello ProfileController!
+{% endblock %}
 
 {% block body %}
-<div class="">
-Bienvenue {{user.prenom}} sur ton profil
-<br/>
-<a href="{{path('app_profile_reservations')}}">Mes reservations</a>
-<br/>
-<a href="">Mes infos perso</a>
-<br/>
-<a href="">Parametre du compte</a>
-</div>
+	<div class="">
+		Bienvenue
+		{{user.prenom}}
+		sur ton profil
+		<a href="{{path('app_profile_reservations')}}">Mes reservations</a>
+		<a href="{{ path('app_profile_infos') }}">Mes infos perso</a>
+		<a href="">Parametre du compte</a>
+	</div>
+
+	<style>
+		div {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			/* background-color: cyan; */
+			height: 50%;
+			width: 50%;
+			margin: auto;
+			font-size: 30px;
+		}
+	</style>
 {% endblock %}

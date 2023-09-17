@@ -17,17 +17,14 @@ class ChambreType extends AbstractType
             ->add('Tarif')
             ->add('VueSurMer')
             ->add('Climatisation')
-            ->add('TelevisionAEcranPlat')
+            ->add('TelevisionEcranPlat')
             ->add('Telephone')
             ->add('ChaineSatellite')
             ->add('ChaineDuCable')
             ->add('CoffreFort')
             ->add('MaterielDeRepassage')
             ->add('WifiGratuit')
-            ->add('Type')
-            ->add('Hotel')
-            ->add('hotel')
-        ;
+            ->add('Type');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

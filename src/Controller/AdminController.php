@@ -6,9 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ConfirmationController extends AbstractController
+class AdminController extends AbstractController
 {
-    #[Route('/confirmation', name: 'app_confirmation')]
+    #[Route('/admin', name: 'app_admin')]
     public function index(): Response
     {
         $user = $this->getUser();
@@ -16,9 +16,9 @@ class ConfirmationController extends AbstractController
         if (!$user) {
             return $this->redirectToRoute('app_login');
         }
-        
-        return $this->render('Confirmation/index.html.twig', [
-            'controller_name' => 'ConfirmationController',
+
+        return $this->render('admin/index.html.twig', [
+            'controller_name' => 'AdminController',
         ]);
     }
 }

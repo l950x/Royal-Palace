@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DatesType extends AbstractType
 {
@@ -24,6 +25,10 @@ class DatesType extends AbstractType
                 'input' => 'datetime_immutable',
                 'format' => 'yyyy-MM-dd',
                 'required' => true,
+            ])
+
+            ->add('submit', SubmitType::class, [
+                'label' => 'Confirmer',
             ]);
     }
 

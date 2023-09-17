@@ -28,7 +28,7 @@
 				<option value="Climatisation">Climatisation</option>
 			{% endif %}
 			{% if chambre.TelevisionEcranPlat == 1 %}
-				<option value="TelevisionAEcranPlat">Television A Ecran Plat</option>
+				<option value="TelevisionEcranPlat">Television A Ecran Plat</option>
 			{% endif %}
 			{% if chambre.Telephone == 1 %}
 				<option value="Telephone">Telephone</option>
@@ -49,7 +49,7 @@
 				<option value="WifiGratuit">Wifi Gratuit</option>
 			{% endif %}
 		</select><br/>
-	<a href="{{ path('app_paiement') }}">Reserver cette chambre</a>
+		<a href="{{ path('app_paiement', {'edit': 0}) }}">Reserver cette chambre</a>
 	</div>
 	<br/>
 	<br/>

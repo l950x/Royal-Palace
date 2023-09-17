@@ -13,12 +13,12 @@
 	<br/>
 
 	{# {{ form_row(form.dateEntree, {
-        'attr': {'value': dateEntree}
-    }) }}
-
-	{{ form_row(form.dateSortie, {
-        'attr': {'value': dateSortie}
-    }) }} #}
+	        'attr': {'value': dateEntree}
+	    }) }}
+	
+		{{ form_row(form.dateSortie, {
+	        'attr': {'value': dateSortie}
+	    }) }} #}
 
 	{{ form_row(form.submit) }}
 	{{ form_end(form) }}
@@ -28,4 +28,6 @@
 		{{price}}
 	</p>
 
+	{{dateEntree}}
+	{{dateSortie}}
 {% endblock %}

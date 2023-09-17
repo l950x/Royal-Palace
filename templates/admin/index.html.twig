@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!
+{% endblock %}
+
+{% block body %}
+	<div class="">
+		<a href={{path('app_admin_reservation_index')}}>Reservation</a>
+		<a href={{path('app_admin_user_index')}}>User</a>
+		<a href={{path('app_admin_chambre_index')}}>Chambre</a>
+	</div>
+	<a href={{path('app_home')}}>Retour</a>
+
+
+	<style>
+		div {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			background-color: cyan;
+			height: 50%;
+			width: 50%;
+			margin: auto;
+		}
+		a {
+			padding: 10px;
+			color: black;
+			font-size: 20px;
+		}
+	</style>
+{% endblock %}

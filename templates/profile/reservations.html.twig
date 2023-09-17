@@ -4,27 +4,23 @@
 {% endblock %}
 
 {% block body %}
-	Mes reservations :
+	Mes réservations :
 
-	{% for reservation in reservations %}
+	{% for i, reservation in reservations %}
 		<br/>
-		Chambre numero
+		Chambre numéro
 		{{ reservation.chambre.id }}
 		<br/>
-		Entrée
-		{% for Entree in dateEntree %}
-			{{ Entree}}
-		{% endfor %}
+		Entrée:
+		{{ dateEntree[i] }}
 		<br/>
-		Sortie
-		{% for Sortie in dateSortie %}
-			{{ Sortie}}
-		{% endfor %}
+		Sortie:
+		{{ dateSortie[i] }}
 		<br/>
 		Prix:
-		{{reservation.prix}}
+		{{ reservation.prix }}
 		<br/>
-		<a href={{path('app_profile_reservations_edit', {'id': reservation.id})}}>Modifier ma reservation</a>
+		<a href={{ path('app_profile_reservations_edit', {'id': reservation.id} ) }}>Modifier ma réservation</a>
 		<br/>
 	{% endfor %}
 {% endblock %}

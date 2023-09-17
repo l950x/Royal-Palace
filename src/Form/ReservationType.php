@@ -4,6 +4,7 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,8 +29,15 @@ class ReservationType extends AbstractType
                 'data' => new \DateTimeImmutable(),
                 'required' => true,
             ])
-            ->add('nbPersonne')
-            ->add('option', CheckboxType::class, [
+            ->add('nbPersonne', ChoiceType::class, [
+                'choices' => [
+                    '1 personne' => 1,
+                    '2 personnes' => 2,
+                    '3 personnes' => 3,
+                    '4 personnes' => 4,
+                ],
+                'required' => true,
+            ])->add('option', CheckboxType::class, [
                 'required' => false,
             ])
             ->add('option2', CheckboxType::class, [

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Chambre;
+use App\Entity\Hotel;
 use App\Form\ChambreType;
 use App\Repository\ChambreRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -44,19 +45,24 @@ class AdminChambreController extends AbstractController
         if ($formChambreNew->isSubmitted() && $formChambreNew->isValid()) {
             $data = $formChambreNew->getData();
             $nb = $data['NbChambre'];
-            
+
             $connection->executeQuery('DELETE FROM reserver');
             $connection->executeQuery('DELETE FROM chambre');
+            $connection->executeQuery('DELETE FROM hotel');
 
+            $hotel = new Hotel();
+            $hotel->setNom('Royal Palaces');
+            $hotel->setNbChambre(50);
+            
             for ($i = 0; $i < $nb; $i++) {
                 $chambre = new Chambre();
                 $categorie = random_int(1, 3);
                 $chambre->setType($categorie);
                 $chambre->setVueSurMer(random_int(0, 1));
                 $chambre->setTelephone(random_int(0, 1));
-                $chambre->setTelevisionAEcranPlat(random_int(0, 1));
+                $chambre->setTelevisionEcranPlat(random_int(0, 1));
                 $chambre->setClimatisation(random_int(0, 1));
-
+                $chambre->setHotel($hotel);
                 switch ($categorie) {
                     case '1':
                         $chambre->setTarif(random_int(8500, 10000));
@@ -72,19 +78,17 @@ class AdminChambreController extends AbstractController
                     case '2':
                         $chambre->setTarif(random_int(5725, 8000));
                         $chambre->setSuperficie(random_int(12, 25));
-
                         $chambre->setChaineALaCarte(1);
                         $chambre->setChaineSatellite(random_int(0, 1));
                         $chambre->setChaineDuCable(1);
                         $chambre->setCoffreFort(random_int(0, 1));
                         $chambre->setMaterielDeRepassage(1);
                         $chambre->setWifiGratuit(1);
-      
+
                         break;
                     case '3':
                         $chambre->setTarif(random_int(3250, 5000));
                         $chambre->setSuperficie(random_int(6, 12));
-
                         $chambre->setChaineALaCarte(1);
                         $chambre->setChaineSatellite(random_int(0, 1));
                         $chambre->setChaineDuCable(1);
