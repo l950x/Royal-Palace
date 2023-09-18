@@ -19,7 +19,6 @@ class UserType extends AbstractType
             ->add('plainPassword', TextType::class, [
                 'mapped' => false,
                 'required' => false,
-
             ])
             ->add('prenom', TextType::class, [
                 'required' => false,

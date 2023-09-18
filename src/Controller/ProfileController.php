@@ -57,8 +57,10 @@ class ProfileController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $plainPassword = $form->get('plainPassword')->getData();
-            $hashPassword = $passwordHasher->hashPassword($user, $plainPassword);
-            $user->setPassword($hashPassword);
+            if (isset($plainPassword)) {
+                $hashPassword = $passwordHasher->hashPassword($user, $plainPassword);
+                $user->setPassword($hashPassword);
+            }
             $entityManager->flush();
 
             return $this->redirectToRoute('app_profile', [], Response::HTTP_SEE_OTHER);
