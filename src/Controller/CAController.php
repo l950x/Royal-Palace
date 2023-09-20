@@ -69,8 +69,6 @@ class CAController extends AbstractController
             }
 
 
-
-
             return $this->render('ca/index.html.twig', [
                 'controller_name' => 'CAController',
                 'form' => $form,
