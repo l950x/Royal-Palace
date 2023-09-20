@@ -8,18 +8,21 @@ use App\Security\EmailVerifier;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class RegistrationController extends AbstractController
 {
     private EmailVerifier $emailVerifier;
+    private $apiBaseUrl = 'https://api-adresse.data.gouv.fr/search/';
 
-    public function __construct(EmailVerifier $emailVerifier)
+    public function __construct(EmailVerifier $emailVerifier, private HttpClientInterface $httpClient)
     {
         $this->emailVerifier = $emailVerifier;
     }
@@ -79,5 +82,30 @@ class RegistrationController extends AbstractController
         $this->addFlash('success', 'Your email address has been verified.');
 
         return $this->redirectToRoute('app_register');
+    }
+
+    #[Route("/autocomplete-address", name: "autocomplete_address")]
+    public function autocompleteAddress(Request $request): JsonResponse
+    {
+        $term = $request->query->get('term'); // Le terme entré par l'utilisateur
+
+        // Effectuer une requête vers l'API
+        $response = $this->httpClient->request('GET', $this->apiBaseUrl, [
+            'query' => [
+                'q' => $term,
+                'limit' => 5, // Nombre de suggestions proposées
+            ]
+            ]);
+
+        $data = $response->toArray();
+
+        // Récupérer les réponses données par l'API pour en faire des suggestions
+        $suggestions = [];
+        
+        foreach ($data['features'] as $feature) {
+            $suggestions[] = $feature['properties']['label'];
+        }
+
+        return new JsonResponse($suggestions);
     }
 }

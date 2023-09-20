@@ -41,6 +41,8 @@ class PaiementController extends AbstractController
         if ($formPaiement->isSubmitted() && $formPaiement->isValid()) {
 
             $data = $formPaiement->getData();
+
+
             // $dateEntree = $data['dateEntree'];
             // $dateSortie = $data['dateSortie'];
             // $dateEntree = \DateTimeImmutable::createFromMutable($dateEntree);
