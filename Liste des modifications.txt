@@ -1,0 +1,107 @@
+config/routes.yaml
+ajouter:
+
+autocomplete_address:
+    path: /autocomplete-address
+    controller: App\Controller\RegistrationController::autocompleteAddress
+	
+src/Controller/RegistrationController.php
+ajouter:
+
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+
+
+private $apiBaseUrl = 'https://api-adresse.data.gouv.fr/search/';
+
+
+#[Route("/autocomplete-address", name: "autocomplete_address")]
+    public function autocompleteAddress(Request $request): JsonResponse
+    {
+        $term = $request->query->get('term'); // Le terme entré par l'utilisateur
+
+        // Effectuer une requête vers l'API
+        $response = $this->httpClient->request('GET', $this->apiBaseUrl, [
+            'query' => [
+                'q' => $term,
+                'limit' => 5, // Nombre de suggestions proposées
+            ]
+            ]);
+
+        $data = $response->toArray();
+
+        // Récupérer les réponses données par l'API pour en faire des suggestions
+        $suggestions = [];
+        
+        foreach ($data['features'] as $feature) {
+            $suggestions[] = $feature['properties']['label'];
+        }
+
+        return new JsonResponse($suggestions);
+    }
+	
+	
+modifier:
+
+public function __construct(EmailVerifier $emailVerifier, private HttpClientInterface $httpClient)
+{
+	$this->emailVerifier = $emailVerifier;
+}
+	
+	
+templates/registration/register.html.twig
+ajouter:
+
+<script>
+	const addressInput = document.querySelector('.autocomplete-address');
+	const suggestionsDiv = document.getElementById('address-suggestions');
+
+	addressInput.addEventListener('input', async (event) => {
+		const term = event.target.value;
+
+		// Envoyer une requête AJAX pour obtenir des suggestions d'adresse
+		const response = await fetch(`/autocomplete-address?term=${term}`);
+		const data = await response.json();
+
+		// Afficher les suggestions dans la div address-suggestions
+		suggestionsDiv.innerHTML = '';
+
+		
+
+		if (data.length > 0) {
+			data.forEach((address) => {
+				const suggestionElement = document.createElement('div');
+				suggestionElement.textContent = address;
+				suggestionsDiv.appendChild(suggestionElement);
+			});
+			
+		// Ajoutez un gestionnaire d'événement de clic aux suggestions
+		suggestionsDiv.addEventListener('click', function (event) {
+			if (event.target.tagName === 'DIV') {
+				const selectedAddress = event.target.textContent;
+				addressInput.value = selectedAddress;
+				suggestionsDiv.innerHTML = ''; // Effacez les suggestions une fois la sélection faite
+			}
+		});
+		}
+	});
+</script>
+	
+modifier:
+{{ form_row(registrationForm.adresse, {
+	label: 'Adresse postale',
+	attr: {
+		class: 'autocomplete-address'
+	}
+}) }}
+<div id="address-suggestions"></div>
+
+
+templates/security/login.html.twig
+ajouter:
+
+<div>Vous n'avez pas de compte?
+    <a href="{{ path('app_register') }}">
+        <button class="btn btn-lg btn-primary" type="submit">S'inscrire</button>
+    </a>
+</div>
