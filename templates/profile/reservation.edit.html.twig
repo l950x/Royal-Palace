@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!
+{% endblock %}
+
+{% block body %}
+Ma reservation :
+<br/>
+Chambre numero
+{{ reservation.chambre.id }}
+<br/>
+
+{{ form_start(form) }}
+{{ form_row(form.dateEntree, {'value': dateEntree}) }}
+{{ form_row(form.dateSortie, {'value': dateEntreeFormat}) }}
+<br/>
+Prix:
+{{reservation.prix}}
+<br/>
+{{dateEntreeFormat}}
+<a href={{path('app_profile_reservations_edit', {'id': reservation.id} )}}>Confirmer</a>
+<a href={{path('app_profile_reservations')}}>Retourner en arrière</a>
+<br/ {% endblock %}

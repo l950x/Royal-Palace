@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PaiementController!
+{% endblock %}
+
+{% block body %}
+
+	{{ form_start(form) }}
+	{{ form_row(form.field_name) }}
+	{{ form_row(form.numbers) }}
+	{{ form_row(form.validite) }}
+	{{ form_row(form.ccv) }}
+	<br/>
+
+	{# {{ form_row(form.dateEntree, {
+        'attr': {'value': dateEntree}
+    }) }}
+
+	{{ form_row(form.dateSortie, {
+        'attr': {'value': dateSortie}
+    }) }} #}
+
+	{{ form_row(form.submit) }}
+	{{ form_end(form) }}
+	<br/>
+
+	<p>Prix:
+		{{price}}
+	</p>
+
+{% endblock %}

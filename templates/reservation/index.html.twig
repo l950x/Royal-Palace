@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReservationController!
+{% endblock %}
+
+{% block body %}
+	<div class="form">
+		{{ form_start(form) }}
+		{{ form_row(form.dateEntree, {'attr': {'class':""}}) }}
+		{{ form_row(form.dateSortie, {'attr': {'class':""}}) }}
+		{{ form_row(form.nbPersonne, {'attr': {'class':""}}) }}
+		<div class="group">
+			{{ form_row(form.option, {'attr': {'class':"opt"}, 'label': 'Vue sur mer'} ) }}
+			{{ form_row(form.option2, {'attr': {'class':"opt"}, 'label': 'Chaînes à la carte'} ) }}
+			{{ form_row(form.option3, {'attr': {'class':"opt"}, 'label': 'Climatisation'} ) }}
+			{{ form_row(form.option4, {'attr': {'class':"opt"}, 'label': 'Télévision à écran plat'} ) }}
+			{{ form_row(form.option5, {'attr': {'class':"opt"}, 'label': 'Téléphone'} ) }}
+			{{ form_row(form.option6, {'attr': {'class':"opt"}, 'label': 'Chaînes satellite'} ) }}
+			{{ form_row(form.option7, {'attr': {'class':"opt"}, 'label': 'Chaînes du câble'} ) }}
+			{{ form_row(form.option8, {'attr': {'class':"opt"}, 'label': 'Coffre fort'} ) }}
+			{{ form_row(form.option9, {'attr': {'class':"opt"}, 'label': 'Wi-Fi Gratuit'} ) }}
+			{{ form_row(form.option10, {'attr': {'class':"opt"}, 'label': 'Matériel de repassage'} ) }}
+		</div>
+	</div>
+	<button type="submit">Rechercher</button>
+	{{ form_end(form) }}
+	<a href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
+
+	<style>
+		.group {
+			background-color: cyan;
+			width: 100%;
+			height: 200px;
+			display: flex;
+			flex-direction: column;
+			text-align: end;
+		}
+
+		.form {
+			width: 15%;
+			/* background-color: blue; */
+		}
+	</style>
+{% endblock %}

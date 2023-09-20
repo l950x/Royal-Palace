@@ -29,6 +29,9 @@ class Reserver
     #[ORM\Column]
     private ?float $prix = null;
 
+    #[ORM\Column]
+    private ?int $validite = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,4 +96,17 @@ class Reserver
 
         return $this;
     }
+
+    public function getValidite(): ?int
+    {
+        return $this->validite;
+    }
+
+    public function setValidite(int $validite): static
+    {
+        $this->validite = $validite;
+
+        return $this;
+    }
+
 }

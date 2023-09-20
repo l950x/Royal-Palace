@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block body %}
+<div class="">
+Bienvenue {{user.prenom}} sur ton profil
+<br/>
+<a href="{{path('app_profile_reservations')}}">Mes reservations</a>
+<br/>
+<a href="">Mes infos perso</a>
+<br/>
+<a href="">Parametre du compte</a>
+</div>
+{% endblock %}

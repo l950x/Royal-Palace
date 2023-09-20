@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!
+{% endblock %}
+
+{% block body %}
+	Mes reservations :
+
+	{% for reservation in reservations %}
+		<br/>
+		Chambre numero
+		{{ reservation.chambre.id }}
+		<br/>
+		Entrée
+		{% for Entree in dateEntree %}
+			{{ Entree}}
+		{% endfor %}
+		<br/>
+		Sortie
+		{% for Sortie in dateSortie %}
+			{{ Sortie}}
+		{% endfor %}
+		<br/>
+		Prix:
+		{{reservation.prix}}
+		<br/>
+		<a href={{path('app_profile_reservations_edit', {'id': reservation.id})}}>Modifier ma reservation</a>
+		<br/>
+	{% endfor %}
+{% endblock %}
