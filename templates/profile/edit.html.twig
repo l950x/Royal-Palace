@@ -43,4 +43,39 @@
         }
     });
 </script>
+
+<script>
+    const addressInput = document.querySelector('.autocomplete-address');
+    const suggestionsDiv = document.getElementById('address-suggestions');
+
+    addressInput.addEventListener('input', async (event) => {
+        const term = event.target.value;
+
+        // Envoyer une requête AJAX pour obtenir des suggestions d'adresse
+        const response = await fetch(`/autocomplete-address?term=${term}`);
+        const data = await response.json();
+
+        // Afficher les suggestions dans la div address-suggestions
+        suggestionsDiv.innerHTML = '';
+
+        
+
+        if (data.length > 0) {
+            data.forEach((address) => {
+                const suggestionElement = document.createElement('div');
+                suggestionElement.textContent = address;
+                suggestionsDiv.appendChild(suggestionElement);
+            });
+            
+        // Ajoutez un gestionnaire d'événement de clic aux suggestions
+        suggestionsDiv.addEventListener('click', function (event) {
+            if (event.target.tagName === 'DIV') {
+                const selectedAddress = event.target.textContent;
+                addressInput.value = selectedAddress;
+                suggestionsDiv.innerHTML = ''; // Effacez les suggestions une fois la sélection faite
+            }
+        });
+        }
+    });
+</script>
 {% endblock %}
