@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reserver index
+{% endblock %}
+
+{% block body %}
+	<h1>Reserver index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>DateEntree</th>
+				<th>DateSortie</th>
+				<th>Prix</th>
+				<th>Validite</th>
+				<th>NbPersonne</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for reserver in reservers %}
+				<tr>
+					<td>{{ reserver.id }}</td>
+					<td>{{ reserver.dateEntree ? reserver.dateEntree|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ reserver.dateSortie ? reserver.dateSortie|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ reserver.prix }}</td>
+					<td>{{ reserver.validite }}</td>
+					<td>{{ reserver.nbPersonne }}</td>
+					<td>
+						<a href="{{ path('app_admin_reservation_show', {'id': reserver.id}) }}">show</a>
+						<a href="{{ path('app_admin_reservation_edit', {'id': reserver.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="7">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_admin_reservation_new') }}">Create new</a>
+	<br/>
+	<a href={{path('app_admin')}}>Retour</a>
+
+{% endblock %}

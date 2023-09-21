@@ -32,6 +32,9 @@ class Reserver
     #[ORM\Column]
     private ?int $validite = null;
 
+    #[ORM\Column]
+    private ?int $nbPersonne = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +108,18 @@ class Reserver
     public function setValidite(int $validite): static
     {
         $this->validite = $validite;
+
+        return $this;
+    }
+
+    public function getNbPersonne(): ?int
+    {
+        return $this->nbPersonne;
+    }
+
+    public function setNbPersonne(int $nbPersonne): static
+    {
+        $this->nbPersonne = $nbPersonne;
 
         return $this;
     }

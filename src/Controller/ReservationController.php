@@ -13,11 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Doctrine\DBAL\Connection;
 
 class ReservationController extends AbstractController
 {
     #[Route('/reservation', name: 'app_reservation')]
-    public function index(Request $request, ChambreRepository $chambreRepository, ReserverRepository $reserverRepository, SessionInterface $session, EntityManagerInterface $entityManager): Response
+    public function index(Request $request, ChambreRepository $chambreRepository, Connection $connection, ReserverRepository $reserverRepository, SessionInterface $session, EntityManagerInterface $entityManager): Response
     {
         $session->set('price', null);
         $session->set('dateEntree', null);
@@ -26,13 +27,10 @@ class ReservationController extends AbstractController
         $session->set('chambreId', null);
         //set les sessions a 0 pour eviter les problemes
 
-        $today = new \DateTimeImmutable();
-
         $formReservation = $this->createForm(ReservationType::class);
         $formReservation->handleRequest($request);
 
         if ($formReservation->isSubmitted() && $formReservation->isValid()) {
-
             $data = $formReservation->getData();
             $options = [];
 
@@ -65,6 +63,28 @@ class ReservationController extends AbstractController
             // $randomChambre = $entityManager->getRepository(Chambre::class)->findAvailableChambres($formData, $dateEntree, $dateSortie);
             $chambres = $chambreRepository->findBy($options);
 
+
+
+            $today = new \DateTimeImmutable();
+            $today = $today->format('Y-m-d');
+            $dql = "SELECT * FROM reserver WHERE date_sortie <= '$today' "; // on recup les reservations terminé
+            $ansReservation = $connection->executeQuery($dql)->fetchAll();
+
+            foreach ($ansReservation as $reservationData) {
+                $reservations = $reserverRepository->findBy([
+                    'id' => $reservationData['id'],
+                ]);
+
+                if ($reservations) {
+                    foreach ($reservations as $reservation) {
+                        $reservation->setValidite(1);
+                        $entityManager->persist($reservation);
+                    }
+                }
+            }
+            $entityManager->flush();
+
+
             //on recupere les chambres avec au moins les options que le user a choisis
 
             if ($chambres) {
@@ -90,6 +110,7 @@ class ReservationController extends AbstractController
 
                 return $this->redirectToRoute('app_chambre_show', [
                     'id' => $id,
+
                 ]);
 
                 //on affiche la chambre que le programme a choisis (it's lit)

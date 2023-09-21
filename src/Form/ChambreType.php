@@ -24,8 +24,7 @@ class ChambreType extends AbstractType
             ->add('CoffreFort')
             ->add('MaterielDeRepassage')
             ->add('WifiGratuit')
-            ->add('Type')
-        ;
+            ->add('Type');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

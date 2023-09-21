@@ -1,18 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<style>
+		div {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			/* background-color: cyan; */
+			height: 50%;
+			width: 50%;
+			margin: auto;
+			font-size: 30px;
+		}
+		a {
+			padding: 10px;
+			color: black;
+			font-size: 20px;
+		}
+	</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    <a href="{{path('app_chambre_category')}}">Voir la liste des chambres</a>
-    <br/>
-    <a href="{{path('app_reservation')}}">Reserver une chambres</a>
-    <a href="{{path('app_profile')}}">Mon profil</a>
-</div>
+	<div class="">
+		<h1>Royal Palace BETA V1.0.0</h1>
+		<a href="{{path('app_profile')}}">Mon profil</a>
+		<br/>
+		<a href="{{path('app_chambre_category')}}">Voir la liste des chambres</a>
+		<br/>
+		<a href="{{path('app_reservation')}}">Reserver une chambres</a>
+		<br/>
+		<a href={{path('app_admin')}}>Admin</a>
+
+	</div>
 {% endblock %}

@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -16,8 +17,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class ChambreController extends AbstractController
 {
     #[Route('/liste/{id}', name: 'app_chambre_index', methods: ['GET'])]
-    public function index(ChambreRepository $chambreRepository, Request $request): Response
+    public function index(ChambreRepository $chambreRepository, Request $request, SessionInterface $session): Response
     {
+        $session->set('price', null);
+        $session->set('dateEntree', null);
+        $session->set('dateSortie', null);
+        $session->set('chambreId', null);
+        $session->set('nbPersonne', null);
+
         $id = $request->attributes->get('id');
         switch ($id) {
             case '1':
