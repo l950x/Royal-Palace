@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes
+{% endblock %}
+
+{% block body %}
+<h1>Listes</h1>
+
+	<div class="chambres">
+		{% for chambre in chambres %}
+			<div class="chambre">
+				<p>Chambre numero
+					{{chambre.id}}</p>
+				<p>Superficie:
+					{{chambre.Superficie}}m²</p>
+				<p>Tarif:
+					{{chambre.tarif}}€</p>
+				<a class="info" href="{{path('app_chambre_show', {'id': chambre.id})}}">En savoir +</a>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="back" >
+	<a href="{{ path('app_chambre_category') }}">Retour à la liste</a>
+	</div>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+
+	body{
+  background-image: url('/images/hall.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; 
+	}
+
+	h1{
+		padding-top:100px;
+		text-align:center;
+		font-family:Italianno-Regular;
+		font-size:50px;
+	}
+
+	.chambre {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-top:60px;
+    background-color:#D9D9D9;
+    margin-left:400px;
+    margin-right:400px;
+    padding-bottom:50px;
+    border-radius:15px;
+    border: goldenrod solid;
+    margin-bottom:100px;
+		}
+
+	.info{
+	background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	width:200px;
+	text-align:center;
+	height: 40px;
+	border-radius:10px;
+	margin-top:15px;
+	margin-left:215px;
+	margin-bottom:15px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+}
+
+.info:hover {
+	color: goldenrod;
+	transform: scale(1.07);
+}
+.chambre p,
+.chambre {
+	font-family:verdana;
+	font-size:20px;
+	text-align:center;
+	}
+
+/* Supprimez les propriétés flexbox de la classe .back */
+.back {
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	margin-right:400px;
+  	background-color: #002890;
+  	color: white;
+  	border: solid goldenrod;
+  	width: 180px;
+	align-items:end;
+  	height: 40px;
+	margin-bottom:60px;
+  	border-radius: 10px;
+  	margin: 15px auto; /* Pour centrer verticalement et horizontalement */
+  	transition: background-color 0.2s, color 0.1s;
+  	font-family: verdana;
+  	font-size: 14px;
+}
+
+
+	</style>
+{% endblock %}

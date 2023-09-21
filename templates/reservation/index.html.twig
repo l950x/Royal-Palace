@@ -1,0 +1,147 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation{% endblock %}
+
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('assets/app.css') }}">
+	<h1 class="h1">Réservez</h1>
+
+    <div class="reservation-form">
+        {{ form_start(form) }}
+		<div class="booked">
+        <div class="form-group">
+            {{ form_label(form.arrivee) }}
+            {{ form_widget(form.arrivee, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.depart) }}
+            {{ form_widget(form.depart, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.nbPersonne) }}
+            {{ form_widget(form.nbPersonne, {'attr': {'class': 'form-control'}}) }}
+        </div>
+		</div>
+        <div class="option">
+            <h3>Options</h3>
+            {{ form_row(form.option, {'label': 'Vue sur mer'}) }}
+            {{ form_row(form.option2, {'label': 'Chaînes à la carte'}) }}
+            {{ form_row(form.option3, {'label': 'Climatisation'}) }}
+            {{ form_row(form.option4, {'label': 'Télévision à écran plat'}) }}
+            {{ form_row(form.option5, {'label': 'Téléphone'}) }}
+            {{ form_row(form.option6, {'label': 'Chaînes satellite'}) }}
+            {{ form_row(form.option7, {'label': 'Chaînes du câble'}) }}
+            {{ form_row(form.option8, {'label': 'Coffre fort'}) }}
+            {{ form_row(form.option9, {'label': 'Wi-Fi Gratuit'}) }}
+            {{ form_row(form.option10, {'label': 'Matériel de repassage'}) }}
+        </div>
+
+        <button type="submit" class="btn-primary">Rechercher</button>
+        {{ form_end(form) }}
+        <a class="list" href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
+    </div>
+
+
+<style>
+	@font-face {
+    font-family: "Italianno-Regular";
+    src: url('Fonts/Italianno-Regular.ttf') format('truetype');
+}
+
+
+body {
+	background-image: url('images/décor1.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+
+.reservation-form{
+	background-color: rgba(217, 217, 217, 0.8);
+	margin-left:400px;
+    margin-right:400px;     
+    text-align: end;
+	margin-bottom:50px;
+	border-radius:10px;
+	padding-bottom:25px;
+	border:goldenrod solid;
+	font-family:verdana;
+}
+
+.h1{
+	margin-top:100px;
+	text-align:center;
+	font-family:Italianno-Regular;
+	font-size:80px;
+}
+
+.reservation-form .option{
+	margin-right:250px;
+}
+
+.form-group {
+	flex-direction:row;
+     margin: 20px;
+}
+
+.booked{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+}
+
+.btn-primary{
+	background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	width:100px;
+	height: 40px;
+	border-radius:10px;
+	margin-top:15px;
+	margin-right:250px;
+	margin-bottom:15px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+}
+
+.form-group input{
+	width:100px;
+    height: 20px;
+    border: goldenrod solid;
+    border-radius:5px;
+    font-size:15px;
+    background-color:#002890;
+    color: white;
+}
+
+
+.list{
+	text-decoration:none;
+	margin-right:200px;
+	color: black;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.list:hover {
+	color:goldenrod;
+}
+
+#reservation_nbPersonne{
+    width: 130px; /* Définissez la largeur souhaitée */
+    padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
+    border: 3px goldenrod solid; /* Ajoutez une bordure */
+    border-radius: 5px; /* Ajoutez des coins arrondis */
+    font-size: 16px; /* Définissez la taille de la police */
+    background-color:#002890;
+    color: white;
+}
+
+    </style>
+{% endblock %}

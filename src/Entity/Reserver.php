@@ -29,6 +29,12 @@ class Reserver
     #[ORM\Column]
     private ?float $prix = null;
 
+    #[ORM\Column]
+    private ?int $validite = null;
+
+    #[ORM\Column]
+    private ?int $nbPersonne = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -58,19 +64,19 @@ class Reserver
         return $this;
     }
 
-    public function getDateEntree(): ?\DateTimeImmutable
+    public function getDateEntree(): ?\DateTimeInterface
     {
         return $this->dateEntree;
     }
 
-    public function setDateEntree(\DateTimeImmutable $dateEntree): static
+    public function setDateEntree(\DateTimeInterface $dateEntree): static
     {
         $this->dateEntree = $dateEntree;
 
         return $this;
     }
 
-    public function getDateSortie(): ?\DateTimeImmutable
+    public function getDateSortie(): ?\DateTimeInterface
     {
         return $this->dateSortie;
     }
@@ -93,4 +99,29 @@ class Reserver
 
         return $this;
     }
+
+    public function getValidite(): ?int
+    {
+        return $this->validite;
+    }
+
+    public function setValidite(int $validite): static
+    {
+        $this->validite = $validite;
+
+        return $this;
+    }
+
+    public function getNbPersonne(): ?int
+    {
+        return $this->nbPersonne;
+    }
+
+    public function setNbPersonne(int $nbPersonne): static
+    {
+        $this->nbPersonne = $nbPersonne;
+
+        return $this;
+    }
+
 }

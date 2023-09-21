@@ -1,6 +1,177 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
-    a
+# config/routes.yaml
+
+app_homepage:
+  path: /
+  controller: App\Controller\HomeController::index
+  methods: ["GET", "POST"]
+
+app_profile:
+  path: /profile
+  controller: App\Controller\ProfileController::index
+  methods: ["GET", "POST"]
+
+app_profile_infos:
+  path: /profile/infos
+  controller: App\Controller\ProfileController::infos
+  methods: ["GET", "POST"]
+
+app_profile_reservations:
+  path: /profile/reservations
+  controller: App\Controller\ProfileController::reservations
+  methods: ["GET", "POST"]
+
+app_profile_reservations_edit:
+  path: /profile/reservations/{id}
+  controller: App\Controller\ProfileController::reservationsEdit
+  methods: ["GET", "POST"]
+
+app_profile_edit:
+  path: /profile/infos/edit
+  controller: App\Controller\ProfileController::edit
+  methods: ["GET", "POST"]
+
+app_admin_chambre_index:
+  path: /admin/chambre/
+  controller: App\Controller\AdminChambreController::index
+  methods: ["GET", "POST"]
+
+app_admin_chambre_new:
+  path: /admin/chambre/new
+  controller: App\Controller\AdminChambreController::new
+  methods: ["GET", "POST"]
+
+app_admin_chambre_show:
+  path: /admin/chambre/{id}
+  controller: App\Controller\AdminChambreController::show
+  methods: ["GET", "POST"]
+
+app_admin_chambre_edit:
+  path: /admin/chambre/{id}/edit
+  controller: App\Controller\AdminChambreController::edit
+  methods: ["GET", "POST"]
+
+app_admin_chambre_delete:
+  path: /admin/chambre/{id}
+  controller: App\Controller\AdminChambreController::delete
+  methods: ["POST"]
+
+# ChambreController
+app_chambre_index:
+  path: /chambre/liste/{id}
+  controller: App\Controller\ChambreController::index
+  methods: ["GET", "POST"]
+
+app_chambre_show:
+  path: /chambre/{id}
+  controller: App\Controller\ChambreController::show
+  methods: ["GET", "POST"]
+
+app_chambre_category:
+  path: /chambre/
+  controller: App\Controller\ChambreController::category
+  methods: ["GET", "POST"]
+
+# ConfirmationController
+app_confirmation:
+  path: /confirmation
+  controller: App\Controller\ConfirmationController::index
+  methods: ["GET", "POST"]
+
+# HomeController
+app_home:
+  path: /
+  controller: App\Controller\HomeController::index
+  methods: ["GET", "POST"]
+
+# LoginController
+app_login:
+  path: /login
+  controller: App\Controller\LoginController::login
+  methods: ["GET", "POST"]
+
+app_logout:
+  path: /logout
+  controller: App\Controller\LoginController::logout
+  methods: ["GET", "POST"]
+
+# PaiementController
+app_paiement:
+  path: /paiement/{edit}
+  controller: App\Controller\PaiementController::index
+  methods: ["GET", "POST"]
+  requirements:
+    edit: \d+
+
+# RegistrationController
+app_register:
+  path: /register
+  controller: App\Controller\RegistrationController::register
+  methods: ["GET", "POST"]
+
+app_verify_email:
+  path: /verify/email
+  controller: App\Controller\RegistrationController::verifyUserEmail
+  methods: ["GET", "POST"]
+
+# ReservationController
+app_reservation:
+  path: /reservation
+  controller: App\Controller\ReservationController::index
+  methods: ["GET", "POST"]
+
+# AdminController
+app_admin:
+  path: /admin
+  controller: App\Controller\AdminController::index
+  methods: ["GET", "POST"]
+
+app_admin_user_index:
+  path: /admin/user
+  controller: App\Controller\AdminUserController::index
+  methods: ["GET", "POST"]
+
+app_admin_user_show:
+  path: /admin/user/{id}
+  controller: App\Controller\AdminUserController::show
+  methods: ["GET", "POST"]
+
+app_admin_user_edit:
+  path: /admin/user/{id}/edit
+  controller: App\Controller\AdminUserController::edit
+  methods: ["GET", "POST"]
+
+app_admin_user_delete:
+  path: /admin/user/{id}/
+  controller: App\Controller\AdminUserController::delete
+  methods: ["GET", "POST"]
+
+app_admin_user_new:
+  path: /admin/user/new/
+  controller: App\Controller\AdminUserController::new
+  methods: ["GET", "POST"]
+
+app_admin_reservation_index:
+    path: /admin/reservation/
+    methods: GET
+    controller: App\Controller\AdminReservationController::index
+
+app_admin_reservation_new:
+    path: /admin/reservation/new
+    methods: [GET, POST]
+    controller: App\Controller\AdminReservationController::new
+
+app_admin_reservation_show:
+    path: /admin/reservation/{id}
+    methods: GET
+    controller: App\Controller\AdminReservationController::show
+
+app_admin_reservation_edit:
+    path: /admin/reservation/{id}/edit
+    methods: [GET, POST]
+    controller: App\Controller\AdminReservationController::edit
+
+app_admin_reservation_delete:
+    path: /admin/reservation/{id}
+    methods: POST
+    controller: App\Controller\AdminReservationController::delete
+

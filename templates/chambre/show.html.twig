@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambre
+{% endblock %}
+
+{% block body %}
+
+	<div class="chambre">
+		<h1>Chambre numero
+			{{ chambre.id }}:</h1>
+
+		<p>Superficie:
+			{{ chambre.Superficie }}m²</p>
+
+		<p>Tarif:
+			{{ chambre.Tarif }}€</p>
+
+
+		<select id="options" name="options">
+			<option value="" selected disabled hidden>Options disponibles:</option>
+			{% if chambre.ChaineALaCarte == 1 %}
+				<option value="ChaineALaCarte">Chaine A LaCarte</option>
+			{% endif %}
+			{% if chambre.VueSurMer == 1 %}
+				<option value="VueSurMer">Vue Sur Mer</option>
+			{% endif %}
+			{% if chambre.Climatisation == 1 %}
+				<option value="Climatisation">Climatisation</option>
+			{% endif %}
+			{% if chambre.TelevisionEcranPlat == 1 %}
+				<option value="TelevisionEcranPlat">Television A Ecran Plat</option>
+			{% endif %}
+			{% if chambre.Telephone == 1 %}
+				<option value="Telephone">Telephone</option>
+			{% endif %}
+			{% if chambre.ChaineSatellite == 1 %}
+				<option value="ChaineSatellite">Chaine Satellite</option>
+			{% endif %}
+			{% if chambre.ChaineDuCable == 1 %}
+				<option value="ChaineDuCable">Chaine Du Cable</option>
+			{% endif %}
+			{% if chambre.CoffreFort == 1 %}
+				<option value="CoffreFort">Coffre Fort</option>
+			{% endif %}
+			{% if chambre.MaterielDeRepassage == 1 %}
+				<option value="MaterielDeRepassage">Materiel De Repassage</option>
+			{% endif %}
+			{% if chambre.WifiGratuit == 1 %}
+				<option value="WifiGratuit">Wifi Gratuit</option>
+			{% endif %}
+		</select><br/>
+		<a class="list" href="{{ path('app_paiement', {'edit': 0}) }}">Reserver cette chambre</a>
+		<br/>
+		<a class="list" href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
+	</div>
+	<br/>
+	
+	
+
+	<style>
+	.chambre {
+    display:flex;
+    flex-direction:column;
+	background-color: rgba(217, 217, 217, 0.8);
+	margin-left:400px;
+    margin-right:400px;     
+    text-align: center;
+	border-radius:10px;
+	padding-bottom:25px;
+	border:goldenrod solid;
+	font-family:verdana;
+    margin-top:100px;
+    margin-bottom:200px;
+		}
+
+select {
+	margin-left:220px;
+    width: 200px; /* Définissez la largeur souhaitée */
+    padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
+    border: goldenrod solid; /* Ajoutez une bordure */
+    border-radius: 5px; /* Ajoutez des coins arrondis */
+    font-size: 16px; /* Définissez la taille de la police */
+    background-color:#002890;
+    color: white;
+}
+
+body{
+    background-image: url('/images/hall.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+
+.list{
+    width:190px;
+    height: 30px;
+    margin-top:20px;
+    margin-left:223px;
+    background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	border-radius:10px;
+	margin-bottom:15px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+}
+.list:hover{
+	background-color: #2980b9;
+}
+	</style>
+{% endblock %}

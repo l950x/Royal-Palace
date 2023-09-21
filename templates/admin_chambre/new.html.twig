@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Chambre{% endblock %}
+
+{% block body %}
+    <h1>Create new Chambre</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.NbChambre, {'attr': {'placeholder':"Nombre de chambre a crée"}}) }}
+    <button type="submit">Submit</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_admin_chambre_index') }}">back to list</a>
+{% endblock %}

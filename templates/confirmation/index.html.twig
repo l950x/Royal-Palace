@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConfirmationController!
+{% endblock %}
+
+{% block body %}
+
+	{% if edit %}
+		<p>Confirmation
+			{{ user.prenom }}
+			d'avoir modifier votre reservation pour la chambre numero
+			{{ chambre }}
+			au prix de
+			{{ price }}€ pour un sejour du
+			{{ dateEntree }}
+			au
+			{{ dateSortie }}</p>
+
+	{% else %}
+		<p>Confirmation
+			{{ user.email }}
+			d'avoir payer la chambre numero
+			{{ chambre }}
+			au prix de
+			{{ price }}€ pour un sejour du
+			{{ dateEntree }}
+			au
+			{{ dateSortie }}</p>
+	{% endif %}
+	<a href="{{ path('app_home') }}">Retournez a l'accueil</a>
+{% endblock %}

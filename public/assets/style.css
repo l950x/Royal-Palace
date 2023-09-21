@@ -1,0 +1,179 @@
+@font-face {
+    font-family: "Italianno-Regular";
+    src: url('../Fonts/Italianno-Regular.ttf') format('truetype');
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+    left: 0;
+    top: 0;
+    background-color: #002890;
+    height: 80px;
+    padding: 0 30px;
+    margin: 0px;
+    width: 97%;
+    border-bottom: 3px solid goldenrod;
+    z-index: 9999;
+    
+}
+
+.liens, a{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    color: white;
+    padding-top: 2%;
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+img, .logo {
+    height: 70px;
+    margin-top: 7px; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #002890;
+    padding: 0 30px;
+    color: #fff;
+    border-top: 5px solid goldenrod;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-bottom: 3%;
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
+
+.logo2, .logo2bis{
+    margin-top: 2%;
+    width: 165px;
+    height: 155px;
+}
+
+.adresse{
+    flex-direction: row;
+    font-family: Italianno-Regular;
+    font-size: 25px;
+    color: goldenrod;
+    align-items: flex-start;
+}
+
+.adresse a{
+    flex-direction: row;
+    font-family: Italianno-Regular;
+    line-height: 30px;
+    font-size: 25px;
+    color: goldenrod;
+    align-items: flex-start;
+}
+
+.partenaire, .grandprix{
+width: 304px;
+height: 165px;
+}
+
+
+.partenaire{
+    text-align: center;
+}
+
+.partenaire, h3{
+    margin-left: 1%;
+    font-family: 20px bold;
+}
+
+.apropos{
+    line-height: 35px;
+}
+
+.propos{
+    text-align: center;
+}
+
+.networks {
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%;
+    text-align: center;
+}
+
+.icon {
+    width: 23px;
+    height: 23px;
+    align-self: flex-end;
+}
+
+.networks a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    margin-top: 6%;
+    margin-bottom: 40%;
+    color: #002890;
+}
+
+.title a{
+    color: #002890;
+}
+
+.text1{
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 23px;
+    margin-bottom: 3%;
+}
+
+.text2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.signature{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%;
+}
+
+.sign{
+    width: 150px;
+    height: 137px;
+    margin-left: 3%;
+    margin-bottom: 3%;
+}
+
+.logo3{
+    margin-left: 400px;
+    width: 200px;
+    height: 187px;
+}
+

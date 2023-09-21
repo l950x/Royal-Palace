@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement
+{% endblock %}
+
+{% block body %}
+
+	<div class="menu">
+
+	<h1>Paiement</h1>
+	<div class="label">
+	{{ form_start(form) }}
+	{{ form_row(form.field_name) }}
+	{{ form_row(form.numbers) }}
+	{{ form_row(form.validite) }}
+	{{ form_row(form.ccv) }}
+	<br/>
+
+	{# {{ form_row(form.dateEntree, {
+	        'attr': {'value': dateEntree}
+	    }) }}
+	
+		{{ form_row(form.dateSortie, {
+	        'attr': {'value': dateSortie}
+	    }) }} #}
+
+	{{ form_row(form.submit) }}
+	{{ form_end(form) }}
+	</div>
+	<br/>
+	<div class="prix">
+	<p>Prix:
+		{{price}} €
+	</p>
+
+	Du {{dateEntree}}
+	au
+	{{dateSortie}}
+	</div>
+	</div>
+
+<style>
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    background-color: rgba(217, 217, 217, 0.8);
+    margin-left: 400px;
+    margin-right: 400px;
+    padding-bottom: 50px;
+    border-radius: 15px;
+    border: goldenrod solid;
+    margin-bottom: 100px;
+    padding-bottom: 150px;
+}
+
+.menu h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: verdana;
+    text-align: center;
+}
+
+#paiement_field_name,
+#paiement_numbers,
+#paiement_validite,
+#paiement_ccv {
+	display:flex;
+    width: 150px;
+    height: 20px;
+    border: goldenrod solid;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: verdana;
+    text-align: center;
+    margin: 5px;
+		margin-left:35px;
+}
+
+#paiement_submit{
+		background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	width:100px;
+	height: 50px;
+	border-radius:10px;
+	margin-left:65px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+}
+
+.required {
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: verdana;
+	margin-left:50px;
+}
+
+body {
+    background-image: url('/images/hall.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.prix {
+    font-family: verdana;
+    flex-direction: row;
+    justify-content: center;
+	text-align:center;
+}
+</style>
+
+
+{% endblock %}
