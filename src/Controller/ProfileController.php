@@ -155,7 +155,6 @@ class ProfileController extends AbstractController
             'user' => $user,
             'reservation' => $reservation,
             'form' => $formDates->createView(),
-
         ]);
     }
 }

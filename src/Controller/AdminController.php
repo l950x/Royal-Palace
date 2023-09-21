@@ -12,8 +12,8 @@ class AdminController extends AbstractController
     public function index(): Response
     {
         $user = $this->getUser();
-
-        if (!$user) {
+        
+        if (!$user || !$this->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('app_login');
         }
 

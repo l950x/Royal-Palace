@@ -10,6 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Faker\Factory;
+use Doctrine\DBAL\Connection;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 #[Route('/admin/user')]
 class AdminUserController extends AbstractController
@@ -18,35 +21,62 @@ class AdminUserController extends AbstractController
     public function index(UserRepository $userRepository): Response
     {
         $user = $this->getUser();
-
-        if (!$user) {
+        if (!$user || !$this->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('app_login');
         }
-        
+
         return $this->render('admin_user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
 
     #[Route('/new', name: 'app_admin_user_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager,Connection $connection, UserPasswordHasherInterface $userPasswordHasher): Response
     {
-        $user = new User();
-        $form = $this->createForm(AdminUserType::class, $user);
+        $faker = Factory::create();
+        $form = $this->createFormBuilder()->add('NbChambre')->getForm();
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($user);
+            $data = $form->getData();
+            $nb = $data['NbChambre'];
+            $connection->executeQuery('DELETE FROM reserver');
+            $connection->executeQuery('DELETE FROM user');
+
+
+            for ($i = 0; $i < $nb; $i++) {
+                $user = new User();
+
+                $nom = $faker->lastName;
+                $prenom = $faker->firstName;
+                $adresse = $faker->address;
+                $email = $faker->email;
+                $password = $faker->password;
+
+                $user->setNom($nom);
+                $user->setPrenom($prenom);
+                $user->setAdresse($adresse);
+                $user->setEmail($email);
+                $user->setPassword(
+                    $userPasswordHasher->hashPassword(
+                        $user,
+                        $password
+                    )
+                );
+                $entityManager->persist($user);
+            }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('admin_user/new.html.twig', [
-            'user' => $user,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
+
 
     #[Route('/{id}', name: 'app_admin_user_show', methods: ['GET'])]
     public function show(User $user): Response

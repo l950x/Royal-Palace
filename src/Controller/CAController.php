@@ -20,7 +20,15 @@ class CAController extends AbstractController
     public function index(Request $request, ChartBuilderInterface $chartBuilder, Connection $connection, ChambreRepository $chambreRepository, ReserverRepository $reserverRepository): Response
     {
 
-        $form = $this->createForm(DatesType::class, []);
+        $user = $this->getUser();
+        if (!$user || !$this->isGranted('ROLE_EMPLOYE')) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        $form = $this->createForm(DatesType::class, [
+            'dateEntree' => new DateTimeImmutable('last year'),
+            'dateSortie' => new DateTimeImmutable('next year'),
+        ]);
         $form->handleRequest($request);
 
         // $dateDebut = '2023-09-17';
@@ -34,96 +42,49 @@ class CAController extends AbstractController
             $dateFin = $data['dateSortie'];
             // $chiffreAffaires = $this->calculerCA($dateDebut, $dateFin, $connection);
 
-
-            $idChambres = $this->idChambres($dateDebut, $dateFin, $connection);
-            $chambres = $chambreRepository->findBy(['id' => $idChambres]);
-            
-            $CAT1 = $CAT2 = $CAT3 = 0;
-            $cht1 = $cht2 = $cht3 = [];
-            $total = 1;
-            
-            foreach ($chambres as $chambre) {
-                $id = $chambre->getId();
-                $reserv = $reserverRepository->findBy(['chambre' => $id]);
-                $prixTotal = 0;
-            
-                foreach ($reserv as $cash) {
-                    $prixTotal += $cash->getPrix();
-                }
-            
-                switch ($chambre->getType()) {
-                    case 1:
-                        $CAT1 += $prixTotal;
-                        $cht1[] = $chambre;
-                        break;
-                    case 2:
-                        $CAT2 += $prixTotal;
-                        $cht2[] = $chambre;
-                        break;
-                    case 3:
-                        $CAT3 += $prixTotal;
-                        $cht3[] = $chambre;
-                        break;
-                }
-                $total = $CAT1 + $CAT2 + $CAT3;
-            }
-
-
-            return $this->render('ca/index.html.twig', [
-                'controller_name' => 'CAController',
-                'form' => $form,
-                'CAT1' => $CAT1,
-                'CAT2' => $CAT2,
-                'CAT3' => $CAT3,
-                'total' => $total
-            ]);
         } else {
             $dateDebut = new DateTimeImmutable('last year');
             $dateFin = new DateTimeImmutable('next year');
-            
-            $idChambres = $this->idChambres($dateDebut, $dateFin, $connection);
-            $chambres = $chambreRepository->findBy(['id' => $idChambres]);
-            
-            $CAT1 = $CAT2 = $CAT3 = 0;
-            $cht1 = $cht2 = $cht3 = [];
-            
-            foreach ($chambres as $chambre) {
-                $id = $chambre->getId();
-                $reserv = $reserverRepository->findBy(['chambre' => $id]);
-                $prixTotal = 0;
-            
-                foreach ($reserv as $cash) {
-                    $prixTotal += $cash->getPrix();
-                }
-            
-                switch ($chambre->getType()) {
-                    case 1:
-                        $CAT1 += $prixTotal;
-                        $cht1[] = $chambre;
-                        break;
-                    case 2:
-                        $CAT2 += $prixTotal;
-                        $cht2[] = $chambre;
-                        break;
-                    case 3:
-                        $CAT3 += $prixTotal;
-                        $cht3[] = $chambre;
-                        break;
-                }
-                $total = $CAT1 + $CAT2 + $CAT3;
-            }
-            
-            
-
-            return $this->render('ca/index.html.twig', [
-                'controller_name' => 'CAController',
-                'form' => $form,
-                'CAT1' => $CAT1,
-                'CAT2' => $CAT2,
-                'CAT3' => $CAT3,
-                'total' => $total
-            ]);
         }
+
+        $idChambres = $this->idChambres($dateDebut, $dateFin, $connection);
+        $chambres = $chambreRepository->findBy(['id' => $idChambres]);
+
+        $CAT1 = $CAT2 = $CAT3 = 0;
+        $total = 0;
+
+
+        foreach ($chambres as $chambre) {
+            $id = $chambre->getId();
+            $reserver = $reserverRepository->findBy(['chambre' => $id]); //cherche la reservation pour la chambre 
+            $prixTotal = 0;
+
+            foreach ($reserver as $reservation) {
+                $prixTotal += $reservation->getPrix(); //recupere le prix de la reservation
+            }
+
+            switch ($chambre->getType()) { // si la categorie de la chambre = 1, alors ça met son prix dans le CAT1, etc
+                case 1:
+                    $CAT1 += $prixTotal;
+                    break;
+                case 2:
+                    $CAT2 += $prixTotal;
+                    break;
+                case 3:
+                    $CAT3 += $prixTotal;
+                    break;
+            }
+            $total = $CAT1 + $CAT2 + $CAT3;
+        }
+
+        return $this->render('ca/index.html.twig', [
+            'controller_name' => 'CAController',
+            'form' => $form,
+            'CAT1' => $CAT1,
+            'CAT2' => $CAT2,
+            'CAT3' => $CAT3,
+            'total' => $total
+        ]);
     }
 
     // public function calculerCA($dateDebut, $dateFin, Connection $connection)
@@ -147,7 +108,7 @@ class CAController extends AbstractController
         SELECT chambre_id
         FROM reserver
         WHERE date_entree BETWEEN '$dateDebut' AND '$dateFin'
-    ";
+        ";
         $result = $connection->executeQuery($sql)->fetchAll();
 
         $idsChambres = array();

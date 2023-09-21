@@ -28,6 +28,10 @@ class UserType extends AbstractType
             ])
             ->add('adresse', TextType::class, [
                 'required' => false,
+                'label' => 'Adresse postale',
+                'attr' => [
+                        'class' => 'autocomplete-address'
+                ]
             ]);
     }
 

@@ -18,7 +18,7 @@ class DatesType extends AbstractType
                 'input' => 'datetime_immutable',
                 'format' => 'yyyy-MM-dd',
                 'required' => true,
-                'data' => new \DateTimeImmutable(),
+                // 'data' => new \DateTimeImmutable(),
 
             ])
 
@@ -27,7 +27,7 @@ class DatesType extends AbstractType
                 'input' => 'datetime_immutable',
                 'format' => 'yyyy-MM-dd',
                 'required' => true,
-                'data' => new \DateTimeImmutable(),
+                // 'data' => new \DateTimeImmutable(),
 
             ])
 
