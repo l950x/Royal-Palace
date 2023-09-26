@@ -39,6 +39,7 @@ class AdminUserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            try {
             $data = $form->getData();
             $nb = $data['NbChambre'];
             $connection->executeQuery('DELETE FROM reserver');
@@ -81,8 +82,15 @@ class AdminUserController extends AbstractController
             $entityManager->persist($admin);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_user_index', [
+
+            ], Response::HTTP_SEE_OTHER);
+        } catch (\Throwable $e) {
+            return $this->render('error_page.html.twig', [
+                'error_message' => $e->getMessage(),
+            ]);
         }
+    }
 
         return $this->render('admin_user/new.html.twig', [
             'form' => $form->createView(),

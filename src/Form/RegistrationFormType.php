@@ -21,15 +21,21 @@ class RegistrationFormType extends AbstractType
         ->add('email')
         ->add('prenom')
         ->add('nom')
-        ->add('adresse')
+        ->add('adresse', TextType::class, [
+            'required' => false,
+            'label' => 'Adresse postale',
+            'attr' => [
+                'class' => 'autocomplete-address'
+            ],
+        ])
         ->add('agreeTerms', CheckboxType::class, [
             'mapped' => false,
             'attr' => [
-                'class' => 'autocomplete-address cm-toggle blue' // Vous pouvez définir la classe CSS ici
+                'class' => 'cm-toggle blue', // Vous pouvez définir la classe CSS ici
             ],
             'constraints' => [
                 new IsTrue([
-                    'message' => 'Vous devez accepter les conditions.',
+                    'message' => 'You should agree to our terms.',
                 ]),
             ],
         ])

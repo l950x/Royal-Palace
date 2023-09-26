@@ -76,11 +76,10 @@ class ProfileController extends AbstractController
     public function reservations(ReserverRepository $reserverRepository): Response
     {
         $user = $this->getUser();
-        $userId = $user->getId();
-
         if (!$user) {
             return $this->redirectToRoute('app_login');
         }
+        $userId = $user->getId();
 
         $reservations = $reserverRepository->findBy([
             'user' => $userId,
