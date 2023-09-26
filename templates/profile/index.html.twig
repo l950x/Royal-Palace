@@ -1,30 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfileController!
-{% endblock %}
-
+{% block title %}Profil{% endblock %}
 {% block body %}
-	<div class="">
-		Bienvenue
-		{{user.prenom}}
-		sur ton profil
-		<a href="{{path('app_profile_reservations')}}">Mes reservations</a>
-		<a href="{{ path('app_profile_infos') }}">Mes infos perso</a>
-		<a href="">Parametre du compte</a>
-	</div>
-		<a href="{{ path('app_home') }}">Retour a l'accueil</a>
+	<link rel="stylesheet" href="{{ asset('/css/profile/profile.css') }}">
 
-	<style>
-		div {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			/* background-color: cyan; */
-			height: 50%;
-			width: 50%;
-			margin: auto;
-			font-size: 30px;
-		}
-	</style>
+
+<div class="menu">
+<p class="welcome">Bienvenue {{user.prenom}} sur votre profil</p>
+<br/>
+<a class="link" href="{{path('app_profile_reservations')}}">Mes reservations</a>
+<br/>
+<div class="spacer"></div>
+<a class="link" href="{{path('app_profile_infos')}}">Mes infos perso</a>
+<br/>
+<div class="spacer"></div>
+<a class="link" href="{{path('app_profile_edit')}}">Parametre du compte</a>
+<br/>
+<div class="spacer"></div>
+</div>
 {% endblock %}

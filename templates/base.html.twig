@@ -6,14 +6,72 @@
 			{% block title %}Welcome!
 			{% endblock %}
 		</title>
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		<link rel="icon" type="image/png" href="{{ asset('images/Logo.png') }}">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> {% block stylesheets %}{% endblock %}{% block javascripts %}{% endblock %}
-		<link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/app.css') }}">
 
 	</head>
+        {% block header %}
+        <header>
+        <div class="liens">
+            <a href="">Découvrez</a>
+            <a href="{{ path('app_reservation') }}">Réservez</a>
+        </div>
+        <div class="logo">
+            <a href="{{ path('app_home') }}"><img  src="{{ asset('images/Logo.png') }}" alt="Logo"/></a>
+        </div>    
+        <div class="liens">
+        {% if app.user %}
+            <a href="{{ path('app_profile') }}">Profil</a>
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
+        {% else %}
+            <a href="{{ path('app_register') }}">Inscription</a>
+            <a href="{{ path('app_login') }}">Connexion</a>
+        {% endif %}
+    </div>
+    </header>
+        {% endblock %}
 	<body>
-		{% block body %}{% endblock %}
+		{% block body %}
+		
+
+
+		{% endblock %}
 	</body>
+    {% block footer %}
+    	<footer>
+        <div class="logo2">
+            
+        <img class="logo2bis" src="{{ asset('images/Logo.png') }}" alt="logo2">
+
+    </div>
+    <div class="adresse">
+        <a href="https://www.google.com/maps?q=17+Boulevard+Albert+1er,+98000+Monaco"><p> Royal Palace <br>17 Boulevard Albert 1er <br>98000 Monaco</p></a>
+        
+    </div>
+    <div class="partenaire">
+        <h3>PARTENAIRE OFFICIEL</h3>
+        <a href="https://www.monacograndprixticket.com"><img class="grandprix" src="{{ asset('images/festivals_grand_prix_de_monaco_-_formule_1_26022020102047-PhotoRoom.png-PhotoRoom.png') }}" alt=""></a>
+    </div>
+    <div class="apropos">
+        <p class="propos">A propos</p>
+        <ul>
+            <li><a href="./CGU.html">CGU</a></li>
+            <li><a href="mailto:exemple@gmail.com">Nous Contacter</a></li>
+            <li><a href="./confidentialité.htm">Politique de Confidentialité</a></li>
+            <li><a href="./mentions.html">Mentions Légales</a></li>
+        </ul>
+    </div>
+    <div class="networks">
+        <p>Suivez nous sur :</p>
+        <a class="network" href="https://twitter.com/"><img class="icon" src="{{ asset('images/Twitter-Download-PNG 2.png') }}" alt="">Twitter</a>
+        <a class="network" href="https://instagram.com/"><img class="icon" src="{{ asset('images/2048px-Instagram_icon 2.png') }}" alt="">Instagram</a>
+        <a class="network" href="https://Linkedin.com/"><img class="icon" src="{{ asset('images/LinkedIn_icon 2.svg.png') }}" alt="">LinkedIn</a>
+        <a class="network" href="https://facebook.com/"><img class="icon" src="{{ asset('images/Facebook 2.svg.png') }}" alt="">Facebook</a>
+    </div>
+    </footer>
+{% endblock %}
 </html>

@@ -1,33 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ListeChambreController!
+{% block title %}Catégories
 {% endblock %}
 
 {% block body %}
-
-<h1>Categories</h1>
+	<link rel="stylesheet" href="{{ asset('/css/chambre/chambreCategory.css') }}">
 <div class="categorie">
-<a href="{{path('app_chambre_index', {'id': 1})}}">Suite Royale</a>
+<h1>Choisissez une catégorie</h1>
+<a class="link" href="{{path('app_chambre_index', {'id': 1})}}">Suite Royale</a>
+<div class="spacer"></div>
+</br>
+<a class="link" href="{{path('app_chambre_index', {'id': 2})}}">Suite Princière</a>
+<div class="spacer"></div>
+</br>
+<a class="link" href="{{path('app_chambre_index', {'id': 3})}}">Suite Premium</a>
+<div class="spacer"></div>
+</br>
+	<a class="list" href="{{ path('app_home') }}">Retour à l'Accueil</a>
 </div>
-<div class="categorie">
-<a href="{{path('app_chambre_index', {'id': 2})}}">Suite Princière</a>
-</div>
-<div class="categorie">
-<a href="{{path('app_chambre_index', {'id': 3})}}">Suite Premium</a>
-</div>
-	<a href="{{ path('app_home') }}">Retour au home</a>
-
-<style>
-.categorie {
-			padding: 20px;
-			background-color: purple;
-			width: 30%;
-			margin: auto auto 20px;
-			text-align: center;
-			border-radius: 20px;
-}
-.categorie a {
-    color: white;
-}
-</style>
 {% endblock %}

@@ -4,7 +4,11 @@
 {% endblock %}
 
 {% block body %}
-	<div class="">
+	<link rel="stylesheet" href="{{ asset('/css/profile/profileinfo.css') }}">
+	<div class="menu">
+
+		<h1>Mes informations</h1>
+
 		Nom:
 		{{user.nom}}
 		<br/>
@@ -17,8 +21,6 @@
 		Adresse:
 		{{user.adresse}}
 		<br/>
-		<a href="{{ path('app_profile_edit') }}">Modifier mon profil</a>
+		<a class="list" href="{{ path('app_profile_edit') }}">Modifier mon profil</a>
 	</div>
-	<a href="{{ path('app_profile') }}">Retour</a>
-
 {% endblock %}

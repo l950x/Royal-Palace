@@ -33,7 +33,7 @@ class PaiementController extends AbstractController
         $chambreId = $session->get('chambreId');
         $price = $session->get('price');
         $nbPersonne = $session->get('nbPersonne');
-        $prixTotal = $price * $dateSortie->diff($dateEntree)->days * $nbPersonne;
+        $prixTotal = $price * $dateSortie->diff( $dateEntree)->days * $nbPersonne;
 
         $formPaiement = $this->createForm(PaiementType::class);
         $formPaiement->handleRequest($request);
@@ -71,6 +71,11 @@ class PaiementController extends AbstractController
                         ->setValidite(0);
                     $entityManager->persist($reservation);
                     $entityManager->flush();
+                    $reservationId = $reservation->getId();
+                    $session->set('reservationId', $reservation->getId());
+                
+
+                    
                 } else {
                     throw $this->createNotFoundException("Y'a déjà une reservation pour cette chambre");
                 }
@@ -82,6 +87,7 @@ class PaiementController extends AbstractController
                     'price' => $prixTotal,
                     'chambre' => $chambreId,
                     'edit' => $edit,
+                    'reservationId' => $reservationId,
                 ]);
             } else { // si edit = 1 :
                 $reservation = $reserverRepository->findOneBy([

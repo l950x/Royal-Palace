@@ -26,7 +26,7 @@ class ReservationType extends AbstractType
                 'widget' => 'choice',
                 'input' => 'datetime_immutable',
                 'format' => 'yyyy-MM-dd',
-                'data' => new \DateTimeImmutable(),
+                'data' => new \DateTimeImmutable('next day'),
                 'required' => true,
             ])
             ->add('nbPersonne', ChoiceType::class, [

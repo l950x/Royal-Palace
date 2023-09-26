@@ -1,37 +1,99 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!
-{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
-	<form method="post">
-		{% if error %}
-			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-		{% endif %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
-		{% if app.user %}
-			<div class="mb-3">
-				You are logged in as
-				{{ app.user.userIdentifier }},
-				<a href="{{ path('app_logout') }}">Logout</a>
-			</div>
-		{% endif %}
+    {% if app.user %}
+        <div class="mb-3">
+            Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
 
-		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-		<label for="inputEmail">Email</label>
-		<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-		<label for="inputPassword">Password</label>
-		<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <div class="menu">
+    <h1 class="h3 mb-3 font-weight-normal">Connectez vous s'il vous plaît</h1>
+    <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <label for="inputPassword">Mot de passe</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-		<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
 
-		<button class="btn btn-lg btn-primary" type="submit">
-			Sign in
-		</button>
-	</form>
-	<div>Vous n'avez pas de compte?
-		<a href="{{ path('app_register') }}">
-			<button class="btn btn-lg btn-primary" type="submit">S'inscrire</button>
-		</a>
-	</div>
+    <button class="btn" type="submit">
+        Connexion
+    </button>
+    <a href="{{path('connect_google')}}">Se connecter avec Google</a>
+    <a href="">Se connecter avec Facebook</a>
+    </div>
+</form>
+<style>
+
+.menu{
+    display:flex;
+    flex-direction:column;
+	background-color: rgba(217, 217, 217, 0.8);
+	margin-left:400px;
+    margin-right:400px;     
+    text-align: center;
+	border-radius:10px;
+	padding-bottom:25px;
+	border:goldenrod solid;
+	font-family:verdana;
+    margin-top:100px;
+    margin-bottom:200px;
+}
+
+.menu input{
+    width:200px;
+    height: 20px;
+    margin-left:210px;
+    margin-right:210px;
+    margin-top:10px;
+    margin-bottom:10px;
+    border: goldenrod solid;
+    border-radius:5px;
+    font-size:15px;
+
+}
+
+
+h1{
+    font-family:Italianno-Regular;
+    font-size:50px;
+    color:goldenrod;
+}
+
+body{
+    background-image: url('images/piscine.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.btn{
+    width:200px;
+    height: 40px;
+    margin-left:213px;
+    margin-top:20px;
+    background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	border-radius:10px;
+	margin-bottom:15px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+
+</style>
 {% endblock %}

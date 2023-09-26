@@ -44,7 +44,6 @@ class AdminUserController extends AbstractController
             $connection->executeQuery('DELETE FROM reserver');
             $connection->executeQuery('DELETE FROM user');
 
-
             for ($i = 0; $i < $nb; $i++) {
                 $user = new User();
 
@@ -66,7 +65,20 @@ class AdminUserController extends AbstractController
                 );
                 $entityManager->persist($user);
             }
-
+            $admin = new User();
+            $admin->setNom('admin');
+            $admin->setPrenom('admin');
+            $admin->setAdresse('admin');
+            $admin->setEmail('admin@gmail.com');
+            $admin->setRoles(["ROLE_USER","ROLE_ADMIN","ROLE_EMPLOYE"]);
+            $password = 'adminzer';
+            $admin->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $admin,
+                    $password
+                )
+            );
+            $entityManager->persist($admin);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);

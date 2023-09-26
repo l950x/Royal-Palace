@@ -19,11 +19,11 @@ class ChambreController extends AbstractController
     #[Route('/liste/{id}', name: 'app_chambre_index', methods: ['GET'])]
     public function index(ChambreRepository $chambreRepository, Request $request, SessionInterface $session): Response
     {
-        $session->set('price', null);
-        $session->set('dateEntree', null);
-        $session->set('dateSortie', null);
-        $session->set('chambreId', null);
-        $session->set('nbPersonne', null);
+        // $session->set('price', null);
+        // $session->set('dateEntree', null);
+        // $session->set('dateSortie', null);
+        // $session->set('chambreId', null);
+        // $session->set('nbPersonne', null);
 
         $id = $request->attributes->get('id');
         switch ($id) {

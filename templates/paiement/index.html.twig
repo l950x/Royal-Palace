@@ -1,10 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PaiementController!
+{% block title %}Paiement
 {% endblock %}
 
 {% block body %}
+	<link rel="stylesheet" href="{{ asset('/css/paiement.css') }}">
 
+	<div class="menu">
+
+	<h1>Paiement</h1>
+	<div class="label">
 	{{ form_start(form) }}
 	{{ form_row(form.field_name) }}
 	{{ form_row(form.numbers) }}
@@ -22,12 +27,18 @@
 
 	{{ form_row(form.submit) }}
 	{{ form_end(form) }}
+	</div>
 	<br/>
-
+	<div class="prix">
 	<p>Prix:
-		{{price}}
+		{{price}} €
 	</p>
 
-	{{dateEntree}}
+	Du {{dateEntree}}
+	au
 	{{dateSortie}}
+	</div>
+	</div>
+
+
 {% endblock %}

@@ -4,19 +4,20 @@
 {% endblock %}
 
 {% block body %}
+	<link rel="stylesheet" href="{{ asset('/css/chambre/chambreShow.css') }}">
 
 	<div class="chambre">
 		<h1>Chambre numero
 			{{ chambre.id }}:</h1>
 
 		<p>Superficie:
-			{{ chambre.Superficie }}</p>
+			{{ chambre.Superficie }}m²</p>
 
 		<p>Tarif:
-			{{ chambre.Tarif }}</p>
+			{{ chambre.Tarif }}€</p>
 
 
-		<select>
+		<select id="options" name="options">
 			<option value="" selected disabled hidden>Options disponibles:</option>
 			{% if chambre.ChaineALaCarte == 1 %}
 				<option value="ChaineALaCarte">Chaine A LaCarte</option>
@@ -49,26 +50,10 @@
 				<option value="WifiGratuit">Wifi Gratuit</option>
 			{% endif %}
 		</select><br/>
-		<a href="{{ path('app_paiement', {'edit': 0}) }}">Reserver cette chambre</a>
+		<a class="list" href="{{ path('app_paiement', {'edit': 0}) }}">Reserver cette chambre</a>
+		<br/>
+		<a class="list" href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
 	</div>
 	<br/>
-	<br/>
-	<a href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
 
-	<style>
-		.chambre {
-			padding: 30px;
-			background-color: purple;
-			width: 30%;
-			height: 30%;
-			margin: auto;
-			text-align: center;
-			border-radius: 20px;
-			color: white;
-		}
-		.chambre a {
-			float: right;
-			color: white;
-		}
-	</style>
 {% endblock %}

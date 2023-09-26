@@ -1,0 +1,157 @@
+.menu{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-top:100px;
+    background-color:#D9D9D9;
+    margin-left:400px;
+    margin-right:400px;
+    padding-bottom:50px;
+    border-radius:15px;
+    border: goldenrod solid;
+    margin-bottom:200px;
+}
+
+.numero{
+            font-size: 20px;
+        margin-bottom: 10px;
+		font-family:verdana;
+		text-align:center;
+}
+
+.menu h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+		font-family:verdana;
+		text-align:center;
+    }
+
+    .reservation-item {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+		font-family:verdana;
+        border-radius: 5px;
+		text-align:center;
+    }
+
+    .btn {
+	background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	width:200px;
+	text-align:center;
+	height: 30px;
+	border-radius:10px;
+	margin-top:15px;
+	margin-left:215px;
+	margin-bottom:15px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+body{
+    background-image: url('/images/14848683028_4727ac7e6c_b.jpg');
+    background-position: center center;
+    background-attachment: fixed; 
+	background-repeat: no-repeat;
+}
+
+.btn1{
+    background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	width:200px;
+	text-align:center;
+	height: 30px;
+	border-radius:10px;
+	margin-top:15px;
+	margin-bottom:15px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+}
+
+#dates_dateSortie_year {
+    width: 100px; /* Définissez la largeur souhaitée */
+    padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
+    border: goldenrod solid; /* Ajoutez une bordure */
+    border-radius: 5px; /* Ajoutez des coins arrondis */
+    font-size: 16px; /* Définissez la taille de la police */
+        background-color:#002890;
+    color: white;
+}
+
+#dates_dateSortie_month{
+    width: 100px; /* Définissez la largeur souhaitée */
+    padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
+    border: goldenrod solid; /* Ajoutez une bordure */
+    border-radius: 5px; /* Ajoutez des coins arrondis */
+    font-size: 16px; /* Définissez la taille de la police */
+        background-color:#002890;
+    color: white;
+}
+
+#dates_dateSortie_day{
+    width: 100px; /* Définissez la largeur souhaitée */
+    padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
+    border: goldenrod solid; /* Ajoutez une bordure */
+    border-radius: 5px; /* Ajoutez des coins arrondis */
+    font-size: 16px; /* Définissez la taille de la police */
+    background-color:#002890;
+    color: white;
+}
+
+#dates_dateEntree_year {
+    width: 100px; /* Définissez la largeur souhaitée */
+    padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
+    border: goldenrod solid; /* Ajoutez une bordure */
+    border-radius: 5px; /* Ajoutez des coins arrondis */
+    font-size: 16px; /* Définissez la taille de la police */
+        background-color:#002890;
+    color: white;
+}
+
+#dates_dateEntree_month{
+    width: 100px; /* Définissez la largeur souhaitée */
+    padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
+    border: 1px goldenrod solid; /* Ajoutez une bordure */
+    border-radius: 5px; /* Ajoutez des coins arrondis */
+    font-size: 16px; /* Définissez la taille de la police */
+    background-color:#002890;
+    color: white;
+}
+
+#dates_dateEntree_day{
+    width: 100px; /* Définissez la largeur souhaitée */
+    padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
+    border: goldenrod solid; /* Ajoutez une bordure */
+    border-radius: 5px; /* Ajoutez des coins arrondis */
+    font-size: 16px; /* Définissez la taille de la police */
+        background-color:#002890;
+    color: white;
+}
+
+#dates_submit{
+    background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	width:110px;
+	text-align:center;
+	height: 30px;
+	border-radius:10px;
+	margin-top:15px;
+	margin-bottom:15px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+}
+
+#dates_submit:hover{
+    background-color: #2980b9;
+}

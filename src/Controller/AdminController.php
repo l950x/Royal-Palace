@@ -17,6 +17,8 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
+        //["ROLE_USER","ROLE_ADMIN","ROLE_EMPLOYE"]
+
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
         ]);

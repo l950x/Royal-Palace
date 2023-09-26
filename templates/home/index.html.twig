@@ -1,37 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home
+{% block head %}
+    <link rel="icon" href="{{ asset('Images/Logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ asset('/css/home.css') }}">
+{% endblock %}
+
+{% block title %}Accueil
 {% endblock %}
 
 {% block body %}
-	<style>
-		div {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			/* background-color: cyan; */
-			height: 50%;
-			width: 50%;
-			margin: auto;
-			font-size: 30px;
-		}
-		a {
-			padding: 10px;
-			color: black;
-			font-size: 20px;
-		}
-	</style>
-
-	<div class="">
-		<h1>Royal Palace BETA V1.0.0</h1>
-		<a href="{{path('app_profile')}}">Mon profil</a>
-		<br/>
-		<a href="{{path('app_chambre_category')}}">Voir la liste des chambres</a>
-		<br/>
-		<a href="{{path('app_reservation')}}">Reserver une chambres</a>
-		<br/>
 		<a href={{path('app_admin')}}>Admin</a>
+		<a href="{{path('app_chambre_category')}}">Voir la liste des chambres</a>
+		<a href="{{path('app_ca')}}">CA</a>
+    <div class="title">
+    <img src="Images/titre.png" alt="titre">
 
-	</div>
+    </div>
+
 {% endblock %}

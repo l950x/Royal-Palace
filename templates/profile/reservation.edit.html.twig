@@ -1,22 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfileController!
+{% block title %} Mes Réservations
 {% endblock %}
 
 {% block body %}
-Ma reservation :
+	<link rel="stylesheet" href="{{ asset('/css/profile/reservationEdit.css') }}">
+<div class="menu">
+<h2>Mes réservations :</h2>
 <br/>
+<div class="numero">
 Chambre numero
 {{ reservation.chambre.id }}
+</div>
 <br/>
-
+<div class="reservation-item">
 {{ form_start(form) }}
-{{ form_row(form.dateEntree) }}
-{{ form_row(form.dateSortie) }}
-{{ form_row(form.submit) }}
+<div class="form-group">
+    {{ form_label(form.dateEntree) }}
+    {{ form_widget(form.dateEntree) }}
+</div>
+<div class="form-group">
+    {{ form_label(form.dateSortie) }}
+    {{ form_widget(form.dateSortie) }}
+</div>
+<div class="form-group">
+    {{ form_widget(form.submit, {'attr': {'class': 'btn1'}}) }}
+</div>
+{{ form_end(form) }}
+
 <br/>
 Prix:
 {{reservation.prix}}
 <br/>
-<a href={{path('app_profile_reservations')}}>Retourner en arrière</a>
+</div>
+
+<a class="btn" href={{path('app_profile_reservations')}}>Retourner en arrière</a>
+</div>
+
+
 <br/ {% endblock %}
