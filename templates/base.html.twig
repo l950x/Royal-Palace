@@ -11,13 +11,13 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"> {% block stylesheets %}{% endblock %}{% block javascripts %}{% endblock %}
 		<link rel="stylesheet" href="{{ asset('assets/style.css') }}">
-		<link rel="stylesheet" href="{{ asset('assets/app.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/toggle.css') }}">
 
 	</head>
         {% block header %}
         <header>
         <div class="liens">
-            <a href="">Découvrez</a>
+            <a href="{{ path('app_confirmation') }}">Découvrez</a>
             <a href="{{ path('app_reservation') }}">Réservez</a>
         </div>
         <div class="logo">
