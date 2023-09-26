@@ -71,6 +71,8 @@ class PaiementController extends AbstractController
                         ->setValidite(0);
                     $entityManager->persist($reservation);
                     $entityManager->flush();
+                    $reservationId = $reservation->getId();
+                    $session->set('reservationId', $reservationId);
                 } else {
                     throw $this->createNotFoundException("Y'a déjà une reservation pour cette chambre");
                 }

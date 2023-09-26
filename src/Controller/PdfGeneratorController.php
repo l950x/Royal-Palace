@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class PdfGeneratorController extends AbstractController
 {
-    #[Route('/pdf/generator', name: 'app_pdf_generator')]
+    #[Route('/paiement/facture', name: 'app_pdf_generator')]
     public function index(SessionInterface $session, ReserverRepository $reserverRepository): Response
     {
         // return $this->render('pdf_generator/index.html.twig', [
@@ -20,9 +20,8 @@ class PdfGeneratorController extends AbstractController
         $user = $this->getUser();
 
         $reservation = $reserverRepository->findAll();
-        // On cherche a afficher l'id de la réservation
 
-
+        $nbReservation = $session->get('reservationId');
         $price = $session->get('price');
         $priceFormat = number_format($price, 2, ',', ' ');
         $nbPersonne = $session->get('nbPersonne');
@@ -36,7 +35,7 @@ class PdfGeneratorController extends AbstractController
         $prixTotalFormat = number_format($prixTotal, 2, ',', ' ');
         
         $data = [
-            'nbReservation'=> $reservation,
+            'nbReservation'=> $nbReservation,
             'imageSrc'     => $this->imageToBase64($this->getParameter('kernel.project_dir') . '/public/img/profile.png'),
             'nom'          => $user->getNom(),
             'prenom'       => $user->getPrenom(),
