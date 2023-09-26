@@ -34,8 +34,8 @@ class ReservationController extends AbstractController
             $data = $formReservation->getData();
             $options = [];
 
-            $dateEntree = $data['dateEntree'];
-            $dateSortie = $data['dateSortie'];
+            $dateEntree = $data['arrivee'];
+            $dateSortie = $data['depart'];
             $nbPersonne = $data['nbPersonne'];
 
             $formData = array(

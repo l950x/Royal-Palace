@@ -1,0 +1,73 @@
+.menu {
+    display:flex;
+    flex-direction:column;
+	background-color: rgba(180, 180, 180, 0.7);
+	margin-left:400px;
+    margin-right:400px;     
+    text-align: center;
+	border-radius:10px;
+	padding-bottom:25px;
+	border:goldenrod solid;
+	font-family:verdana;
+    margin-top:100px;
+    margin-bottom:200px;
+}
+
+.menu h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: verdana;
+    text-align: center;
+}
+
+#registration_form_prenom,
+#registration_form_nom,
+#registration_form_adresse,
+#registration_form_email,
+#registration_form_plainPassword{
+
+    width:200px;
+    height: 20px;
+    margin-left:210px;
+    margin-right:210px;
+    margin-top:10px;
+    margin-bottom:10px;
+    border: goldenrod solid;
+    border-radius:5px;
+    font-size:15px;
+}
+.btn{
+		background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	width:100px;
+	height: 50px;
+	border-radius:10px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+	margin-top:15px;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+  transform: scale(1.1);
+}
+
+
+body{
+    background-image: url('../images/piscine.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#registration_form_agreeTerms {
+	content: '';
+	width: 60px;
+	height: 28px;
+	display: inline-block;
+	background: rgba(200, 195, 195, );
+	border-radius: 18px;
+	clear: both;
+}
+

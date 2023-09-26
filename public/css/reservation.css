@@ -5,7 +5,7 @@
 
 
 body {
-	background-image: url('images/décor1.jpg');
+	background-image: url('../images/décor1.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }

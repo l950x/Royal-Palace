@@ -28,8 +28,10 @@
     <button class="btn" type="submit">
         Connexion
     </button>
-    <a href="{{path('connect_google')}}">Se connecter avec Google</a>
-    <a href="">Se connecter avec Facebook</a>
+    Ou
+    </br>
+    Connecter vous avec Google
+    <a class="google" href="{{path('connect_google')}}"><img  src="{{ asset('images/Google.svg.png') }}" alt="Logo"/></a>
     </div>
 </form>
 <style>
@@ -62,6 +64,9 @@
 
 }
 
+.google{
+    padding-left:20px;
+}
 
 h1{
     font-family:Italianno-Regular;

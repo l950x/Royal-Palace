@@ -4,8 +4,9 @@
 
 
 {% block body %}
-<link rel="stylesheet" href="{{ asset('assets/app.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/toggle.css') }}">
 <link rel="stylesheet" href="{{ asset('css/reservation.css') }}">
+
 
 	<h1 class="h1">Réservez</h1>
 
@@ -13,13 +14,13 @@
         {{ form_start(form) }}
 		<div class="booked">
         <div class="form-group">
-            {{ form_label(form.dateEntree) }}
-            {{ form_widget(form.dateEntree, {'attr': {'class': 'form-control'}}) }}
+            {{ form_label(form.arrivee) }}
+            {{ form_widget(form.arrivee, {'attr': {'class': 'form-control'}}) }}
         </div>
 
         <div class="form-group">
-            {{ form_label(form.dateSortie) }}
-            {{ form_widget(form.dateSortie, {'attr': {'class': 'form-control'}}) }}
+            {{ form_label(form.depart) }}
+            {{ form_widget(form.depart, {'attr': {'class': 'form-control'}}) }}
         </div>
 
         <div class="form-group">
@@ -45,5 +46,6 @@
         {{ form_end(form) }}
         <a class="list" href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
     </div>
+
 
 {% endblock %}

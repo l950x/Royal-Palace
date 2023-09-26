@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-    <link rel="icon" href="{{ asset('Images/Logo.png') }}" type="image/png">
-    <link rel="stylesheet" href="{{ asset('/css/home.css') }}">
+
 {% endblock %}
 
 {% block title %}Accueil
 {% endblock %}
 
 {% block body %}
-		<a href={{path('app_admin')}}>Admin</a>
-		<a href="{{path('app_chambre_category')}}">Voir la liste des chambres</a>
-		<a href="{{path('app_ca')}}">CA</a>
-    <div class="title">
-    <img src="Images/titre.png" alt="titre">
+    <link rel="icon" href="{{ asset('Images/Logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
 
-    </div>
+<div class="titre1">
+    <img src="{{ asset('images/titre.png') }}" alt="titre">
+</div>
+
+<style>
+
+</style>
 
 {% endblock %}
