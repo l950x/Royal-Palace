@@ -28,6 +28,10 @@
     <button class="btn" type="submit">
         Connexion
     </button>
+    Ou
+    </br>
+    Connecter vous avec Google
+    <a class="google" href="{{path('connect_google')}}"><img  src="{{ asset('images/Google.svg.png') }}" alt="Logo"/></a>
     </div>
 </form>
 <style>
@@ -57,9 +61,13 @@
     border: goldenrod solid;
     border-radius:5px;
     font-size:15px;
+    margin: 10px auto;
 
 }
 
+.google{
+    padding-left:20px;
+}
 
 h1{
     font-family:Italianno-Regular;
@@ -76,7 +84,7 @@ body{
 .btn{
     width:200px;
     height: 40px;
-    margin-left:213px;
+    margin-left:215px;
     margin-top:20px;
     background-color:#002890;
 	color: white;
@@ -86,6 +94,7 @@ body{
 	transition: background-color 0.2s, color 0.1s;
 	font-family:verdana;
 	font-size:14px;
+    margin:10px auto;
 }
 
 .btn:hover {

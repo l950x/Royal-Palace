@@ -151,27 +151,41 @@ app_admin_user_new:
   methods: ["GET", "POST"]
 
 app_admin_reservation_index:
-    path: /admin/reservation/
-    methods: GET
-    controller: App\Controller\AdminReservationController::index
+  path: /admin/reservation/
+  methods: ["GET", "POST"]
+  controller: App\Controller\AdminReservationController::index
 
 app_admin_reservation_new:
-    path: /admin/reservation/new
-    methods: [GET, POST]
-    controller: App\Controller\AdminReservationController::new
+  path: /admin/reservation/new
+  methods: [GET, POST]
+  controller: App\Controller\AdminReservationController::new
 
 app_admin_reservation_show:
-    path: /admin/reservation/{id}
-    methods: GET
-    controller: App\Controller\AdminReservationController::show
+  path: /admin/reservation/{id}
+  methods: GET
+  controller: App\Controller\AdminReservationController::show
 
 app_admin_reservation_edit:
-    path: /admin/reservation/{id}/edit
-    methods: [GET, POST]
-    controller: App\Controller\AdminReservationController::edit
+  path: /admin/reservation/{id}/edit
+  methods: [GET, POST]
+  controller: App\Controller\AdminReservationController::edit
 
 app_admin_reservation_delete:
-    path: /admin/reservation/{id}
-    methods: POST
-    controller: App\Controller\AdminReservationController::delete
+  path: /admin/reservation/{id}
+  methods: POST
+  controller: App\Controller\AdminReservationController::delete
+  
+app_ca:
+  path: /ca
+  methods: [GET, POST]
+  controller: App\Controller\CAController::index
 
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+autocomplete_address:
+    path: /autocomplete-address
+    controller: App\Controller\RegistrationController::autocompleteAddress

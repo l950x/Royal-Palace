@@ -3,88 +3,12 @@
 {% block title %}Paramètre du compte{% endblock %}
 
 {% block body %}
+<link rel="stylesheet" href="{{ asset('css/profile/edit.css') }}">
 <div class="menu">
     <h1>Paramètre du compte</h1>
 
     {{ include('profile/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a class="list" href="{{ path('app_profile') }}">Retour</a>
+    <a class="bttn4" href="{{ path('app_profile') }}">Retour</a>
 </div>
-    <style>
-    .menu{
-    display:flex;
-    flex-direction:column;
-	background-color: rgba(217, 217, 217, 0.8);
-	margin-left:400px;
-    margin-right:400px;     
-    text-align: center;
-	border-radius:10px;
-	padding-bottom:25px;
-	border:goldenrod solid;
-	font-family:verdana;
-    margin-top:100px;
-    margin-bottom:200px;
-}
-
-.menu input{
-    width:200px;
-    height: 20px;
-    margin-left:210px;
-    margin-right:210px;
-    margin-top:10px;
-    margin-bottom:10px;
-    border: goldenrod solid;
-    border-radius:5px;
-    font-size:15px;
-
-}
-
-h1{
-    font-family:Italianno-Regular;
-    font-size:50px;
-    color:goldenrod;
-}
-
-body{
-    background-image: url('/images/14848683028_4727ac7e6c_b.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-.btn{
-    width:200px;
-    height: 40px;
-    margin-top:20px;
-    background-color:#002890;
-	color: white;
-	border:solid goldenrod;
-	border-radius:10px;
-	margin-bottom:15px;
-	transition: background-color 0.2s, color 0.1s;
-	font-family:verdana;
-	font-size:14px;
-}
-
-.btn:hover {
-  background-color: #2980b9;
-}
-
-.list{
-        width:120px;
-    height: 30px;
-    margin-top:20px;
-    margin-left:255px;
-    background-color:#002890;
-	color: white;
-	border:solid goldenrod;
-	border-radius:10px;
-	margin-bottom:15px;
-	transition: background-color 0.2s, color 0.1s;
-	font-family:verdana;
-	font-size:14px;
-}
-.list:hover{
-	background-color: #2980b9;
-}
-    </style>
 {% endblock %}

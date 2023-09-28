@@ -10,100 +10,79 @@
 	{% for flash_error in app.flashes('verify_email_error') %}
 		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
 	{% endfor %}
+	<link rel="stylesheet" href="{{ asset('css/inscription.css') }}">
+
 	<div class="menu">
 	<h1>Inscription</h1>
 
 	{{ form_errors(registrationForm) }}
 
-	{{ form_start(registrationForm) }}
-	{{ form_row(registrationForm.prenom) }}
-	{{ form_row(registrationForm.nom) }}
-	{{ form_row(registrationForm.adresse) }}
-	{{ form_row(registrationForm.email) }}
-	{{ form_row(registrationForm.plainPassword, {
-            label: 'Mot de passe'
-        }) }}
-	{{ form_row(registrationForm.agreeTerms, {
-            label: 'Accepter les conditions'
-        }) }}
+{{ form_start(registrationForm) }}
+<div class="form-grid">
+    <div class="form-group">
+        <label for="{{ registrationForm.prenom.vars.id }}">Prénom :</label>
+        {{ form_widget(registrationForm.prenom) }}
+    </div>
+    <div class="form-group">
+        <label for="{{ registrationForm.nom.vars.id }}">Nom :</label>
+        {{ form_widget(registrationForm.nom) }}
+    </div>
+    <div class="form-group">
+        <label for="{{ registrationForm.adresse.vars.id }}">Adresse postale :</label>
+        {{ form_widget(registrationForm.adresse) }}
+        <div id="address-suggestions"></div>
+    </div>
+    <div class="form-group">
+        <label for="{{ registrationForm.email.vars.id }}">Email :</label>
+        {{ form_widget(registrationForm.email) }}
+    </div>
+    <div class="form-group">
+        <label for="{{ registrationForm.plainPassword.vars.id }}">Mot de passe :</label>
+        {{ form_widget(registrationForm.plainPassword) }}
+    </div>
+    <div class="form-group">
+        <label for="{{ registrationForm.agreeTerms.vars.id }}">Accepter les conditions :</label>
+        {{ form_widget(registrationForm.agreeTerms) }}
+    </div>
+</div>
 
-	<button type="submit" class="btn">S'inscrire</button>
-	{{ form_end(registrationForm) }}
+<button type="submit" class="btn">S'inscrire</button>
+{{ form_end(registrationForm) }}
+
 	</div>
-	<style>
-	.menu {
-    display:flex;
-    flex-direction:column;
-	background-color: rgba(180, 180, 180, 0.7);
-	margin-left:400px;
-    margin-right:400px;     
-    text-align: center;
-	border-radius:10px;
-	padding-bottom:25px;
-	border:goldenrod solid;
-	font-family:verdana;
-    margin-top:100px;
-    margin-bottom:200px;
-}
+	
+	<script>
+		const addressInput = document.querySelector('.autocomplete-address');
+		const suggestionsDiv = document.getElementById('address-suggestions');
 
-.menu h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    font-family: verdana;
-    text-align: center;
-}
+		addressInput.addEventListener('input', async (event) => {
+			const term = event.target.value;
 
-#registration_form_prenom,
-#registration_form_nom,
-#registration_form_adresse,
-#registration_form_email,
-#registration_form_plainPassword{
+			// Envoyer une requête AJAX pour obtenir des suggestions d'adresse
+			const response = await fetch(`/autocomplete-address?term=${term}`);
+			const data = await response.json();
 
-    width:200px;
-    height: 20px;
-    margin-left:210px;
-    margin-right:210px;
-    margin-top:10px;
-    margin-bottom:10px;
-    border: goldenrod solid;
-    border-radius:5px;
-    font-size:15px;
-}
-.btn{
-		background-color:#002890;
-	color: white;
-	border:solid goldenrod;
-	width:100px;
-	height: 50px;
-	border-radius:10px;
-	transition: background-color 0.2s, color 0.1s;
-	font-family:verdana;
-	font-size:14px;
-	margin-top:15px;
-}
+			// Afficher les suggestions dans la div address-suggestions
+			suggestionsDiv.innerHTML = '';
 
-.btn:hover {
-  background-color: #2980b9;
-  transform: scale(1.1);
-}
+			
 
-
-body{
-    background-image: url('images/piscine.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-#registration_form_agreeTerms {
-	content: '';
-	width: 60px;
-	height: 28px;
-	display: inline-block;
-	background: rgba(200, 195, 195, );
-	border-radius: 18px;
-	clear: both;
-}
-
-
-	</style>
+			if (data.length > 0) {
+				data.forEach((address) => {
+					const suggestionElement = document.createElement('div');
+					suggestionElement.textContent = address;
+					suggestionsDiv.appendChild(suggestionElement);
+				});
+				
+			// Ajoutez un gestionnaire d'événement de clic aux suggestions
+			suggestionsDiv.addEventListener('click', function (event) {
+				if (event.target.tagName === 'DIV') {
+					const selectedAddress = event.target.textContent;
+					addressInput.value = selectedAddress;
+					suggestionsDiv.innerHTML = ''; // Effacez les suggestions une fois la sélection faite
+				}
+			});
+			}
+		});
+	</script>
 {% endblock %}

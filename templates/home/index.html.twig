@@ -1,29 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-    <link rel="icon" href="{{ asset('Images/Logo.png') }}" type="image/png">
+
 {% endblock %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Accueil
+{% endblock %}
 
 {% block body %}
-    <style>
-.title{
-    display: flex;
-    justify-content: center;
-    margin-top: 3%;
-    margin-bottom: 30%;
-    color: #002890;
-}
+    <link rel="icon" href="{{ asset('Images/Logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
 
-.title a{
-    color: #002890;
-}
+<div class="titre1">
+    <img src="{{ asset('images/titre.png') }}" alt="titre">
+</div>
+
+<style>
 
 </style>
-    <div class="title">
-    <img src="Images/titre.png" alt="titre">
-
-    </div>
 
 {% endblock %}

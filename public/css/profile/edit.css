@@ -1,0 +1,78 @@
+.menu{
+    display:flex;
+    flex-direction:column;
+	background-color: rgba(217, 217, 217, 0.8);
+	margin-left:400px;
+    margin-right:400px;     
+    text-align: center;
+	border-radius:10px;
+	padding-bottom:25px;
+	border:goldenrod solid;
+	font-family:verdana;
+    margin-top:100px;
+    margin-bottom:200px;
+}
+
+#user_email,
+#user_plainPassword,
+#user_prenom,
+#user_nom,
+#user_adresse {
+    display: flex;
+    width: 200px;
+    height: 20px;
+    margin: 10px auto; /* Centre horizontalement avec des marges automatiques */
+    border: goldenrod solid;
+    border-radius: 5px;
+    font-size: 15px;
+
+}
+
+h1{
+    font-family:Italianno-Regular;
+    font-size:50px;
+    color:goldenrod;
+}
+
+body{
+    background-image: url('/images/14848683028_4727ac7e6c_b.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.btn{
+    width:200px;
+    height: 40px;
+    margin-top:20px;
+    background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	border-radius:10px;
+	margin-bottom:15px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.bttn4{
+        width:120px;
+    height: 30px;
+    margin-top:20px;
+    margin-left:255px;
+    background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	border-radius:10px;
+	margin-bottom:15px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+    margin: 0 auto;
+}
+.bttn4:hover{
+	background-color: #2980b9;
+}
