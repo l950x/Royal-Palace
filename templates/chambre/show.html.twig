@@ -49,8 +49,13 @@
 			{% if chambre.WifiGratuit == 1 %}
 				<option value="WifiGratuit">Wifi Gratuit</option>
 			{% endif %}
-		</select><br/>
-		<a class="list" href="{{ path('app_paiement', {'edit': 0}) }}">Reserver cette chambre</a>
+		</select>
+		<br/>
+			{% if nonDisponible %}
+				<p class="list" href="">Non disponible</p>
+			{% else %}
+				<a class="list" href="{{ path('app_paiement', {'edit': 0}) }}">Reserver cette chambre</a>
+			{% endif %}
 		<br/>
 		<a class="list" href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
 	</div>
