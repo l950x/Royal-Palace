@@ -11,17 +11,36 @@ body {
 }
 
 
-.reservation-form{
-	background-color: rgba(217, 217, 217, 0.8);
-	margin-left:400px;
-    margin-right:400px;     
-    text-align: end;
-	margin-bottom:50px;
-	border-radius:10px;
-	padding-bottom:25px;
-	border:goldenrod solid;
-	font-family:verdana;
+.reservation-form {
+    background-color: rgba(217, 217, 217, 0.8);
+    margin: 0 auto; /* Centre horizontalement */
+    text-align: center;
+    border-radius: 10px;
+    border: goldenrod solid;
+    font-family: verdana;
+    width: 70%; /* Ajustez la largeur selon vos préférences */
+    max-width: 800px; /* Ajustez la largeur maximale selon vos préférences */
+    padding: 20px;
+	margin-bottom: 30px;
 }
+
+.option {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement */
+    margin: 10px auto;
+}
+
+.option2 label {
+    display: flex;
+    align-items: center; /* Centre horizontalement */
+    width: 100%; /* Prend toute la largeur disponible */
+    justify-content: flex-end; /* Aligner les éléments par la fin (à droite) */
+}
+
+
+
 
 .h1{
 	margin-top:100px;
@@ -30,9 +49,7 @@ body {
 	font-size:80px;
 }
 
-.reservation-form .option{
-	margin-right:250px;
-}
+
 
 .form-group {
 	flex-direction:row;
@@ -50,14 +67,12 @@ body {
 	color: white;
 	border:solid goldenrod;
 	width:100px;
-	height: 40px;
+	height: 50px;
 	border-radius:10px;
-	margin-top:15px;
-	margin-right:250px;
-	margin-bottom:15px;
 	transition: background-color 0.2s, color 0.1s;
 	font-family:verdana;
 	font-size:14px;
+	margin-bottom:15px;
 }
 
 .form-group input{
@@ -73,7 +88,7 @@ body {
 
 .list{
 	text-decoration:none;
-	margin-right:200px;
+	margin:0px auto;
 	color: black;
 }
 

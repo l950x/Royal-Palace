@@ -1,6 +1,6 @@
 *{
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 body{
@@ -11,10 +11,10 @@ background-attachment: fixed;
 }
 
 h1{
-    padding-top:100px;
-    text-align:center;
-    font-family:Italianno-Regular;
-    font-size:50px;
+  padding-top:100px;
+  text-align:center;
+  font-family:Italianno-Regular;
+  font-size:50px;
 }
 
 .chambre {
@@ -29,22 +29,21 @@ padding-bottom:50px;
 border-radius:15px;
 border: goldenrod solid;
 margin-bottom:100px;
-    }
+  }
 
 .info{
 background-color:#002890;
 color: white;
 border:solid goldenrod;
-width:200px;
-text-align:center;
-height: 40px;
+width:150px;
+padding-bottom: 10px;
 border-radius:10px;
-margin-top:15px;
-margin-left:215px;
-margin-bottom:15px;
 transition: background-color 0.2s, color 0.1s;
 font-family:verdana;
 font-size:14px;
+margin-top:15px;
+  text-align: center;
+margin:0 auto;
 }
 
 .info:hover {
@@ -64,17 +63,16 @@ display: flex;
 flex-direction:column;
 justify-content:center;
 margin-right:400px;
-  background-color: #002890;
-  color: white;
-  border: solid goldenrod;
-  width: 180px;
+background-color: #002890;
+color: white;
+border: solid goldenrod;
+width: 180px;
 align-items:end;
-  height: 40px;
+height: 40px;
 margin-bottom:60px;
-  border-radius: 10px;
-  margin: 15px auto; /* Pour centrer verticalement et horizontalement */
-  transition: background-color 0.2s, color 0.1s;
-  font-family: verdana;
-  font-size: 14px;
+border-radius: 10px;
+margin: 15px auto; /* Pour centrer verticalement et horizontalement */
+transition: background-color 0.2s, color 0.1s;
+font-family: verdana;
+font-size: 14px;
 }
-

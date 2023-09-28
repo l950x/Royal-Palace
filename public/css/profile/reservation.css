@@ -29,7 +29,7 @@
     }
 
 
-.btn {
+.bttn {
 	background-color:#002890;
 	color: white;
 	border:solid goldenrod;
@@ -43,9 +43,10 @@
 	transition: background-color 0.2s, color 0.1s;
 	font-family:verdana;
 	font-size:14px;
+    margin: 0 auto;
 }
 
-.btn:hover {
+.bttn:hover {
   background-color: #2980b9;
 }
 

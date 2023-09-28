@@ -27,22 +27,20 @@ body{
 }
 
 
-.list{
-    width:150px;
-    height: 40px;
-    margin-top:20px;
-    margin-left:240px;
-    background-color:#002890;
-	text-align:center;
+.bttn3{
+	background-color:#002890;
 	color: white;
 	border:solid goldenrod;
+	width:150px;
+	padding-bottom: 10px;
 	border-radius:10px;
-	margin-bottom:15px;
 	transition: background-color 0.2s, color 0.1s;
 	font-family:verdana;
 	font-size:14px;
+	margin-top:15px;
+	margin:0 auto;
 }
 
-.list:hover{
+.bttn3:hover{
 	background-color: #2980b9;
 }

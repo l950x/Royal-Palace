@@ -14,7 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Form\PaiementType;
 use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Doctrine\DBAL\Connection;
 
 class ProfileController extends AbstractController
 {
@@ -56,7 +58,7 @@ class ProfileController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $plainPassword = $form->get('plainPassword')->getData();
+            $plainPassword = $form->get('password')->getData();
             if (isset($plainPassword)) {
                 $hashPassword = $passwordHasher->hashPassword($user, $plainPassword);
                 $user->setPassword($hashPassword);
@@ -76,10 +78,11 @@ class ProfileController extends AbstractController
     public function reservations(ReserverRepository $reserverRepository): Response
     {
         $user = $this->getUser();
+        $userId = $user->getId();
+
         if (!$user) {
             return $this->redirectToRoute('app_login');
         }
-        $userId = $user->getId();
 
         $reservations = $reserverRepository->findBy([
             'user' => $userId,
@@ -92,8 +95,6 @@ class ProfileController extends AbstractController
             $reservationEntree[] = $reservation->getDateEntree()->format('Y-m-d');
             $reservationSortie[] = $reservation->getDateSortie()->format('Y-m-d');
         }
-
-        if (count($reservations) > 0) {
             return $this->render('profile/reservations.html.twig', [
                 'controller_name' => 'ProfileController',
                 'user' => $user,
@@ -101,9 +102,6 @@ class ProfileController extends AbstractController
                 'dateEntree' => $reservationEntree,
                 'dateSortie' => $reservationSortie,
             ]);
-        } else {
-            throw $this->createNotFoundException('Aucune réservation disponible (tu as oublié de réserver ?)');
-        }
     }
 
     #[Route('/profile/reservations/{id}', name: 'app_profile_reservations_edit')]
@@ -156,4 +154,26 @@ class ProfileController extends AbstractController
             'form' => $formDates->createView(),
         ]);
     }
+
+    #[Route('/profile/reservations/delete/{id}', name: 'app_profile_reservations_delete')]
+    public function delete(Request $request, Reserver $reserver, EntityManagerInterface $entityManager): Response
+    {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+        
+        if ($this->isCsrfTokenValid('delete' . $reserver->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($reserver);
+            $entityManager->flush();
+        }
+        
+        return $this->render('profile/index.html.twig', [
+            'controller_name' => 'ProfileController',
+            'user' => $user,
+        ]);
+    }
+
+
 }

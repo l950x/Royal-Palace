@@ -35,13 +35,13 @@
 		text-align:center;
     }
 
-    .btn {
+    .bttn1 {
 	background-color:#002890;
 	color: white;
 	border:solid goldenrod;
-	width:200px;
+	width:200px auto;
 	text-align:center;
-	height: 30px;
+	height: 30px auto;
 	border-radius:10px;
 	margin-top:15px;
 	margin-left:215px;
@@ -49,16 +49,16 @@
 	transition: background-color 0.2s, color 0.1s;
 	font-family:verdana;
 	font-size:14px;
+    margin: 0 auto;
 }
 
-.btn:hover {
+.bttn1:hover {
   background-color: #2980b9;
 }
 
 body{
     background-image: url('/images/14848683028_4727ac7e6c_b.jpg');
-    background-position: center center;
-    background-attachment: fixed; 
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 

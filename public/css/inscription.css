@@ -18,26 +18,37 @@
     margin-bottom: 10px;
     font-family: verdana;
     text-align: center;
+	
 }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+
 
 #registration_form_prenom,
 #registration_form_nom,
 #registration_form_adresse,
 #registration_form_email,
-#registration_form_plainPassword{
-
-    width:200px;
+#registration_form_plainPassword {
+    width: 200px;
     height: 20px;
-    margin-left:210px;
-    margin-right:210px;
-    margin-top:10px;
-    margin-bottom:10px;
+    margin: 10px auto; /* Centre horizontalement avec des marges automatiques */
     border: goldenrod solid;
-    border-radius:5px;
-    font-size:15px;
+    border-radius: 5px;
+    font-size: 15px;
 }
+
 .btn{
-		background-color:#002890;
+	background-color:#002890;
 	color: white;
 	border:solid goldenrod;
 	width:100px;
@@ -65,6 +76,7 @@ body{
 	content: '';
 	width: 60px;
 	height: 28px;
+	margin: 10px auto;
 	display: inline-block;
 	background: rgba(200, 195, 195, );
 	border-radius: 18px;

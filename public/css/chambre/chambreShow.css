@@ -13,7 +13,8 @@
     margin-bottom:200px;
 		}
 
-select {
+#options {
+    display: flex;
 	margin-left:220px;
     width: 200px; /* Définissez la largeur souhaitée */
     padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
@@ -22,6 +23,7 @@ select {
     font-size: 16px; /* Définissez la taille de la police */
     background-color:#002890;
     color: white;
+    margin: 0 auto;
 }
 
 body{
@@ -31,11 +33,11 @@ body{
 }
 
 
-.list{
-    width:190px;
+.bttn5{
+    width:200px;
     height: 30px;
     margin-top:20px;
-    margin-left:223px;
+    margin-left:255px;
     background-color:#002890;
 	color: white;
 	border:solid goldenrod;
@@ -44,7 +46,8 @@ body{
 	transition: background-color 0.2s, color 0.1s;
 	font-family:verdana;
 	font-size:14px;
+    margin: 0 auto;
 }
-.list:hover{
+.bttn5:hover{
 	background-color: #2980b9;
 }

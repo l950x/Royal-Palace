@@ -30,20 +30,29 @@
 		</div>
         <div class="option">
             <h3>Options</h3>
-            {{ form_row(form.option, {'label': 'Vue sur mer'}) }}
-            {{ form_row(form.option2, {'label': 'Chaînes à la carte'}) }}
-            {{ form_row(form.option3, {'label': 'Climatisation'}) }}
-            {{ form_row(form.option4, {'label': 'Télévision à écran plat'}) }}
-            {{ form_row(form.option5, {'label': 'Téléphone'}) }}
-            {{ form_row(form.option6, {'label': 'Chaînes satellite'}) }}
-            {{ form_row(form.option7, {'label': 'Chaînes du câble'}) }}
-            {{ form_row(form.option8, {'label': 'Coffre fort'}) }}
-            {{ form_row(form.option9, {'label': 'Wi-Fi Gratuit'}) }}
-            {{ form_row(form.option10, {'label': 'Matériel de repassage'}) }}
+            <div class="option2">{{ form_row(form.option, {'label': 'Vue sur mer :'}) }}</div>
+            <div class="option2">{{ form_row(form.option2, {'label': 'Chaînes à la carte :'}) }}</div>
+            <div class="option2">{{ form_row(form.option3, {'label': 'Climatisation :'}) }}</div>
+            <div class="option2">{{ form_row(form.option4, {'label': 'Télévision à écran plat :'}) }}</div>
+            <div class="option2">{{ form_row(form.option5, {'label': 'Téléphone :'}) }}</div>
+            <div class="option2">{{ form_row(form.option6, {'label': 'Chaînes satellite :'}) }}</div>
+            <div class="option2">{{ form_row(form.option7, {'label': 'Chaînes du câble :'}) }}</div>
+            <div class="option2">{{ form_row(form.option8, {'label': 'Coffre fort :'}) }}</div>
+            <div class="option2">{{ form_row(form.option9, {'label': 'Wi-Fi Gratuit :'}) }}</div>
+            <div class="option2">{{ form_row(form.option10, {'label': 'Matériel de repassage :'}) }}</div>
         </div>
+
 
         <button type="submit" class="btn-primary">Rechercher</button>
         {{ form_end(form) }}
+                {% if error %}
+            <div class="">
+            <p>
+                {{ error }}
+            </p>
+            <a href="{{path('app_chambre_category')}}">Voir la liste des chambres</a>
+            </div>
+        {% endif %}
         <a class="list" href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
     </div>
 

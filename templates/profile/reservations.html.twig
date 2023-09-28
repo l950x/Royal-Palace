@@ -4,10 +4,14 @@
 {% endblock %}
 
 {% block body %}
-	<link rel="stylesheet" href="{{ asset('/css/profile/reservation.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/profile/reservation.css') }}">
 
 	<div class="menu">
     <h2>Mes réservations :</h2>
+
+{% if reservations %}
+
+
 
     {% for i, reservation in reservations %}
         <div class="reservation-item">
@@ -18,8 +22,15 @@
 		</div>
 
 
-            <a class="btn" href="{{ path('app_profile_reservations_edit', {'id': reservation.id}) }}">Modifier ma réservation</a>
+            <a class="bttn" href="{{ path('app_profile_reservations_edit', {'id': reservation.id}) }}">Modifier ma réservation</a>
         
     {% endfor %}
+    
+    {% else %}
+    <div class="reservation-item">
+        <p>Aucune reservation disponible</p>
+        <a href="{{ path('app_reservation')}}">Reserver une chambre</a
+    </div>
+{% endif %}
 </div>
 {% endblock %}

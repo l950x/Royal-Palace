@@ -20,12 +20,32 @@ class ReservationController extends AbstractController
     #[Route('/reservation', name: 'app_reservation')]
     public function index(Request $request, ChambreRepository $chambreRepository, Connection $connection, ReserverRepository $reserverRepository, SessionInterface $session, EntityManagerInterface $entityManager): Response
     {
+        $today = new \DateTimeImmutable();
+        $today = $today->format('Y-m-d');
+        $dql = "SELECT * FROM reserver WHERE date_sortie <= '$today' ";
+        // $dql = "SELECT * FROM reserver WHERE date_sortie <= :today";
+        $ansReservation = $connection->executeQuery($dql)->fetchAll();
+
+        foreach ($ansReservation as $reservationData) {
+            $reservations = $reserverRepository->findBy([
+                'id' => $reservationData['id'],
+            ]);
+
+            if ($reservations) {
+                foreach ($reservations as $reservation) {
+                    $reservation->setValidite(1);
+                    $entityManager->persist($reservation);
+                }
+            }
+        }
+        $entityManager->flush();
+
         $session->set('price', null);
         $session->set('dateEntree', null);
         $session->set('dateSortie', null);
         $session->set('nbPersonne', null);
         $session->set('chambreId', null);
-        //set les sessions a 0 pour eviter les problemes
+        $session->set('preChambre', null);
 
         $formReservation = $this->createForm(ReservationType::class);
         $formReservation->handleRequest($request);
@@ -50,7 +70,6 @@ class ReservationController extends AbstractController
                 "WifiGratuit" => $data['option9'],
                 "MaterielDeRepassage" => $data['option10']
             );
-            //tableau avec toute les option 0 et 1
 
             foreach ($formData as $key => $value) {
                 if ($value) {
@@ -58,72 +77,49 @@ class ReservationController extends AbstractController
                 }
             }
 
-            //on recupere que les 1 dans $options (que ceux que le user a choisis)
-
-            // $randomChambre = $entityManager->getRepository(Chambre::class)->findAvailableChambres($formData, $dateEntree, $dateSortie);
             $chambres = $chambreRepository->findBy($options);
 
-
-
-            $today = new \DateTimeImmutable();
-            $today = $today->format('Y-m-d');
-            $dql = "SELECT * FROM reserver WHERE date_sortie <= '$today' "; // on recup les reservations terminé
-            $ansReservation = $connection->executeQuery($dql)->fetchAll();
-
-            foreach ($ansReservation as $reservationData) {
-                $reservations = $reserverRepository->findBy([
-                    'id' => $reservationData['id'],
-                ]);
-
-                if ($reservations) {
-                    foreach ($reservations as $reservation) {
-                        $reservation->setValidite(1);
-                        $entityManager->persist($reservation);
-                    }
-                }
-            }
-            $entityManager->flush();
-
-
-            //on recupere les chambres avec au moins les options que le user a choisis
-
             if ($chambres) {
+                $i = 0;
                 do {
                     $chamb = $chambres[array_rand($chambres)];
                     $id = $chamb->getId();
-
                     $reserver = $reserverRepository->findOneBy([
                         'chambre' => $id,
                         'validite' => 0
                     ]);
-                } while ($reserver);
+                    $i++;
+                } while ($reserver && $i < 5);
 
-                //prend une chambre au pif ($chamb) et cherche si elle est déjà reserver, tant que $reserver n'est pas null ça cherche une autre chambre
-
-                $session->set('price', $chamb->getTarif());
                 $session->set('dateEntree', $dateEntree);
                 $session->set('dateSortie', $dateSortie);
                 $session->set('nbPersonne', $nbPersonne);
+                $session->set('price', $chamb->getTarif());
                 $session->set('chambreId', $id);
 
-                //set les infos de la chambre et du form en sessions 
+            } else {
+
+                $session->set('dateEntree', $dateEntree);
+                $session->set('dateSortie', $dateSortie);
+                $session->set('nbPersonne', $nbPersonne);
+                return $this->render('reservation/index.html.twig', [
+                    'controller_name' => 'ReservationController',
+                    'form' => $formReservation,
+                    'error' => 'Aucune chambre disponible pour ces options',
+                ]);
+                
+            }
 
                 return $this->redirectToRoute('app_chambre_show', [
                     'id' => $id,
-
                 ]);
 
-                //on affiche la chambre que le programme a choisis (it's lit)
-
-
-            } else {
-                throw $this->createNotFoundException('Aucune chambre disponible (Check la db)');
-            }
         }
 
         return $this->render('reservation/index.html.twig', [
             'controller_name' => 'ReservationController',
             'form' => $formReservation,
+            'error' => null,
         ]);
     }
 }
