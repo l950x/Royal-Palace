@@ -25,6 +25,8 @@ class ChambreController extends AbstractController
         // $session->set('dateEntree', null);
         // $session->set('dateSortie', null);
         $session->set('chambreId', null);
+        $session->set('preChambre', null);
+
         // $session->set('nbPersonne', null);
 
         $id = $request->attributes->get('id');
@@ -90,6 +92,7 @@ class ChambreController extends AbstractController
     public function show(ReserverRepository $reserverRepository,Chambre $chambre, Session $session): Response
     {
         $session->set('preChambre', $chambre->getId());
+
         $nonDisponible = false;
         
         $reserver = $reserverRepository->findOneBy([

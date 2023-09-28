@@ -33,6 +33,8 @@ class PaiementController extends AbstractController
 
         if ($preChambre) {
             $chambreId = $preChambre;
+            $chambre = $chambreRepository->find($chambreId);
+            $session->set('price',$chambre->getTarif());
         } else {
             $chambreId = $session->get('chambreId');
         }
@@ -119,6 +121,7 @@ class PaiementController extends AbstractController
             'dateEntree' => $dateEntreeFormat,
             'dateSortie' => $dateSortieFormat,
             'price' => $prixTotal,
+            'numero' => $chambreId,
         ]);
     }
 }
