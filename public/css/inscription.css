@@ -39,6 +39,7 @@
 #registration_form_adresse,
 #registration_form_email,
 #registration_form_plainPassword {
+	display: flex;
     width: 200px;
     height: 20px;
     margin: 10px auto; /* Centre horizontalement avec des marges automatiques */
