@@ -14,28 +14,27 @@ class ReservationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('arrivee', DateType::class, [
-                'widget' => 'single_text',
-                'html5' => true, // Activer l'option HTML5
-                'data' => new \DateTimeImmutable(),
-                'required' => true,
-            ])
-        
-        
-            ->add('depart', DateType::class, [
-                'widget' => 'single_text',
-                'html5' => true, // Activer l'option HTML5
-                'data' => new \DateTimeImmutable(),
-                'required' => true,
-            ])
-            ->add('nbPersonne', ChoiceType::class, [
-                'choices' => [
-                    '1 personne' => 1,
-                    '2 personnes' => 2,
-                    '3 personnes' => 3,
-                    '4 personnes' => 4,
-                ],
-                'required' => true,
+        ->add('arrivee', DateType::class, [
+            'widget' => 'single_text',
+            'html5' => true, // Activer l'option HTML5
+            'data' => new \DateTimeImmutable(),
+            'required' => true,
+        ])
+    
+        ->add('depart', DateType::class, [
+            'widget' => 'single_text',
+            'html5' => true, // Activer l'option HTML5
+            'data' => new \DateTimeImmutable(),
+            'required' => true,
+        ])
+        ->add('nbPersonne', ChoiceType::class, [
+            'choices' => [
+                '1 personne' => 1,
+                '2 personnes' => 2,
+                '3 personnes' => 3,
+                '4 personnes' => 4,
+            ],
+            'required' => true,
                 'attr' => [
                     'class' => 'menu2',
                 ],

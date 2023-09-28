@@ -57,8 +57,10 @@ class ProfileController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $plainPassword = $form->get('plainPassword')->getData();
-            $hashPassword = $passwordHasher->hashPassword($user, $plainPassword);
-            $user->setPassword($hashPassword);
+            if (isset($plainPassword)) {
+                $hashPassword = $passwordHasher->hashPassword($user, $plainPassword);
+                $user->setPassword($hashPassword);
+            }
             $entityManager->flush();
 
             return $this->redirectToRoute('app_profile', [], Response::HTTP_SEE_OTHER);
@@ -88,8 +90,8 @@ class ProfileController extends AbstractController
         $reservationSortie = [];
 
         foreach ($reservations as $reservation) {
-            $reservationEntree[] = $reservation->getDateEntree()->format('d-m-Y');
-            $reservationSortie[] = $reservation->getDateSortie()->format('d-m-Y');
+            $reservationEntree[] = $reservation->getDateEntree()->format('Y-m-d');
+            $reservationSortie[] = $reservation->getDateSortie()->format('Y-m-d');
         }
 
         if (count($reservations) > 0) {
@@ -101,7 +103,7 @@ class ProfileController extends AbstractController
                 'dateSortie' => $reservationSortie,
             ]);
         } else {
-            throw $this->createNotFoundException('Aucune réservation disponible (Vous avez oublié de réserver ?)');
+            throw $this->createNotFoundException('Aucune réservation disponible (tu as oublié de réserver ?)');
         }
     }
 
@@ -153,7 +155,6 @@ class ProfileController extends AbstractController
             'user' => $user,
             'reservation' => $reservation,
             'form' => $formDates->createView(),
-
         ]);
     }
 }

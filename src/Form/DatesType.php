@@ -18,6 +18,8 @@ class DatesType extends AbstractType
                 'input' => 'datetime_immutable',
                 'format' => 'yyyy-MM-dd',
                 'required' => true,
+                // 'data' => new \DateTimeImmutable(),
+
             ])
 
             ->add('dateSortie', DateType::class, [
@@ -25,6 +27,8 @@ class DatesType extends AbstractType
                 'input' => 'datetime_immutable',
                 'format' => 'yyyy-MM-dd',
                 'required' => true,
+                // 'data' => new \DateTimeImmutable(),
+
             ])
 
             ->add('submit', SubmitType::class, [

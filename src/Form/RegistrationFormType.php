@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -20,7 +21,13 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('prenom')
             ->add('nom')
-            ->add('adresse')
+            ->add('adresse', TextType::class, [
+                'required' => false,
+                'label' => 'Adresse postale',
+                'attr' => [
+                    'class' => 'autocomplete-address'
+                ],
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'attr' => [
@@ -32,7 +39,6 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller

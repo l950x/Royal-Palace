@@ -42,19 +42,22 @@ body{
       background-color:grey;
   }
   
-  .list{
-      background-color:#002890;
-      color: white;
-      border:solid goldenrod;
-      width:200px;
-      text-align:center;
-      height: 30px;
-      border-radius:10px;
-      margin-top:15px;
-      margin-left:215px;
-      margin-bottom:15px;
-      transition: background-color 0.2s, color 0.1s;
-      font-family:verdana;
-      font-size:14px;
+  .btn6{
+	background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	width:150px;
+	padding-bottom: 10px;
+	border-radius:10px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+	margin-top:15px;
+    text-align: center;
+	margin:0 auto;
+  }
+
+  .btn6:hover{
+	background-color: #2980b9;
   }
   

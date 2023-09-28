@@ -12,10 +12,12 @@ class AdminController extends AbstractController
     public function index(): Response
     {
         $user = $this->getUser();
-
-        if (!$user) {
+        
+        if (!$user || !$this->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('app_login');
         }
+
+        //["ROLE_USER","ROLE_ADMIN","ROLE_EMPLOYE"]
 
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',

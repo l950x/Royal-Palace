@@ -64,19 +64,19 @@ class Reserver
         return $this;
     }
 
-    public function getDateEntree(): ?\DateTimeInterface
+    public function getDateEntree(): ?\DateTimeImmutable
     {
         return $this->dateEntree;
     }
 
-    public function setDateEntree(\DateTimeInterface $dateEntree): static
+    public function setDateEntree(\DateTimeImmutable $dateEntree): static
     {
         $this->dateEntree = $dateEntree;
 
         return $this;
     }
 
-    public function getDateSortie(): ?\DateTimeInterface
+    public function getDateSortie(): ?\DateTimeImmutable
     {
         return $this->dateSortie;
     }

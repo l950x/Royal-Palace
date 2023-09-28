@@ -41,6 +41,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $adresse = null;
 
+    // #[ORM\Column(length: 255)]
+    // private ?string $googleId = null;
+
     public function __construct()
     {
         $this->Reserver = new ArrayCollection();
@@ -181,4 +184,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    // public function getGoogleId(): ?string
+    // {
+    //     return $this->googleId;
+    // }
+
+    // public function setGoogleId(string $googleId): static
+    // {
+    //     $this->googleId = $googleId;
+
+    //     return $this;
+    // }
 }

@@ -19,7 +19,6 @@ class UserType extends AbstractType
             ->add('plainPassword', TextType::class, [
                 'mapped' => false,
                 'required' => false,
-
             ])
             ->add('prenom', TextType::class, [
                 'required' => false,
@@ -29,6 +28,10 @@ class UserType extends AbstractType
             ])
             ->add('adresse', TextType::class, [
                 'required' => false,
+                'label' => 'Adresse postale',
+                'attr' => [
+                        'class' => 'autocomplete-address'
+                ]
             ]);
     }
 

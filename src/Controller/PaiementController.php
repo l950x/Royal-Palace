@@ -27,13 +27,13 @@ class PaiementController extends AbstractController
 
         $dateEntree = $session->get('dateEntree');
         $dateSortie = $session->get('dateSortie');
-        $dateEntreeFormat = $dateEntree->format('d/m/Y');
-        $dateSortieFormat = $dateSortie->format('d/m/Y');
+        $dateEntreeFormat = $dateEntree->format('Y-m-d');
+        $dateSortieFormat = $dateSortie->format('Y-m-d');
 
         $chambreId = $session->get('chambreId');
         $price = $session->get('price');
         $nbPersonne = $session->get('nbPersonne');
-        $prixTotal = $price * $dateSortie->diff($dateEntree)->days * $nbPersonne;
+        $prixTotal = $price * $dateSortie->diff( $dateEntree)->days * $nbPersonne;
 
         $formPaiement = $this->createForm(PaiementType::class);
         $formPaiement->handleRequest($request);
@@ -41,12 +41,14 @@ class PaiementController extends AbstractController
         if ($formPaiement->isSubmitted() && $formPaiement->isValid()) {
 
             $data = $formPaiement->getData();
+
+
             // $dateEntree = $data['dateEntree'];
             // $dateSortie = $data['dateSortie'];
             // $dateEntree = \DateTimeImmutable::createFromMutable($dateEntree);
             // $dateSortie = \DateTimeImmutable::createFromMutable($dateSortie);
-            $dateEntreeFormat = $dateEntree->format('d/m/Y');
-            $dateSortieFormat = $dateSortie->format('d/m/Y');
+            $dateEntreeFormat = $dateEntree->format('Y-m-d');
+            $dateSortieFormat = $dateSortie->format('Y-m-d');
             $chambre = $chambreRepository->find($chambreId);
 
             if (!$chambre) {
@@ -69,6 +71,11 @@ class PaiementController extends AbstractController
                         ->setValidite(0);
                     $entityManager->persist($reservation);
                     $entityManager->flush();
+                    $reservationId = $reservation->getId();
+                    $session->set('reservationId', $reservation->getId());
+                
+
+                    
                 } else {
                     throw $this->createNotFoundException("Y'a déjà une reservation pour cette chambre");
                 }
@@ -80,6 +87,7 @@ class PaiementController extends AbstractController
                     'price' => $prixTotal,
                     'chambre' => $chambreId,
                     'edit' => $edit,
+                    'reservationId' => $reservationId,
                 ]);
             } else { // si edit = 1 :
                 $reservation = $reserverRepository->findOneBy([

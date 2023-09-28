@@ -32,19 +32,18 @@ margin-bottom:100px;
     }
 
 .info{
-background-color:#002890;
-color: white;
-border:solid goldenrod;
-width:200px;
-text-align:center;
-height: 40px;
-border-radius:10px;
-margin-top:15px;
-margin-left:215px;
-margin-bottom:15px;
-transition: background-color 0.2s, color 0.1s;
-font-family:verdana;
-font-size:14px;
+	background-color:#002890;
+	color: white;
+	border:solid goldenrod;
+	width:150px;
+	padding-bottom: 10px;
+	border-radius:10px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+	margin-top:15px;
+    text-align: center;
+	margin:0 auto;
 }
 
 .info:hover {
