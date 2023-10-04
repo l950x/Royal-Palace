@@ -16,6 +16,7 @@
         "fzaninotto/faker": "^1.5",
         "knpuniversity/oauth2-client-bundle": "^2.15",
         "league/oauth2-google": "^4.0",
+        "stripe/stripe-php": "^12.4",
         "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",

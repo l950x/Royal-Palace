@@ -1,7 +1,9 @@
 <?php
+# src/Security/GoogleAuthenticator.php
 namespace App\Security;
 
-use App\Entity\User; // your user entity
+use App\Entity\User;
+use League\OAuth2\Client\Provider\GoogleUser;
 use Doctrine\ORM\EntityManagerInterface;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use KnpU\OAuth2ClientBundle\Security\Authenticator\OAuth2Authenticator;
@@ -14,13 +16,12 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPassport;
-use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 
-class GoogleAuthenticator extends OAuth2Authenticator implements AuthenticationEntrypointInterface
+class GoogleAuthenticator extends OAuth2Authenticator
 {
-    private $clientRegistry;
-    private $entityManager;
-    private $router;
+    private ClientRegistry $clientRegistry;
+    private EntityManagerInterface $entityManager;
+    private RouterInterface $router;
 
     public function __construct(ClientRegistry $clientRegistry, EntityManagerInterface $entityManager, RouterInterface $router)
     {
@@ -41,40 +42,44 @@ class GoogleAuthenticator extends OAuth2Authenticator implements AuthenticationE
         $accessToken = $this->fetchAccessToken($client);
 
         return new SelfValidatingPassport(
-            new UserBadge($accessToken->getToken(), function() use ($accessToken, $client) {
-                /** @var googleUser $googleUser */
+            new UserBadge($accessToken->getToken(), function () use ($accessToken, $client) {
+                /** @var GoogleUser $googleUser */
                 $googleUser = $client->fetchUserFromToken($accessToken);
 
                 $email = $googleUser->getEmail();
+                $nom = $googleUser->getLastName();
+                $prenom = $googleUser->getFirstName();
 
-                // 1) have they logged in with Facebook before? Easy!
-                $existingUser = $this->entityManager->getRepository(User::class)->findOneBy(['googleId' => $googleUser->getId()]);
+                // have they logged in with Google before? Easy!
+                $existingUser = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $googleUser->getEmail()]);
 
-                if ($existingUser) {
-                    return $existingUser;
+                //User doesnt exist, we create it !
+                if (!$existingUser) {
+                    $existingUser = new User();
+                    $existingUser->setEmail($email);
+                    $existingUser->setPrenom($prenom);
+                    $existingUser->setNom($nom);
+                    $existingUser->setAdresse('adresse');
+                    $existingUser->setPassword('google');                    // $existingUser->setGoogleId($googleUser->getId());
+                    // $existingUser->setHostedDomain($googleUser->getHostedDomain());
+                    $this->entityManager->persist($existingUser);
                 }
-
-                // 2) do we have a matching user by email?
-                $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
-
-                // 3) Maybe you just want to "register" them by creating
-                // a User object
-                $user->setgoogleId($googleUser->getId());
-                $this->entityManager->persist($user);
+                // $existingUser->setAvatar($googleUser->getAvatar());
                 $this->entityManager->flush();
 
-                return $user;
+                return $existingUser;
             })
         );
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        // change "app_homepage" to some route in your app
-        $targetUrl = $this->router->generate('app_home');
 
-        return new RedirectResponse($targetUrl);
-    
+        // change "app_dashboard" to some route in your app
+        return new RedirectResponse(
+            $this->router->generate('app_home')
+        );
+
         // or, on success, let the request continue to be handled by the controller
         //return null;
     }
@@ -85,16 +90,15 @@ class GoogleAuthenticator extends OAuth2Authenticator implements AuthenticationE
 
         return new Response($message, Response::HTTP_FORBIDDEN);
     }
-    
-   /**
-     * Called when authentication is needed, but it's not sent.
-     * This redirects to the 'login'.
-     */
-    public function start(Request $request, AuthenticationException $authException = null): Response
-    {
-        return new RedirectResponse(
-            '/connect/', // might be the site, where users choose their oauth provider
-            Response::HTTP_TEMPORARY_REDIRECT
-        );
-    }
+
+//    public function start(Request $request, AuthenticationException $authException = null): Response
+//    {
+//        /*
+//         * If you would like this class to control what happens when an anonymous user accesses a
+//         * protected page (e.g. redirect to /login), uncomment this method and make this class
+//         * implement Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface.
+//         *
+//         * For more details, see https://symfony.com/doc/current/security/experimental_authenticators.html#configuring-the-authentication-entry-point
+//         */
+//    }
 }

@@ -80,6 +80,7 @@ class ReservationController extends AbstractController
             $chambres = $chambreRepository->findBy($options);
 
             if ($chambres) {
+                
                 $i = 0;
                 do {
                     $chamb = $chambres[array_rand($chambres)];
@@ -90,6 +91,17 @@ class ReservationController extends AbstractController
                     ]);
                     $i++;
                 } while ($reserver && $i < 5);
+                
+                if ($reserver) { //double check pour être sur de tomber sur une chambre disponible
+                    $session->set('dateEntree', $dateEntree);
+                    $session->set('dateSortie', $dateSortie);
+                    $session->set('nbPersonne', $nbPersonne);
+                    return $this->render('reservation/index.html.twig', [
+                        'controller_name' => 'ReservationController',
+                        'form' => $formReservation,
+                        'error' => 'Aucune chambre disponible pour ces options',
+                    ]);
+                }
 
                 $session->set('dateEntree', $dateEntree);
                 $session->set('dateSortie', $dateSortie);
