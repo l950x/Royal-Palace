@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Découvrez{% endblock %}
+
+{% block body %}
+	<link rel="stylesheet" href="{{ asset('/css/decouvrez.css') }}">
+
+<h1 class="entete" >Découvrez notre hôtel</h1>
+
+<div class="picture-container">
+    <div class="picture1">
+        <a href="https://www.thermesdespa.com"><img src="{{ asset('images/spa.jpg') }}" alt="Spa"></a>
+        <p class="describe">Détendez-vous dans nos espaces de détente venus des quatre coins du monde</p>
+    </div>
+
+    <div class="picture1">
+        <a href="https://www.burgerking.fr"><img src="{{ asset('images/bouffe.jpg') }}" alt="Bouffe"></a>
+        <p class="describe">Notre restaurant est tenu par un grand chef français</p>
+    </div>
+    
+    <div class="picture1">
+        <a href="https://quaidesbananes.fr"><img src="{{ asset('images/bar.jpg') }}" alt="Bar"></a>
+        <p class="describe">Découvrez nos spécialités en matière de cocktail et de vin.</p>
+    </div>
+</div>
+<div class="spacer"></div>
+
+<h2 class="entete">Notre Partenaire</h2>
+<div class="picture2">
+    <a href="https://acm.mc"><img  src="{{ asset('images/Grand_Prix.jpg') }}" alt="Grand Prix"></a>
+</div>
+{% endblock %}

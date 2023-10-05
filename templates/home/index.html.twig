@@ -12,11 +12,43 @@
     <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
 
 <div class="titre1">
-    <img src="{{ asset('images/titre.png') }}" alt="titre">
-</div>
-<a href="{{path('app_admin')}}">Admin</a>
-<style>
 
-</style>
+    <img src="{{ asset('images/titre.png') }}" alt="titre">
+    
+</div>
+
+<div class="slider-container">
+    <div class="menu1">
+        <label for="slide-dot-1"></label>
+        <label for="slide-dot-2"></label>
+        <label for="slide-dot-3"></label>
+    </div>
+
+    <input class="slide-input" id="slide-dot-1" type="radio" name="slides" checked>
+    <img class="slide-img" src="{{ asset('Images/ville.jpeg') }}">
+
+    <input class="slide-input" id="slide-dot-2" type="radio" name="slides">
+    <img class="slide-img" src="{{ asset('Images/colonnade.jpeg') }}" >
+
+    <input class="slide-input" id="slide-dot-3" type="radio" name="slides">
+    <img class="slide-img" src="{{ asset('Images/cantoche.jpeg') }}">
+</div>
+<div class="haricot">
+    <div class="haricot2">
+        <a href="{{ path('app_reservation') }}"><img src="{{ asset('images/receptionniste.jpeg') }}" alt="Logo"></a>
+        <p>Réservez</p>
+    </div>
+    
+    <div class="haricot2">
+        <a href="https://acm.mc"><img src="{{ asset('images/sponsor.jpg') }}" alt="Logo"></a>
+        <p>Notre partenaire</p>
+    </div>
+    
+    <div class="haricot2">
+        <a href="https://www.burgerking.fr"><img src="{{ asset('images/bouffe2.jpg') }}" alt="Logo"></a>
+        <p>Notre restaurant</p>
+    </div>
+</div>
+
 
 {% endblock %}

@@ -1,0 +1,98 @@
+@font-face {
+    font-family: "Italianno-Regular";
+    src: url('Fonts/Italianno-Regular.ttf') format('truetype');
+}
+
+.entete{
+    margin-top:50px;
+	text-align:center;
+	font-family:Italianno-Regular;
+	font-size:80px;
+    color: goldenrod;
+}
+
+
+.picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permettre le passage à la ligne des éléments si nécessaire */
+}
+
+.picture1 {
+    text-align: center;
+    margin: 10px;
+    flex: 1; /* Pour que chaque élément occupe une part égale de l'espace disponible */
+}
+
+.picture1 img {
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    height: 350px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border: 4px solid goldenrod;
+    border-radius: 10px;
+}
+
+.picture1 img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    border: 5px solid goldenrod;
+}
+
+.picture1 img:active {
+    transform: scale(0.8);
+}
+
+.describe {
+    margin-top: 30px;
+    font-family: Italianno-Regular;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.spacer {
+    margin-left:50px;
+    margin-right:50px;
+    height: 1px;
+    background-color:grey;
+}
+
+.picture2 {
+    text-align: center;
+    margin: 10px;
+    flex: 1; /* Pour que chaque élément occupe une part égale de l'espace disponible */
+}
+
+.picture2 img {
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    height: 650px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border: 4px solid goldenrod;
+    border-radius: 10px;
+}
+
+.picture2 img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    border: 5px solid goldenrod;
+}
+
+.picture2 img:active {
+    transform: scale(0.3);
+}
+
+.describe2 {
+    padding-left: 450px; /* Utilisation d'unités relatives (em) pour la largeur de la marge */
+    padding-right: 450px;
+    text-align: justify; 
+    margin-top: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    text-indent: 0; /* Retirer le retrait négatif pour aligner les premières lettres */
+    line-height: 2.0; /* Modifier l'espacement des interlignes (1.5 signifie 1.5 fois la hauteur de ligne) */
+    margin: 10px auto;
+}
+

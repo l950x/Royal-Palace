@@ -21,7 +21,7 @@
     border: goldenrod solid; /* Ajoutez une bordure */
     border-radius: 5px; /* Ajoutez des coins arrondis */
     font-size: 16px; /* Définissez la taille de la police */
-    background-color:#002890;
+    background-color:#183456;
     color: white;
     margin: 0 auto;
 }
@@ -38,7 +38,7 @@ body{
     height: 30px;
     margin-top:20px;
     margin-left:255px;
-    background-color:#002890;
+    background-color:#183456;
 	color: white;
 	border:solid goldenrod;
 	border-radius:10px;

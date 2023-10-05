@@ -9,7 +9,7 @@
     padding-bottom:50px;
     border-radius:15px;
     border: goldenrod solid;
-    margin-bottom:200px;
+    margin-bottom: 16% ;
 }
 
 .menu h2 {
@@ -30,12 +30,12 @@
 
 
 .bttn {
-	background-color:#002890;
+	background-color:#183456;
 	color: white;
 	border:solid goldenrod;
-	width:200px;
+	width:200px ;
 	text-align:center;
-	height: 30px;
+	height: 30px auto;
 	border-radius:10px;
 	margin-top:15px;
 	margin-left:225px;
@@ -43,7 +43,8 @@
 	transition: background-color 0.2s, color 0.1s;
 	font-family:verdana;
 	font-size:14px;
-    margin: 0 auto;
+    margin: 10px auto;
+    padding-bottom: 2%;
 }
 
 .bttn:hover {

@@ -63,7 +63,7 @@ body {
 }
 
 .btn-primary{
-	background-color:#002890;
+	background-color:#183456;
 	color: white;
 	border:solid goldenrod;
 	width:100px;
@@ -81,7 +81,7 @@ body {
     border: goldenrod solid;
     border-radius:5px;
     font-size:15px;
-    background-color:#002890;
+    background-color:#183456;
     color: white;
 }
 
@@ -106,6 +106,6 @@ body {
     border: 3px goldenrod solid; /* Ajoutez une bordure */
     border-radius: 5px; /* Ajoutez des coins arrondis */
     font-size: 16px; /* Définissez la taille de la police */
-    background-color:#002890;
+    background-color:#183456;
     color: white;
 }

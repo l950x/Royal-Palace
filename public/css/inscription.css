@@ -39,7 +39,6 @@
 #registration_form_adresse,
 #registration_form_email,
 #registration_form_plainPassword {
-	display: flex;
     width: 200px;
     height: 20px;
     margin: 10px auto; /* Centre horizontalement avec des marges automatiques */
@@ -49,7 +48,7 @@
 }
 
 .btn{
-	background-color:#002890;
+	background-color:#183456;
 	color: white;
 	border:solid goldenrod;
 	width:100px;

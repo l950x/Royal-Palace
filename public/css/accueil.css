@@ -1,7 +1,101 @@
+@font-face {
+    font-family: "Italianno-Regular";
+    src: url('../Fonts/Italianno-Regular.ttf') format('truetype');
+}
+
 .titre1 {
     display: flex;
-    justify-content:center;
-    margin-top: 30px;
-    margin-bottom: 30%;
-    color: #002890;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    padding-bottom: 2%;
+    padding-top: 30px;
+    background-color: #183456;
+    color: goldenrod;
+    max-width: 1300px;
+    margin: 0 auto; /* Pour centrer horizontalement le conteneur lui-même */
+}
+
+
+
+img {
+    max-width: 100%;
+}
+
+.slider-container {
+    max-width: 1300px;
+    position: relative;
+    margin: auto;
+    height: 800px;
+    overflow: hidden;
+}
+.menu1 {
+    position: absolute;
+    left: 0;
+    z-index: 11;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+.menu1 label {
+    cursor: pointer;
+    display: inline-block;
+    width: 50px;
+    height: 10px;
+    background: goldenrod;
+    border-radius: 50px;
+    
+}
+.menu1 label:hover,.menu1 label:focus {
+    background: #183456;
+}
+.slide-input{
+    opacity: 0;
+}
+.slide-img {
+    width: 100%;
+    height: 90%; /* Ajustez la hauteur souhaitée ici */
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 10;
+    transition: left 0s 0.75s;
+    border-top: solid #183456;
+    border-bottom: solid #183456; 
+}
+
+[id^="slide"]:checked + .slide-img {
+    left: 0;
+    z-index: 100;
+    transition: left 0.65s ease-out;
+}
+
+.haricot{
+    display: flex;
+    justify-content: space-around; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    padding-bottom: 2%;
+    padding-top: 30px;
+    margin-top: 10%;
+    background-color: #183456;
+    color: goldenrod;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.haricot2 {
+    text-align: center; /* Centrer le contenu horizontalement */
+}
+
+.haricot2 img {
+    width: 150px; /* Ajuster la largeur des images */
+    height: auto; /* Maintenir le rapport hauteur/largeur d'origine */
+    border-radius: 50%;
+    border: solid goldenrod;
+
+}
+
+.haricot2 p {
+    margin-top: 10px; /* Ajouter un espace entre l'image et le texte */
+    font-family: "Italianno-Regular";
+    font-size: 30px;
 }
