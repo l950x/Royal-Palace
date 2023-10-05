@@ -189,3 +189,7 @@ controllers:
 autocomplete_address:
     path: /autocomplete-address
     controller: App\Controller\RegistrationController::autocompleteAddress
+
+discovery_page:
+    path: /decouverte
+    controller: App\Controller\DiscoveryController::discover

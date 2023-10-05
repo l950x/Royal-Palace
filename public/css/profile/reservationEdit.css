@@ -36,7 +36,7 @@
     }
 
     .bttn1 {
-	background-color:#002890;
+	background-color:#183456;
 	color: white;
 	border:solid goldenrod;
 	width:200px auto;
@@ -63,7 +63,7 @@ body{
 }
 
 .btn1{
-    background-color:#002890;
+    background-color:#183456;
 	color: white;
 	border:solid goldenrod;
 	width:200px;
@@ -83,7 +83,7 @@ body{
     border: goldenrod solid; /* Ajoutez une bordure */
     border-radius: 5px; /* Ajoutez des coins arrondis */
     font-size: 16px; /* Définissez la taille de la police */
-        background-color:#002890;
+        background-color:#183456;
     color: white;
 }
 
@@ -93,7 +93,7 @@ body{
     border: goldenrod solid; /* Ajoutez une bordure */
     border-radius: 5px; /* Ajoutez des coins arrondis */
     font-size: 16px; /* Définissez la taille de la police */
-        background-color:#002890;
+        background-color:#183456;
     color: white;
 }
 
@@ -103,7 +103,7 @@ body{
     border: goldenrod solid; /* Ajoutez une bordure */
     border-radius: 5px; /* Ajoutez des coins arrondis */
     font-size: 16px; /* Définissez la taille de la police */
-    background-color:#002890;
+    background-color:#183456;
     color: white;
 }
 
@@ -113,7 +113,7 @@ body{
     border: goldenrod solid; /* Ajoutez une bordure */
     border-radius: 5px; /* Ajoutez des coins arrondis */
     font-size: 16px; /* Définissez la taille de la police */
-        background-color:#002890;
+        background-color:#183456;
     color: white;
 }
 
@@ -123,7 +123,7 @@ body{
     border: 1px goldenrod solid; /* Ajoutez une bordure */
     border-radius: 5px; /* Ajoutez des coins arrondis */
     font-size: 16px; /* Définissez la taille de la police */
-    background-color:#002890;
+    background-color:#183456;
     color: white;
 }
 
@@ -133,12 +133,12 @@ body{
     border: goldenrod solid; /* Ajoutez une bordure */
     border-radius: 5px; /* Ajoutez des coins arrondis */
     font-size: 16px; /* Définissez la taille de la police */
-        background-color:#002890;
+        background-color:#183456;
     color: white;
 }
 
 #dates_submit{
-    background-color:#002890;
+    background-color:#183456;
 	color: white;
 	border:solid goldenrod;
 	width:110px;

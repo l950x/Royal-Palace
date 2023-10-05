@@ -3,6 +3,7 @@
     src: url('../Fonts/Italianno-Regular.ttf') format('truetype');
 }
 
+
 header {
     display: flex;
     flex-direction: row;
@@ -10,7 +11,7 @@ header {
     position: sticky;
     left: 0;
     top: 0;
-    background-color: #002890;
+    background-color: #183456;
     height: 80px;
     padding: 0 30px;
     margin: 0px;
@@ -47,12 +48,13 @@ body {
     overflow-x: hidden;
 }
 
+
 footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    background-color: #002890;
+    background-color: #183456;
     padding: 0 30px;
     color: #fff;
     border-top: 5px solid goldenrod;

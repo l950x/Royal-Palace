@@ -4,7 +4,6 @@
 }
 
 
-
 .menu{
     display:flex;
     flex-direction:column;
@@ -17,12 +16,14 @@
     border-radius:15px;
     border: goldenrod solid;
     margin-bottom:100px;
+    cursor: url('/fil_rouge/public/images/nuage2.png'), auto;
     
 }
 
 .welcome{
-    font-family:verdana bold;
+    font-family:Verdana;
     text-align:center;
+    font-weight: bold;
 }
 
 .link {
