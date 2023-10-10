@@ -1,79 +1,85 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-body{
-background-image: url('/images/hall.jpg');
-background-repeat: no-repeat;
-background-position: center center;
-background-attachment: fixed; 
+body {
+  background-image: url("/images/hall.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
-h1{
-    padding-top:100px;
-    text-align:center;
-    font-family:Italianno-Regular;
-    font-size:50px;
+h1 {
+  /* padding-top:100px; */
+  text-align: center;
+  font-family: Italianno-Regular;
+  font-size: 50px;
 }
 
 .chambre {
-display:flex;
-flex-direction:column;
-justify-content:center;
-margin-top:60px;
-background-color:#D9D9D9;
-margin-left:400px;
-margin-right:400px;
-padding-bottom:50px;
-border-radius:15px;
-border: goldenrod solid;
-margin-bottom:100px;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
+  background-color: #d9d9d9;
+  margin-left: 400px;
+  margin-right: 400px;
+  padding: 10px;
+  border-radius: 15px;
+  border: goldenrod solid;
+  /* margin-bottom:100px; */
+}
 
-.info{
-	background-color:#002890;
-	color: white;
-	border:solid goldenrod;
-	width:150px;
-	padding-bottom: 10px;
-	border-radius:10px;
-	transition: background-color 0.2s, color 0.1s;
-	font-family:verdana;
-	font-size:14px;
-	margin-top:15px;
-    text-align: center;
-	margin:0 auto;
+.info {
+  text-decoration: none;
+  background-color: #002890;
+  color: white;
+  border: solid goldenrod;
+  /* width:150px; */
+  /* padding-bottom: 10px; */
+  border-radius: 10px;
+  transition: background-color 0.2s, color 0.1s;
+  font-family: verdana;
+  font-size: 14px;
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+  padding: 5px;
 }
 
 .info:hover {
-color: goldenrod;
-transform: scale(1.07);
+  color: goldenrod;
+  transform: scale(1.07);
 }
 .chambre p,
 .chambre {
-font-family:verdana;
-font-size:20px;
-text-align:center;
+  font-family: verdana;
+  font-size: 20px;
+  text-align: center;
 }
 
 /* Supprimez les propriétés flexbox de la classe .back */
 .back {
-display: flex;
-flex-direction:column;
-justify-content:center;
-margin-right:400px;
-  background-color: #183456;
-  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 400px;
   border: solid goldenrod;
   width: 180px;
-align-items:end;
+  align-items: center;
   height: 40px;
-margin-bottom:60px;
+  margin-bottom: 60px;
   border-radius: 10px;
   margin: 15px auto; /* Pour centrer verticalement et horizontalement */
   transition: background-color 0.2s, color 0.1s;
   font-family: verdana;
+  background-color: #183456;
   font-size: 14px;
 }
 
+.back a {
+  text-decoration: none;
+  color: white;
+}

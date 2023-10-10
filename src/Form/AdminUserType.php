@@ -17,6 +17,7 @@ class AdminUserType extends AbstractType
             ->add('password')
             ->add('prenom')
             ->add('nom')
+            ->add('adresse')
             ->add('roles', ChoiceType::class, [
                 'choices' => [
                     'Admin' => 'ROLE_ADMIN',
@@ -25,8 +26,12 @@ class AdminUserType extends AbstractType
                 ],
                 'multiple' => true, 
                 'expanded' => true, 
-            ])
-            ->add('adresse');
+                'choice_attr' => function($choice, $key, $value) {
+                    // Vous pouvez définir des attributs HTML personnalisés ici pour chaque choix
+                    return ['class' => 'cm-toggle blue'];
+                },
+            ]);
+            
     }
 
     public function configureOptions(OptionsResolver $resolver): void

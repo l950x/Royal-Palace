@@ -11,17 +11,14 @@
 
 {% if reservations %}
 
-
-
     {% for i, reservation in reservations %}
+        <hr/>
         <div class="reservation-item">
             Chambre numéro: {{ reservation.chambre.id }}<br>
             Entrée: {{ dateEntree[i] }}<br>
             Sortie: {{ dateSortie[i] }}<br>
             Prix: {{ reservation.prix }}<br>
         </div>
-
-
             <a class="bttn" href="{{ path('app_profile_reservations_edit', {'id': reservation.id}) }}">Modifier ma réservation</a>
         
     {% endfor %}

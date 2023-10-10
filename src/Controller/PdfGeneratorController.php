@@ -36,7 +36,7 @@ class PdfGeneratorController extends AbstractController
         
         $data = [
             'nbReservation'=> $nbReservation,
-            'imageSrc'     => $this->imageToBase64($this->getParameter('kernel.project_dir') . '/public/images/profile.png'),
+            'imageSrc'     => $this->imageToBase64($this->getParameter('kernel.project_dir') . '/public/images/logo.png'),
             'nom'          => $user->getNom(),
             'prenom'       => $user->getPrenom(),
             'adresse'      => $user->getAdresse(),

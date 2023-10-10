@@ -7,11 +7,11 @@
     background-color: rgba(217, 217, 217, 0.8);
     margin-left: 400px;
     margin-right: 400px;
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
     border-radius: 15px;
     border: goldenrod solid;
-    margin-bottom: 100px;
-    padding-bottom: 150px;
+    /* margin-bottom: 100px; */
+    /* padding-bottom: 150px; */
 }
 
 .menu h1 {
@@ -34,11 +34,11 @@
     font-family: verdana;
     text-align: center;
     margin: 5px;
-		margin-left:35px;
+	margin-left:35px;
 }
 
 #paiement_submit{
-		background-color:#183456;
+	background-color:#183456;
 	color: white;
 	border:solid goldenrod;
 	width:100px;

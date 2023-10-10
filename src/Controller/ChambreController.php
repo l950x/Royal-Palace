@@ -92,7 +92,7 @@ class ChambreController extends AbstractController
     public function show(ReserverRepository $reserverRepository,Chambre $chambre, Session $session): Response
     {
         $session->set('preChambre', $chambre->getId());
-
+        $session->set('error', null);
         $nonDisponible = false;
         
         $reserver = $reserverRepository->findOneBy([

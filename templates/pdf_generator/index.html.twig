@@ -2,21 +2,28 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Resume</title>
+    <title>Facture</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/PDF.css') }}">
 </head>
 <body>
-    <div style="margin: 0 auto;display: block;width: 500px;">
-        <table width="100%" border="1">
-            <tr>
-                <td colspan="2">
-                    <h1>Réservation numéro: {{nbReservation}}</h1>
-                </td>
-            </tr>
+    <div style="margin: 0 auto;display: flex;width: 500px;">
+        <table>
             <tr>
                 <td colspan="2">
                     <img src="{{imageSrc}}" style="width:200px;"> 
                 </td>
             </tr>
+            </br>
+            <h1>Confirmation de paiement</h1>
+    
+            <p>Merci pour votre paiement. Voici les détails de votre réservation :</p>
+            </br>
+            <tr>
+                <td colspan="2">
+                    <h2>Réservation numéro: {{nbReservation}}</h1>
+                </td>
+            </tr>
+            
             <tr>
                 <td>Nom:</td>
                 <td>{{nom}}</td>
@@ -63,5 +70,17 @@
             </tr>
         </table>
     </div>
+    <style>
+    body {
+            display: flex;
+         
+            font-family: Verdana, sans-serif; /* Changer la police ici */
+            text-align:center;
+            align-items:center;
+        }
+    img{
+        padding-left:145px;
+    }
+    </style>
 </body>
 </html>

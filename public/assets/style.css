@@ -21,7 +21,7 @@ header {
     
 }
 
-.liens, a{
+.liens, header a, footer a {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-decoration: none;
     color: white;

@@ -128,10 +128,16 @@ class ReservationController extends AbstractController
 
         }
 
+        if ($session->get('error')) {
+            $error = $session->get('error');
+        } else {
+            $error = null;
+        }
+
         return $this->render('reservation/index.html.twig', [
             'controller_name' => 'ReservationController',
             'form' => $formReservation,
-            'error' => null,
+            'error' => $error,
         ]);
     }
 }

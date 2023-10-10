@@ -17,5 +17,10 @@
 <a class="link" href="{{path('app_profile_edit')}}">Parametre du compte</a>
 <br/>
 <div class="spacer"></div>
+{% if admin %}
+<a class="link" href="{{path('app_admin')}}">Panel admin</a>
+<br/>
+<div class="spacer"></div>
+{% endif %}
 </div>
 {% endblock %}

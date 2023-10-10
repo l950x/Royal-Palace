@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+<div class="formu">
 	<h1>User index</h1>
 
 	<table class="table">
@@ -14,11 +15,12 @@
 				<th>Prenom</th>
 				<th>Nom</th>
 				<th>Adresse</th>
-				<th>actions</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for user in users %}
+			<div>
 				<tr>
 					<td>{{ user.id }}</td>
 					<td>{{ user.email }}</td>
@@ -26,20 +28,92 @@
 					<td>{{ user.nom }}</td>
 					<td>{{ user.adresse }}</td>
 					<td>
-						<a href="{{ path('app_admin_user_show', {'id': user.id}) }}">show</a>
-						<a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">edit</a>
+						<div class="ananas">
+						<a class="pomme" href="{{ path('app_admin_user_show', {'id': user.id}) }}">Voir</a>
+						</br>
+						<a class="pomme" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Modifier</a>
+						</div>
 					</td>
 				</tr>
 			{% else %}
 				<tr>
 					<td colspan="8">no records found</td>
 				</tr>
+			</div>
 			{% endfor %}
 		</tbody>
 	</table>
 
-	<a href="{{ path('app_admin_user_new') }}">Create new</a>
+	<div class="banane">
+	<a class="poire" href="{{ path('app_admin_user_new') }}">Créer nouveau</a>
 	<br/>
-	<a href={{path('app_admin')}}>Retour</a>
+	<a class="poire" href={{path('app_admin')}}>Retour</a>
+	</div>
+</div>
 
+<style>
+.formu{
+    display:flex;
+    flex-direction:column;
+	background-color: rgba(180, 180, 180, 0.8);
+	margin-left:300px;
+    margin-right:300px;     
+    text-align: center;
+	border-radius:10px;
+	padding-bottom:25px;
+	border:goldenrod solid;
+	font-family:verdana;
+    margin-top:100px;
+    margin-bottom:200px;  
+}
+
+body{
+    background-image: url('/images/facade.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed; 
+}
+
+.spacer {
+    margin-left:50px;
+    margin-right:50px;
+    height: 1px;
+    background-color:grey;
+}
+
+table {
+    border-collapse: collapse; /* Pour fusionner les bordures de cellules */
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ccc; /* Ajoute une bordure inférieure de 1 pixel avec une couleur grise */
+}
+
+.pomme{
+	color:#183456;
+}
+
+.poire {
+    display: flex;
+    flex-direction: row;
+	justify-content:center;
+    background-color: #183456;
+    color: white;
+    width: 80px;
+    height: 40px; /* Ajustez la hauteur souhaitée */
+    border: solid goldenrod;
+    border-radius: 10px;
+    transition: background-color 0.2s, color 0.1s;
+    font-family: verdana;
+    font-size: 14px;
+    margin: 10px auto; /* Centre horizontalement le bouton */
+    align-items: center; /* Centre verticalement le contenu */
+    justify-content: center; /* Centre horizontalement le contenu */
+    text-align: center; /* Centre le texte horizontalement */
+    padding: 0; /* Supprime les paddings */
+}
+</style>
 {% endblock %}

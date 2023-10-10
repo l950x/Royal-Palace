@@ -1,32 +1,80 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!
+{% block title %}Paramètres admin
 {% endblock %}
 
 {% block body %}
 	<div class="adm">
-		<a href={{path('app_admin_reservation_index')}}>Reservation</a>
-		<a href={{path('app_admin_user_index')}}>User</a>
-		<a href={{path('app_admin_chambre_index')}}>Chambre</a>
+		<a class="link" href={{path('app_admin_reservation_index')}}>Reservation</a>
+		<br/>
+		<div class="spacer"></div>
+		<a class="link" href={{path('app_admin_user_index')}}>User</a>
+		<br/>
+		<div class="spacer"></div>
+		<a class="link" href={{path('app_admin_chambre_index')}}>Chambre</a>
+		<br/>
+		<div class="spacer"></div>
+		<div class="bttn7"><a  href={{path('app_home')}}>Retour</a></div>
 	</div>
-	<a href={{path('app_home')}}>Retour</a>
+	
 
 
 	<style>
-		.adm {
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			background-color: cyan;
-			height: 50%;
-			width: 50%;
-			margin: auto;
-		}
-		a {
-			padding: 10px;
-			color: black;
-			font-size: 20px;
-		}
+	.adm {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-top:100px;
+    background-color: rgba(180, 180, 180, 0.8);
+    margin-left:400px;
+    margin-right:400px;
+    padding-bottom:50px;
+    border-radius:15px;
+    border: goldenrod solid;
+    margin-bottom:100px;
+	}
+
+	body{
+    background-image: url('/images/facade.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	}
+
+	.adm a {
+	padding: 10px;
+	color: black;
+	font-size: 20px;
+	}
+
+	.link {
+    justify-content:center;
+    margin-top:50px;
+    text-decoration:none;
+    font-family:verdana;
+    text-align:center;
+    color:black;
+}
+
+.spacer {
+    margin-left:50px;
+    margin-right:50px;
+    height: 1px;
+    background-color:grey;
+}
+
+.bttn7 a{
+	display: flex;
+	background-color:#183456;
+	color: white;
+	border:solid goldenrod;
+	width:50px;
+	height: 20px;
+	border-radius:10px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+	margin-top:15px;
+	margin: 10px auto;
+}
 	</style>
 {% endblock %}

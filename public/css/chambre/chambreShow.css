@@ -1,53 +1,73 @@
 .chambre {
-    display:flex;
-    flex-direction:column;
-	background-color: rgba(217, 217, 217, 0.8);
-	margin-left:400px;
-    margin-right:400px;     
-    text-align: center;
-	border-radius:10px;
-	padding-bottom:25px;
-	border:goldenrod solid;
-	font-family:verdana;
-    margin-top:100px;
-    margin-bottom:200px;
-		}
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(217, 217, 217, 0.8);
+  margin-left: 400px;
+  margin-right: 400px;
+  text-align: center;
+  border-radius: 10px;
+  padding-bottom: 25px;
+  border: goldenrod solid;
+  font-family: verdana;
+  margin-top: 100px;
+  margin-bottom: 200px;
+}
 
 #options {
-    display: flex;
-	margin-left:220px;
-    width: 200px; /* Définissez la largeur souhaitée */
-    padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
-    border: goldenrod solid; /* Ajoutez une bordure */
-    border-radius: 5px; /* Ajoutez des coins arrondis */
-    font-size: 16px; /* Définissez la taille de la police */
-    background-color:#183456;
-    color: white;
-    margin: 0 auto;
+  display: flex;
+  margin-left: 220px;
+  width: 200px; /* Définissez la largeur souhaitée */
+  padding: 10px; /* Ajoutez un espacement interne pour une meilleure apparence */
+  border: goldenrod solid; /* Ajoutez une bordure */
+  border-radius: 5px; /* Ajoutez des coins arrondis */
+  font-size: 16px; /* Définissez la taille de la police */
+  background-color: #183456;
+  color: white;
+  margin: 0 auto;
 }
 
-body{
-    background-image: url('/images/hall.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
+body {
+  background-image: url("/images/hall.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-
-.bttn5{
-    width:200px;
-    height: 30px;
-    margin-top:20px;
-    margin-left:255px;
-    background-color:#183456;
-	color: white;
-	border:solid goldenrod;
-	border-radius:10px;
-	margin-bottom:15px;
-	transition: background-color 0.2s, color 0.1s;
-	font-family:verdana;
-	font-size:14px;
-    margin: 0 auto;
+.bttn5 {
+  width: 200px;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 255px;
+  background-color: #183456;
+  color: white;
+  border: solid goldenrod;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: background-color 0.2s, color 0.1s;
+  font-family: verdana;
+  font-size: 14px;
+  margin: 0 auto;
 }
-.bttn5:hover{
+.bttn5:hover {
+  background-color: #2980b9;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid goldenrod;
+  align-items: center;
+  border-radius: 10px;
+  margin: 15px auto; /* Pour centrer verticalement et horizontalement */
+  transition: background-color 0.2s, color 0.1s;
+  font-family: verdana;
+  background-color: #183456;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.list:hover{
 	background-color: #2980b9;
-}
+  }

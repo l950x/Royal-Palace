@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "Italianno-Regular";
+    src: url('Fonts/Italianno-Regular.ttf') format('truetype');
+}
+
+.melon{
+    margin-top:100px;
+	text-align:center;
+	font-family:Italianno-Regular;
+	font-size:80px;
+}
+
+.pomelo{
+    
+}
+
+.raisin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 100px;
+    background-color: rgba(217, 217, 217, 0.8);
+    margin-left: 400px;
+    margin-right: 400px;
+    padding-bottom: 50px;
+    border-radius: 15px;
+    border: goldenrod solid;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: 20px;
+}
+
+body {
+    background-image: url('/images/hall.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.poire {
+    display: flex;
+    flex-direction: row;
+	justify-content:center;
+    background-color: #183456;
+    color: white;
+    width: 200px;
+    height: 40px; /* Ajustez la hauteur souhaitée */
+    border: solid goldenrod;
+    border-radius: 10px;
+    transition: background-color 0.2s, color 0.1s;
+    font-family: verdana;
+    font-size: 14px;
+    margin: 10px auto; /* Centre horizontalement le bouton */
+    align-items: center; /* Centre verticalement le contenu */
+    justify-content: center; /* Centre horizontalement le contenu */
+    text-align: center; /* Centre le texte horizontalement */
+    padding: 0; /* Supprime les paddings */
+}
+
+.coconut{
+    margin-bottom: 200px;
+}

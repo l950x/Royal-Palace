@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+<div class="formu">
 	<h1>Chambre</h1>
 
 	<table class="table">
@@ -68,9 +69,87 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('app_admin_chambre_index') }}">back to list</a>
+	<div class="banane">
+	<a class="poire" href="{{ path('app_admin_chambre_index') }}">Retour</a>
 
-	<a href="{{ path('app_admin_chambre_edit', {'id': chambre.id}) }}">edit</a>
-
+	<a class="poire" href="{{ path('app_admin_chambre_edit', {'id': chambre.id}) }}">Modifier</a>
+	</div>
 	{{ include('admin_chambre/_delete_form.html.twig') }}
+</div>
+	    <style>
+.formu{
+    display:flex;
+    flex-direction:column;
+	background-color: rgba(180, 180, 180, 0.8);
+	margin-left:400px;
+    margin-right:400px;     
+    text-align: center;
+	border-radius:10px;
+	padding-bottom:25px;
+	border:goldenrod solid;
+	font-family:verdana;
+    margin-top:100px;
+    margin-bottom:200px;  
+}
+
+body{
+    background-image: url('/images/facade.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed; 
+}
+
+.spacer {
+    margin-left:50px;
+    margin-right:50px;
+    height: 1px;
+    background-color:grey;
+}
+
+table {
+    border-collapse: collapse; /* Pour fusionner les bordures de cellules */
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ccc; /* Ajoute une bordure inférieure de 1 pixel avec une couleur grise */
+}
+
+.btn{
+    display: flex;
+	background-color:#183456;
+	color: white;
+	border:solid goldenrod;
+	width:90px;
+	height: 30px;
+	border-radius:10px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+	margin-top:15px;
+	margin: 10px auto;
+}
+
+.poire {
+    display: flex;
+    flex-direction: row;
+	justify-content:center;
+    background-color: #183456;
+    color: white;
+    width: 80px;
+    height: 40px; /* Ajustez la hauteur souhaitée */
+    border: solid goldenrod;
+    border-radius: 10px;
+    transition: background-color 0.2s, color 0.1s;
+    font-family: verdana;
+    font-size: 14px;
+    margin: 10px auto; /* Centre horizontalement le bouton */
+    align-items: center; /* Centre verticalement le contenu */
+    justify-content: center; /* Centre horizontalement le contenu */
+    text-align: center; /* Centre le texte horizontalement */
+    padding: 0; /* Supprime les paddings */
+}
+</style>
 {% endblock %}

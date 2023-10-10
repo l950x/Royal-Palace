@@ -43,11 +43,12 @@ body{
   }
   
   .btn6{
+    text-decoration: none;
 	background-color:#183456;
 	color: white;
 	border:solid goldenrod;
 	width:150px;
-	padding-bottom: 10px;
+	/* padding-bottom: 10px; */
 	border-radius:10px;
 	transition: background-color 0.2s, color 0.1s;
 	font-family:verdana;
@@ -55,6 +56,7 @@ body{
 	margin-top:15px;
     text-align: center;
 	margin:0 auto;
+    padding: 5px;
   }
 
   .btn6:hover{

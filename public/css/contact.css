@@ -1,0 +1,31 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    padding: 10px;
+    text-align: center;
+}
+
+.form {
+    background-color: #183456;
+    border-radius: 5px;
+    width: 15%;
+    margin: auto;
+    padding: 10px;
+    margin-top: 5%;
+}
+
+form input,textarea {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+form button {
+    width: 50%;
+    margin: auto;
+}
+
+form ::placeholder {
+    text-align: center;
+}

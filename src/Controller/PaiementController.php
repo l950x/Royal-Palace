@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Form\ReservationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,8 +28,20 @@ class PaiementController extends AbstractController
         $preChambre = $session->get('preChambre');
         $dateEntree = $session->get('dateEntree');
         $dateSortie = $session->get('dateSortie');
-        $dateEntreeFormat = $dateEntree->format('Y-m-d');
-        $dateSortieFormat = $dateSortie->format('Y-m-d');
+
+        if (isset($dateEntree)) {
+            $dateEntreeFormat = $dateEntree->format('Y-m-d');
+            $dateSortieFormat = $dateSortie->format('Y-m-d');
+            $session->set('error', null);
+        } else {
+        $session->set('error', 'Une erreur est survenue lors de la réservation, veuillez réssayer');
+        $formReservation = $this->createForm(ReservationType::class);
+        $formReservation->handleRequest($request);
+            return $this->redirectToRoute('app_reservation', [
+                'controller_name' => 'ReservationController',
+                'form' => $formReservation,
+            ]);        
+        }
 
         if ($preChambre) {
             $chambreId = $preChambre;

@@ -1,13 +1,102 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}Modifier Utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
+<div class="formu">
+    <h1>Modifier Utilisateur</h1>
 
-    {{ include('admin_user/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_user/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
-    <a href="{{ path('app_admin_user_index') }}">back to list</a>
+    <a class="poire" href="{{ path('app_admin_user_index') }}">Retour</a>
 
     {{ include('admin_user/_delete_form.html.twig') }}
+</div>
+    <style>
+.formu{
+    display:flex;
+    flex-direction:column;
+	background-color: rgba(180, 180, 180, 0.8);
+	margin-left:400px;
+    margin-right:400px;     
+    text-align: center;
+	border-radius:10px;
+	padding-bottom:25px;
+	border:goldenrod solid;
+	font-family:verdana;
+    margin-top:200px;
+    margin-bottom:200px;  
+}
+
+body{
+    background-image: url('/images/facade.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed; 
+}
+
+.poire {
+    display: flex;
+    flex-direction: row;
+	justify-content:center;
+    background-color: #183456;
+    color: white;
+    width: 80px;
+    height: 40px; /* Ajustez la hauteur souhaitée */
+    border: solid goldenrod;
+    border-radius: 10px;
+    transition: background-color 0.2s, color 0.1s;
+    font-family: verdana;
+    font-size: 14px;
+    margin: 10px auto; /* Centre horizontalement le bouton */
+    align-items: center; /* Centre verticalement le contenu */
+    justify-content: center; /* Centre horizontalement le contenu */
+    text-align: center; /* Centre le texte horizontalement */
+    padding: 0; /* Supprime les paddings */
+}
+
+.btn{
+    display: flex;
+	background-color:#183456;
+	color: white;
+	border:solid goldenrod;
+	width:90px;
+	height: 30px;
+	border-radius:10px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+	margin-top:15px;
+	margin: 10px auto;
+}
+
+#admin_user_email,
+#admin_user_password,
+#admin_user_prenom,
+#admin_user_nom,
+#admin_user_adresse{
+        width: 200px;
+    height: 20px;
+    margin: 10px auto; /* Centre horizontalement avec des marges automatiques */
+    border: goldenrod solid;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.required{
+    display: flex;
+    flex-direction: column;
+}
+
+#admin_user_roles{
+	content: '';
+	width: 60px;
+	height: 28px;
+	margin: 10px auto;
+	display: inline-block;
+	background: rgba(200, 195, 195, );
+	border-radius: 18px;
+	clear: both;
+}
+</style>
 {% endblock %}

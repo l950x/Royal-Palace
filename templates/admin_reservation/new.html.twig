@@ -1,11 +1,89 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Reserver{% endblock %}
+{% block title %}Nouvelle réservation{% endblock %}
 
 {% block body %}
-    <h1>Create new Reserver</h1>
+
+<div class="formu">
+    <h1 class="welcome">Créer une nouvelle réservation</h1>
 
     {{ include('admin_reservation/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_reservation_index') }}">back to list</a>
+    <div class="notuob"><a href="{{ path('app_admin_reservation_index') }}">Retour</a></div>
+</div>
+<style>
+
+.formu{
+    display:flex;
+    flex-direction:column;
+	background-color: rgba(180, 180, 180, 0.8);
+	margin-left:400px;
+    margin-right:400px;     
+    text-align: center;
+	border-radius:10px;
+	padding-bottom:25px;
+	border:goldenrod solid;
+	font-family:verdana;
+    margin-top:200px;
+    margin-bottom:200px;  
+}
+
+.required{
+    font-family:verdana;
+}
+
+.welcome{
+    font-family:Verdana;
+    text-align:center;
+    font-weight: bold;
+}
+
+#form_NombreDeReservation{
+    width: 200px;
+    height: 20px;
+    margin: 10px auto; /* Centre horizontalement avec des marges automatiques */
+    border: goldenrod solid;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.notuob a {
+	text-decoration: none;
+	color: white;
+}
+.notuob{
+	display: flex;
+	background-color:#183456;
+	color: white;
+	border:solid goldenrod;
+	width:80px;
+	height: 20px;
+	border-radius:10px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+	margin-top:15px;
+	margin: 10px auto;
+}
+
+.btn{
+    display: flex;
+	background-color:#183456;
+	color: white;
+	border:solid goldenrod;
+	width:90px;
+	height: 30px;
+	border-radius:10px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+	margin-top:15px;
+	margin: 10px auto;
+}
+
+	body{
+    background-image: url('/images/facade.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	}
+</style>
 {% endblock %}
