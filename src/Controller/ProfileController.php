@@ -173,9 +173,16 @@ class ProfileController extends AbstractController
             $entityManager->flush();
         }
         
+        $admin = null;
+
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $admin = 1;
+        }
+
         return $this->render('profile/index.html.twig', [
             'controller_name' => 'ProfileController',
             'user' => $user,
+            'admin' => $admin,
         ]);
     }
 

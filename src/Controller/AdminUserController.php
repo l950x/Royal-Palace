@@ -34,14 +34,14 @@ class AdminUserController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager,Connection $connection, UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $faker = Factory::create();
-        $form = $this->createFormBuilder()->add('NbChambre')->getForm();
+        $form = $this->createFormBuilder()->add('NbUser')->getForm();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
             $data = $form->getData();
-            $nb = $data['NbChambre'];
+            $nb = $data['NbUser'];
             $connection->executeQuery('DELETE FROM reserver');
             $connection->executeQuery('DELETE FROM user');
 

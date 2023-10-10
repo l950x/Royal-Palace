@@ -28,7 +28,7 @@ class PaiementType extends AbstractType
                 'label' => 'Numéro de carte',
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez entrer le numéro de carte']),
-                    // new CardScheme(['schemes' => ['VISA', 'MASTERCARD'], 'message' => 'Le numéro de carte n\'est pas valide']),
+                    new CardScheme(['schemes' => ['VISA', 'MASTERCARD'], 'message' => 'Le numéro de carte n\'est pas valide']),
                 ],
             ])
             ->add('validite', DateType::class, [
