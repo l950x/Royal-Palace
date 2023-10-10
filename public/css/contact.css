@@ -5,7 +5,11 @@ form {
     padding: 10px;
     text-align: center;
 }
-
+.h1{
+	text-align:center;
+	font-family:Italianno-Regular;
+	font-size:40px;
+}
 .form {
     background-color: #183456;
     border-radius: 5px;

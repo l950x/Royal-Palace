@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CGUController!{% endblock %}
+
+{% block body %}
+<h1 class="carpaccio">Conditions Générales d'Utilisation (CGU) de l'Hôtel Le Royal Palace</h1>
+
+</br>
+
+<div class="kiwi">
+<p>**1. Acceptation des CGU**</p>
+<p>En accédant au site web de l'Hôtel Le Royal Palace, en effectuant une réservation ou en utilisant nos services, vous acceptez les présentes Conditions Générales d'Utilisation. Veuillez les lire attentivement.</p>
+
+<p>**2. Réservations et Paiements**</p>
+<p>2.1. Toutes les réservations sont sujettes à disponibilité et doivent être confirmées par l'hôtel.</p>
+<p>2.2. Les tarifs et les conditions de paiement sont précisés au moment de la réservation.</p>
+<p>2.3. Les paiements sont sécurisés et traités conformément aux normes de l'industrie.</p>
+
+<p>**3. Annulations et Modifications**</p>
+<p>3.1. Les politiques d'annulation et de modification varient en fonction du type de chambre et de la période de réservation.</p>
+<p>3.2. Toute annulation ou modification doit être faite conformément à nos politiques spécifiques.</p>
+
+<p>**4. Prestations de l'Hôtel**</p>
+<p>4.1. L'Hôtel Le Royal Palace s'efforce de fournir des services de qualité exceptionnelle, mais ne peut garantir l'absence totale d'interruptions ou d'incidents.</p>
+<p>4.2. Nous nous réservons le droit de modifier ou de retirer certains services ou installations sans préavis.</p>
+
+<p>**5. Confidentialité et Sécurité**</p>
+<p>5.1. Nous protégeons vos données personnelles conformément à notre Politique de Confidentialité.</p>
+<p>5.2. Vous êtes responsable de la confidentialité de vos informations de réservation et de paiement.</p>
+
+<p>**6. Comportement des Clients**</p>
+<p>6.1. Les clients sont tenus de se comporter de manière respectueuse envers le personnel de l'hôtel et les autres clients.</p>
+<p>6.2. Tout comportement inapproprié peut entraîner l'expulsion sans remboursement.</p>
+
+<p>**7. Responsabilité**</p>
+<p>7.1. L'Hôtel Le Royal Palace décline toute responsabilité pour les pertes, dommages ou vols de biens personnels.</p>
+<p>7.2. Nous ne sommes pas responsables des blessures ou des accidents survenus dans l'enceinte de l'hôtel.</p>
+
+<p>**8. Droits de Propriété Intellectuelle**</p>
+<p>8.1. Le contenu de ce site web est protégé par les lois sur la propriété intellectuelle et ne peut être utilisé à des fins commerciales sans autorisation.</p>
+
+<p>**9. Modifications des CGU**</p>
+<p>9.1. Nous nous réservons le droit de modifier ces CGU à tout moment. Les modifications seront publiées sur notre site web.</p>
+
+<p>**10. Appropriation et allégeance**</p>
+ <p>10.1. En créant un compte ou en utilisant nos services, vous renoncer à l’appartenance de votre corps et de votre âme ainsi vous devez <p>prêter allégeance à la toute puissante Akatsuki.</p>
+
+<p>11. Contact</p>
+<p>Si vous avez des questions concernant ces CGU, veuillez nous contacter à l’adresse RoyalPalace@exemple.com.</p>
+
+<p>L’équipe du Royal Palace</p>
+</div>
+<div class="couronne"><img src="{{ asset('images/Logo 3.png') }}" alt=""></div>
+
+<style>
+.kiwi{
+    font-family:verdana;
+    margin-left:70px;
+    margin-right:70px;
+}
+
+.carpaccio{
+    text-align:center;
+    font-family:verdana;
+    font-size:25px;
+}
+
+.couronne img {
+    max-width: 15%;
+    height: auto;
+    display: block; /* Pour éviter les espaces vides sous l'image */
+    margin: 0 auto; /* Pour centrer horizontalement l'image */
+}
+</style>
+{% endblock %}

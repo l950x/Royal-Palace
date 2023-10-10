@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ConfirmationController!
+{% block title %}Confirmation
 {% endblock %}
 
 {% block body %}
@@ -15,7 +15,9 @@
 			d'avoir modifier votre reservation pour la chambre numero
 			{{ chambre }}
 			au prix de
-			{{ price }}€ pour un sejour du
+			{{ price }}€
+			<br/>
+			pour un sejour du
 			{{ dateEntree }}
 			au
 			{{ dateSortie }}</p>
@@ -23,11 +25,13 @@
 	{% else %}
 	<div class="raisin">
 		<p>Merci
-			{{ user.email }}
+			{{ user.prenom }}
 			d'avoir payer la chambre numero
 			{{ chambre }}
 			au prix de
-			{{ price }}€ pour un sejour du
+			{{ price }}€
+			<br/>
+			pour un sejour du
 			{{ dateEntree }}
 			au
 			{{ dateSortie }}</p>
