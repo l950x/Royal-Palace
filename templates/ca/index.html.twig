@@ -3,17 +3,29 @@
 {% block title %}Hello CAController!{% endblock %}
 
 {% block body %}
+<link rel="stylesheet" href="{{ asset('/css/ca.css') }}">
+<div class="form">
+    {{ form_start(form) }}
+    
+    {{ form_row(form.dateEntree, {
+        'label': 'Date Debut'|trans,
+    }) }}
+    
+    {{ form_row(form.dateSortie, {
+        'label': 'Date Fin'|trans,
+    }) }}
+    
+    {{ form_row(form.submit) }}
+</div>
 
-{{ form_start(form) }}
-{{ form_row(form.dateEntree) }}
-{{ form_row(form.dateSortie) }}
-{{ form_row(form.submit) }}
 <div class="canva">
   <canvas id="myChart"></canvas>
 </div>
+ <p>
+ Total: {{total}}€
+ <p/>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
   const ctx = document.getElementById('myChart');
   new Chart(ctx, {
@@ -35,13 +47,5 @@
     }
   });
 </script>
-Total: {{total}}
-	<style>
-		.canva {
-			height: 20%;
-			width: 20%;
-            /* background-color: cyan; */
-            margin: auto;
-		}
-	</style>
+
 {% endblock %}

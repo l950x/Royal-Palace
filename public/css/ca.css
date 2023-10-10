@@ -1,0 +1,12 @@
+.canva {
+    height: 20%;
+    width: 20%;
+    /* background-color: cyan; */
+    margin: auto;
+}
+
+.form, p {
+    text-align: center;
+    margin: auto;
+    font-size: 20px;
+}
