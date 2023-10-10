@@ -77,6 +77,21 @@ app_confirmation:
   controller: App\Controller\ConfirmationController::index
   methods: ["GET", "POST"]
 
+# cguController
+cgu:
+  path: /cgu
+  controller: App\Controller\CGUController::index
+
+#PolitiqueConfidentialiteController
+politique_confidentialite:
+    path: /politique-confidentialite
+    controller: App\Controller\PolitiqueConfidentialiteController::index
+
+#MentionsLegalesController
+mentions_legales:
+    path: /mentions-legales
+    controller: App\Controller\MentionsLegalesController::index
+
 # HomeController
 app_home:
   path: /

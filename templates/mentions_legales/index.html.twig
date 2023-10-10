@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MentionsLegalesController!{% endblock %}
+
+{% block body %}
+
+<h1 class="carpaccio">Mentions Légales de l'Hôtel Le Royal Palace</h1>
+
+</br>
+
+<div class="kiwi">
+<p>**Coordonnées de l'Hôtel :**</p>
+
+<p>Nom de l'Entreprise : Hôtel Le Royal Palace</p>
+<p>Adresse : 17 Boulevard Albert 1er</p>
+<p>Code Postal : 98000</p>
+<p>Ville : Monaco</p>
+<p>Téléphone : 0123456789</p>
+<p>Adresse e-mail : RoyalPalace@exemple.com</p>
+
+</br>
+
+<p>**Directeur de la Publication :**</p>
+
+<p>Lord Reginald Worthington</p>
+<p>Adresse e-mail : exemple@gmail.com</p>
+
+<p>**Hébergement du Site Web :**</p>
+
+<p>Notre site web est hébergé par OVH</p>
+<p>Adresse : 123 Rue bidon</p>
+<p>Téléphone : 0123456789</p>
+
+</br>
+
+<p>**Propriété Intellectuelle :**</p>
+
+<p>L'ensemble du contenu présent sur ce site web, y compris les textes, images, vidéos et graphiques, est la propriété de l'Hôtel Le Royal Palace ou est utilisé avec autorisation. Toute reproduction, distribution ou utilisation non autorisée est strictement interdite.</p>
+
+
+
+<p>**Données Personnelles :**</p>
+
+<p>Pour en savoir plus sur la collecte et l'utilisation de vos données personnelles, veuillez consulter notre Politique de Confidentialité.</p>
+
+
+
+<p>**Cookies :**</p>
+
+<p>Ce site web utilise des cookies pour améliorer l'expérience de l'utilisateur. Pour plus d'informations sur l'utilisation des cookies, veuillez consulter notre Politique de Cookies.</p>
+
+
+<p>**Loi Applicable :**</p>
+
+<p>Toutes les activités liées à ce site web sont soumises à la loi en vigueur à Monaco.</p>
+
+
+<p>**Contact :**</p>
+
+<p>Pour toute question ou préoccupation concernant ces mentions légales, veuillez nous contacter à l'adresse e-mail RoyalPalace@exemple.com.</p>
+
+<p>L’équipe du Royal Palace</p>
+</div>
+<div class="couronne"><img src="{{ asset('images/Logo 3.png') }}" alt=""></div>
+
+<style>
+.kiwi{
+    font-family:verdana;
+    margin-left:70px;
+    margin-right:70px;
+}
+
+.carpaccio{
+    text-align:center;
+    font-family:verdana;
+    font-size:25px;
+}
+
+.couronne img {
+    max-width: 15%;
+    height: auto;
+    display: block; /* Pour éviter les espaces vides sous l'image */
+    margin: 0 auto; /* Pour centrer horizontalement l'image */
+}
+</style>
+
+{% endblock %}
