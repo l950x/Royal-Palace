@@ -3,11 +3,98 @@
 {% block title %}Edit Reserver{% endblock %}
 
 {% block body %}
+<div class="formu">
     <h1>Edit Reserver</h1>
 
-    {{ include('admin_reservation/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_reservation/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
-    <a href="{{ path('app_admin_reservation_index') }}">back to list</a>
+    <a class="poire" href="{{ path('app_admin_reservation_index') }}">Retour</a>
 
     {{ include('admin_reservation/_delete_form.html.twig') }}
+</div>
+<style>
+.formu{
+    display:flex;
+    flex-direction:column;
+	background-color: rgba(180, 180, 180, 0.8);
+	margin-left:400px;
+    margin-right:400px;     
+    text-align: center;
+	border-radius:10px;
+	padding-bottom:25px;
+	border:goldenrod solid;
+	font-family:verdana;
+    margin-top:200px;
+    margin-bottom:200px;  
+}
+
+body{
+    background-image: url('/images/facade.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed; 
+}
+
+.poire {
+    display: flex;
+    flex-direction: row;
+	justify-content:center;
+    background-color: #183456;
+    color: white;
+    width: 80px;
+    height: 40px; /* Ajustez la hauteur souhaitée */
+    border: solid goldenrod;
+    border-radius: 10px;
+    transition: background-color 0.2s, color 0.1s;
+    font-family: verdana;
+    font-size: 14px;
+    margin: 10px auto; /* Centre horizontalement le bouton */
+    align-items: center; /* Centre verticalement le contenu */
+    justify-content: center; /* Centre horizontalement le contenu */
+    text-align: center; /* Centre le texte horizontalement */
+    padding: 0; /* Supprime les paddings */
+}
+
+.btn{
+    display: flex;
+	background-color:#183456;
+	color: white;
+	border:solid goldenrod;
+	width:90px;
+	height: 30px;
+	border-radius:10px;
+	transition: background-color 0.2s, color 0.1s;
+	font-family:verdana;
+	font-size:14px;
+	margin-top:15px;
+	margin: 10px auto;
+}
+
+#reserver_dateEntree_date_month,
+#reserver_dateEntree_date_day,
+#reserver_dateEntree_date_year,
+#reserver_dateEntree_time_hour,
+#reserver_dateEntree_time_minute,
+#reserver_dateSortie_date_month,
+#reserver_dateSortie_date_day,
+#reserver_dateSortie_date_year,
+#reserver_dateSortie_time_hour,
+#reserver_dateSortie_time_minute,
+#reserver_prix,
+#reserver_validite,
+#reserver_nbPersonne{
+        width: 100px;
+    height: 25px;
+    margin: 10px auto; /* Centre horizontalement avec des marges automatiques */
+    border: goldenrod solid;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.required{
+    display: flex;
+    flex-direction: column;
+}
+
+</style>
 {% endblock %}

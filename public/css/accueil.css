@@ -7,15 +7,13 @@
     display: flex;
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
-    padding-bottom: 2%;
+    padding-bottom: 3%;
     padding-top: 30px;
     background-color: #183456;
     color: goldenrod;
     max-width: 1300px;
     margin: 0 auto; /* Pour centrer horizontalement le conteneur lui-même */
 }
-
-
 
 img {
     max-width: 100%;
@@ -27,7 +25,9 @@ img {
     margin: auto;
     height: 800px;
     overflow: hidden;
+    background-color: #183456;
 }
+
 .menu1 {
     position: absolute;
     left: 0;
@@ -35,7 +35,10 @@ img {
     width: 100%;
     bottom: 0;
     text-align: center;
+    padding-top: 4%;
+    background-color: #183456;
 }
+
 .menu1 label {
     cursor: pointer;
     display: inline-block;
@@ -43,14 +46,25 @@ img {
     height: 10px;
     background: goldenrod;
     border-radius: 50px;
-    
 }
+
 .menu1 label:hover,.menu1 label:focus {
-    background: #183456;
+    background: white;
 }
+
 .slide-input{
-    opacity: 0;
+    opacity: 0.5;
 }
+
+#slide-dot-1,
+#slide-dot-2,
+#slide-dot-3{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
 .slide-img {
     width: 100%;
     height: 90%; /* Ajustez la hauteur souhaitée ici */
@@ -59,8 +73,8 @@ img {
     left: 100%;
     z-index: 10;
     transition: left 0s 0.75s;
-    border-top: solid #183456;
-    border-bottom: solid #183456; 
+    border-top: solid goldenrod;
+    border-bottom: solid goldenrod; 
 }
 
 [id^="slide"]:checked + .slide-img {
@@ -91,7 +105,6 @@ img {
     height: auto; /* Maintenir le rapport hauteur/largeur d'origine */
     border-radius: 50%;
     border: solid goldenrod;
-
 }
 
 .haricot2 p {

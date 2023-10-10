@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<link rel="stylesheet" href="{{ asset('css/chambre/chambreShow.css') }}">
+	<link rel="stylesheet" href="{{ asset('/css/chambre/chambreShow.css') }}">
 
 	<div class="chambre">
 		<h1>Chambre numero
@@ -49,10 +49,15 @@
 			{% if chambre.WifiGratuit == 1 %}
 				<option value="WifiGratuit">Wifi Gratuit</option>
 			{% endif %}
-		</select><br/>
-		<a class="bttn5" href="{{ path('app_paiement', {'edit': 0}) }}">Reserver cette chambre</a>
+		</select>
 		<br/>
-		<a class="bttn5" href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
+			{% if nonDisponible %}
+				<p class="list" href="">Non disponible</p>
+			{% else %}
+				<a class="cerise" href="{{ path('app_paiement', {'edit': 0}) }}">Reserver cette chambre</a>
+			{% endif %}
+		<br/>
+		<a class="cerise" href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
 	</div>
 	<br/>
 

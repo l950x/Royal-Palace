@@ -33,21 +33,25 @@ body{
 }
 
 
-.bttn5{
-    width:200px;
-    height: 30px;
-    margin-top:20px;
-    margin-left:255px;
-    background-color:#183456;
-	color: white;
-	border:solid goldenrod;
-	border-radius:10px;
-	margin-bottom:15px;
-	transition: background-color 0.2s, color 0.1s;
-	font-family:verdana;
-	font-size:14px;
-    margin: 0 auto;
+.cerise{
+    display: flex;
+    flex-direction: row;
+	justify-content:center;
+    background-color: #183456;
+    color: white;
+    width: 200px;
+    height: 40px; /* Ajustez la hauteur souhaitée */
+    border: solid goldenrod;
+    border-radius: 10px;
+    transition: background-color 0.2s, color 0.1s;
+    font-family: verdana;
+    font-size: 14px;
+    margin: 10px auto; /* Centre horizontalement le bouton */
+    align-items: center; /* Centre verticalement le contenu */
+    justify-content: center; /* Centre horizontalement le contenu */
+    text-align: center; /* Centre le texte horizontalement */
+    padding: 0;
 }
-.bttn5:hover{
+.cerise:hover{
 	background-color: #2980b9;
 }

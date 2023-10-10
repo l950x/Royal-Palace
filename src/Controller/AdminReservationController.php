@@ -42,13 +42,13 @@ class AdminReservationController extends AbstractController
         Connection $connection,
         UserPasswordHasherInterface $userPasswordHasher
     ): Response {
-        $form = $this->createFormBuilder()->add('NbChambre')->getForm();
+        $form = $this->createFormBuilder()->add('NombreDeReservation')->getForm();
         $form->handleRequest($request);
         $faker = Factory::create();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $nb = $data['NbChambre'];
+            $nb = $data['NombreDeReservation'];
 
             $connection->executeQuery('DELETE FROM reserver');
 

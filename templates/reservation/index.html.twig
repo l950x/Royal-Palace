@@ -45,7 +45,14 @@
 
         <button type="submit" class="btn-primary">Rechercher</button>
         {{ form_end(form) }}
-        <a class="list" href="{{ path('app_chambre_category') }}">Voir la liste des chambres</a>
+                {% if error %}
+            <div class="">
+            <p>
+                {{ error }}
+            </p>
+            <a href="{{path('app_chambre_category')}}">Voir la liste des chambres</a>
+            </div>
+        {% endif %}
     </div>
 
 

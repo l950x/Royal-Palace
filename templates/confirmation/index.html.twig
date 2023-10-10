@@ -4,9 +4,13 @@
 {% endblock %}
 
 {% block body %}
+<link rel="stylesheet" href="{{ asset('css/confirmation.css') }}">
+
+	<h1 class="melon">Confirmation</h1>
 
 	{% if edit %}
-		<p>Confirmation
+	<div class="raisin">
+		<p class="pomelo">Merci
 			{{ user.prenom }}
 			d'avoir modifier votre reservation pour la chambre numero
 			{{ chambre }}
@@ -15,9 +19,10 @@
 			{{ dateEntree }}
 			au
 			{{ dateSortie }}</p>
-
+	</div>
 	{% else %}
-		<p>Confirmation
+	<div class="raisin">
+		<p>Merci
 			{{ user.email }}
 			d'avoir payer la chambre numero
 			{{ chambre }}
@@ -26,7 +31,11 @@
 			{{ dateEntree }}
 			au
 			{{ dateSortie }}</p>
+	</div>
 	{% endif %}
-	<a href="{{ path('app_home') }}">Retournez a l'accueil</a>
-	<a href="{{ path('app_pdf_generator') }}" target="_blank">Télécharger votre facture</a>
+	<div class="banane">
+	<a class="poire" href="{{ path('app_home') }}">Retournez a l'accueil</a>
+	<a class="poire" href="{{ path('app_pdf_generator') }}" target="_blank">Télécharger votre facture</a>
+	</div>
+	<div class="coconut"></div>
 {% endblock %}

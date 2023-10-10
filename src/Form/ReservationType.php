@@ -17,6 +17,8 @@ class ReservationType extends AbstractType
         ->add('arrivee', DateType::class, [
             'widget' => 'single_text',
             'html5' => true, // Activer l'option HTML5
+            'input' => 'datetime_immutable',
+            'format' => 'yyyy-MM-dd',
             'data' => new \DateTimeImmutable(),
             'required' => true,
         ])
@@ -24,7 +26,9 @@ class ReservationType extends AbstractType
         ->add('depart', DateType::class, [
             'widget' => 'single_text',
             'html5' => true, // Activer l'option HTML5
-            'data' => new \DateTimeImmutable(),
+            'input' => 'datetime_immutable',
+            'format' => 'yyyy-MM-dd',
+            'data' => new \DateTimeImmutable('next day'),
             'required' => true,
         ])
         ->add('nbPersonne', ChoiceType::class, [

@@ -18,27 +18,27 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
-            ->add('prenom')
-            ->add('nom')
-            ->add('adresse', TextType::class, [
-                'required' => false,
-                'label' => 'Adresse postale',
-                'attr' => [
-                    'class' => 'autocomplete-address'
-                ],
-            ])
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'attr' => [
-                    'class' => 'cm-toggle blue', // Vous pouvez définir la classe CSS ici
-                ],
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
-            ])
+        ->add('email')
+        ->add('prenom')
+        ->add('nom')
+        ->add('adresse', TextType::class, [
+            'required' => false,
+            'label' => 'Adresse postale',
+            'attr' => [
+                'class' => 'autocomplete-address'
+            ],
+        ])
+        ->add('agreeTerms', CheckboxType::class, [
+            'mapped' => false,
+            'attr' => [
+                'class' => 'cm-toggle blue', // Vous pouvez définir la classe CSS ici
+            ],
+            'constraints' => [
+                new IsTrue([
+                    'message' => 'Vous devez accepter les termes.',
+                ]),
+            ],
+        ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -46,7 +46,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez entrer un un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
