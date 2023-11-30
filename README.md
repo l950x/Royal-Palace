@@ -11,8 +11,7 @@ This project is the central focus of our web developer training, developed using
 
 ## Demo
 
-<img align="center" src="https://cdn.discordapp.com/attachments/1077640007369641984/1179867474133528617/royalepalace1-min.gif?ex=657b5836&is=6568e336&hm=f9686dcd7725976a46d6504148a59184b551d6b94f2e3d7899e1b8a11ad32606&
-"  />
+<img align="center" src="https://cdn.discordapp.com/attachments/1077640007369641984/1179867474133528617/royalepalace1-min.gif"  />
 
 ## Deployment
 
