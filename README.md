@@ -18,7 +18,7 @@ This project is the central focus of our web developer training, developed using
 If you want to try it locally, simply clone the repository to your computer using the following git command:
 
 ```bash
-  https://github.com/l950x/Royal-Palace.git
+  git clone https://github.com/l950x/Royal-Palace.git
 ```
 Then, run a local server from the cloned directory
 
